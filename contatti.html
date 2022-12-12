@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Contatta Guitart</title>
+        <meta name="author" content=""/>
+        <link rel="stylesheet" href="style.css" media="handheld, screen"/>
+        <!-- <link rel="stylesheet" href="ex2s.css" media="handheld, screen"/> -->
+        <!-- <link rel="stylesheet" href="ex3s.css" media="handheld, screen"/> -->
+        <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+    </head>
+    <body>
+        <header>
+            <h1>Guitart</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Prodotti</a></li>
+                    <li><a href="#">Contatti</a></li>
+                    <li><a href="#">Chi siamo</a></li>
+                    <li><a id="cart" href="#">Carrello</a></li>
+                </ul>
+            </nav>
+            <nav id="breadcrumb">
+                <p>Ti trovi in: <span lang="en">Home</span> &gt; &gt; Contatti </p>  
+            </nav>
+        </header>
+        <main>
+            <h1>Contattaci</h1>
+            <p>Contattaci liberamente per qualsiasi informazione sui prodotti, o sulle procedure di acquisto o di reso. Il nostro Servizio Clienti è a tua disposizione anche per chiarimenti sulla garanzia e sulle condizioni dei prodotti, sui tempi di consegna e per affiancarti nella creazione del tuo ordine.</p>
+            <nav>
+                <dl>
+                    <dt>Uffici</dt><dd>Via Crosetto, 67 36100 Vicenza(IT)</dd>
+                    <dt>Servizio Clienti</dt><dd><a href="tel:+123456">+123456</a></dd>
+                    <dt><span lang="en">Email</span></dt><dd><a href="mailto:servizioclienti@guitart.it">servizioclienti@guitart.it</a></dd>
+                </dl>
+            </nav>
+            <form action="/contattaci" method="post" autocomplete="on">
+                <fieldset>
+                    <legend>Contattaci</legend>
+                    <fieldset>
+                        <legend>Infomazioni personali</legend>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="ntel">Numero di telefono:</label>
+                        <input type="tel" id="ntel" name="numero di telefono" required>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <label for="cognome">Cognome:</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Richiesta</legend>
+                        <label for="textarea">Messaggio:</label>
+                        <textarea name="textarea" placeholder="Come possiamo autiarti?" maxlength="100" required autocomplete="off"></textarea>
+                        <input type="submit" >
+                    </fieldset>
+                    
+                </fieldset>
+
+            </form>
+            
+        </main>
+        <footer>
+            <p>Guitart - <span lang="en">All Rights Reserved</span></p>
+        </footer>
+    </body>
+</html>
