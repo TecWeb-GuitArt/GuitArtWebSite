@@ -61,6 +61,10 @@
                 color: #000;
             }
 
+            main h2 {
+                margin-bottom: 2%;
+            }
+
             main ul {
                 list-style-type: none;
                 display: grid;
@@ -68,22 +72,56 @@
                                      'img buy'
                                      'img description';
                 text-align: center;
+                align-items: center;
             }
 
             #img {
                 grid-area: img;
+                max-width: 500px;
+                max-height: 500px;
+                width: auto;
+                height: auto;
             }
 
             #price {
                 grid-area: price;
+                font-size: 3em;
+                color: green;
             }
             
             #buy {
                 grid-area: buy;
             }
 
+            #button {
+                width: 100%;
+                padding: 30px;
+                border: none;
+                background-color: #000;
+                color:#fff;
+                font-size: 1.5em;
+                border-radius: 15px 5px 15px 5px;
+                transition: ease 0.2s;
+            }
+
+            #button:hover {
+                background-color: #555;
+                transition: ease 0.2s;
+            }
+
+            #button:active {
+                background-color: #AAA;
+                transition: ease 0.2s;
+            }
+
             #description {
                 grid-area: description;
+            }
+
+            main dt {
+                font-weight: bold;
+                float:left;
+                margin-right: 0.5em;
             }
         </style>
     </head>
@@ -110,23 +148,23 @@
                 </li>
                 <li id="buy">
                     <form>
-                        <input type="submit" value="Aggiungi al Carrello"/>
+                        <input id="button" type="submit" value="Aggiungi al Carrello"/>
                     </form>
                 </li>
                 <li id="description">
-                    <p>Descrizione BLA BLA BLA</p>
+                    <p>Descrizione BLA BLA BLA </p>
                 </li>
             </ul>
             <dl>
-                <dt>Marchio</dt>
+                <dt>Marchio:</dt>
                 <dd><span lang="en">Gibson</span></dd>
-                <dt>Colore</dt>
+                <dt>Colore:</dt>
                 <dd><span lang="en">Cherry Sunburst</span></dd>
-                <dt>Corpo</dt>
+                <dt>Corpo:</dt>
                 <dd>Mogano</dd>
-                <dt>Tastiera</dt>
+                <dt>Tastiera:</dt>
                 <dd>Palissandro</dd>
-                <dt>Numero Tasti</dt>
+                <dt>Numero Tasti:</dt>
                 <dd>22</dd>
             </dl>   
         </main>
