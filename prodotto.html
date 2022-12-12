@@ -9,20 +9,81 @@
         <!-- <link rel="stylesheet" href="ex3s.css" media="handheld, screen"/> -->
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
         <style>
-            main {
+            /*main {
                 padding: 0 7%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background-color: #fff;
+                color: #000;
             }
 
             h2 {
                 line-height: 2.5em;
+                grid-column: 1 / 3;
+                grid-row: 1;
             }
 
             main img {
-                float: left;
+                grid-column: 1;
+                grid-row: 2;
+                max-height: 300px;
+                max-width: 300px;
+                height: auto;
+                width: auto;
+                padding: 3%;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #000;
+                border-radius: 10px;
             }
 
-            #price, #addToCart {
-                float: right;
+            #buy {
+                grid-column: 2;
+                grid-row: 2;
+                max-height: 300px;
+                height: auto;
+                padding: 0;
+            }
+
+            #price {
+                font-size: 3em;
+                color: green;
+            }
+
+            #specs {
+                grid-column: 1 / 3;
+                grid-row: 3;
+            }*/
+
+            main {
+                padding: 0 7%;
+                background-color: #fff;
+                color: #000;
+            }
+
+            main ul {
+                list-style-type: none;
+                display: grid;
+                grid-template-areas: 'img price'
+                                     'img buy'
+                                     'img description';
+                text-align: center;
+            }
+
+            #img {
+                grid-area: img;
+            }
+
+            #price {
+                grid-area: price;
+            }
+            
+            #buy {
+                grid-area: buy;
+            }
+
+            #description {
+                grid-area: description;
             }
         </style>
     </head>
@@ -40,14 +101,22 @@
         </header>
         <main>
             <h2>Gibson Les Paul Classic Heritage</h2>
-            <img src="images/lespaul.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="500" width="500"/>
-            <p id="price">€ 1.995,00</p>
-            <form id="addToCart">
-                <input type="submit" value="Aggiungi al Carrello"/>
-            </form>
-            <h3>Descrizione del prodotto</h3>
-            <p id="description">Descrizione BLA BLA BLA</p>
-            <h3>Specifiche</h3>
+            <ul>
+                <li id="img">
+                    <img src="images/lespaul.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="300" width="300"/>
+                </li>
+                <li id="price">
+                    <p>€ 1.995,00</p>
+                </li>
+                <li id="buy">
+                    <form>
+                        <input type="submit" value="Aggiungi al Carrello"/>
+                    </form>
+                </li>
+                <li id="description">
+                    <p>Descrizione BLA BLA BLA</p>
+                </li>
+            </ul>
             <dl>
                 <dt>Marchio</dt>
                 <dd><span lang="en">Gibson</span></dd>
@@ -59,7 +128,7 @@
                 <dd>Palissandro</dd>
                 <dt>Numero Tasti</dt>
                 <dd>22</dd>
-            </dl>
+            </dl>   
         </main>
         <footer>
             <p>Nicola Cecchetto - <span lang="en">All Rights Reserved</span></p>
