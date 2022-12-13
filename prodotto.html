@@ -65,7 +65,7 @@
                 margin-bottom: 2%;
             }
 
-            main ul {
+            /*main ul {
                 list-style-type: none;
                 display: grid;
                 grid-template-areas: 'img price'
@@ -73,24 +73,51 @@
                                      'img description';
                 text-align: center;
                 align-items: center;
+            }*/
+
+            main ul {
+                list-style-type: none;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                text-align: center;
+                align-items: center;
             }
 
+            /*main li {
+                box-shadow: 10px 10px 5px #444;
+            }*/
+
             #img {
-                grid-area: img;
-                max-width: 500px;
-                max-height: 500px;
+                /*grid-area: img;*/
+                grid-column: 1;
+                grid-row: 1 / 5;
+                max-width: 340px;
+                max-height: 510px;
                 width: auto;
                 height: auto;
+                margin: 0 auto;
             }
 
             #price {
-                grid-area: price;
+                /*grid-area: price;*/
+                grid-column: 2;
+                grid-row: 1;
                 font-size: 3em;
                 color: green;
             }
+
+            #disp {
+                grid-column: 2;
+                grid-row: 2;
+                font-size: 1.5em;
+                color: red;
+                padding: 0;
+            }
             
             #buy {
-                grid-area: buy;
+                /*grid-area: buy;*/
+                grid-column: 2;
+                grid-row: 3;
             }
 
             #button {
@@ -115,7 +142,9 @@
             }
 
             #description {
-                grid-area: description;
+                /*grid-area: description;*/
+                grid-column: 2;
+                grid-row: 4;
             }
 
             main dt {
@@ -141,10 +170,13 @@
             <h2>Gibson Les Paul Classic Heritage</h2>
             <ul>
                 <li id="img">
-                    <img src="images/lespaul.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="300" width="300"/>
+                    <img src="images/lespaul.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="510" width="340"/>
                 </li>
                 <li id="price">
                     <p>€ 1.995,00</p>
+                </li>
+                <li id="disp">
+                    <p>Disponibili 3</p>
                 </li>
                 <li id="buy">
                     <form>
@@ -152,7 +184,7 @@
                     </form>
                 </li>
                 <li id="description">
-                    <p>Descrizione BLA BLA BLA </p>
+                    <p>Descrizione BLA BLA BLA asjndaijsn asjiddn dasjdnaśjdnaij dnaidn addn aidnadn asd aid asi jd nasijd aijsd aisnd aindaij sndaijnd andando NDADN AJDNAIJDAD</p>
                 </li>
             </ul>
             <dl>
