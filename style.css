@@ -81,6 +81,9 @@ header nav a:visited {
 main {
     background-color: var(--contentbgcolor);
     color: var(--contenttxtcolor);
+    display: grid;
+    /*grid-template-columns: auto auto;*/
+    grid-template-columns: 1fr 1fr;
 }
 
 main div {
@@ -130,12 +133,13 @@ main h1 {
     text-align: center;
     padding: 1em;
     font-size: 4em;
-    
+    grid-column: 1 / 3;
 }
 
 main p {
     padding: 1.9em;
     margin: auto;
+    grid-column: 1 / 3;
 }
 
 main nav{
@@ -146,40 +150,32 @@ main nav{
 }
 
 
-main nav dl dt{
-    text-transform: uppercase;
-    font-size: 2em;
+
+dt{
+    text-transform: uppercase;    
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25em;
     padding: 0.3em;
 }
-main nav dl dd{
+dd{
+    text-align: center;
     font-size: 1em;
     padding: 0.3em;
 }
 
-form{
-    width: 70%;
-    border: none;
-  
+h2{
+    text-transform: uppercase;    
+    text-align: center;
+    font-size: 2em;
+    padding-bottom: 0.5em;
 }
 
 
-.label, .input{
-    display: block;
-    
-}
-
-input{
-    width: 100%;  
-    border-radius: 4px;
-}
 
 
-textarea{
-    width: 100%;
-    height: 5em;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
+
+
 
 
 /*
