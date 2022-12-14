@@ -9,7 +9,9 @@
     --contentbgcolor: #000;
     --contenttxtcolor: #fff;
     --menulinkcolor: #000;
-    --menuvisitedcolor: #000;
+    --menuvisitedcolor: rgb(96, 96, 96);
+    --breadlinkcolor: #fff;
+    --breadvisitedcolor: rgb(187, 187, 187);
     --mainlinkbg: #fff;
     --mainlinktxt: #000;
 }
@@ -80,8 +82,17 @@ header nav a:visited {
 
 #breadcrumb {
     padding: 1em 0em 1em 3.5em;
+    margin-bottom: 2em;
     color: var(--contenttxtcolor);
     background-color: var(--contentbgcolor);
+}
+
+#breadcrumb a:link {
+    color: var(--breadlinkcolor);
+}
+
+#breadcrumb a:visited {
+    color: var(--breadvisitedcolor);
 }
 
 /*
@@ -89,7 +100,6 @@ header nav a:visited {
 */
 
 main {
-    padding-top: 1em;
     background-color: var(--contentbgcolor);
     color: var(--contenttxtcolor);
 }
