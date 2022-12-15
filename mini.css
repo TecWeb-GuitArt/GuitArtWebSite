@@ -27,6 +27,10 @@ header nav li {
 ====== SEZIONE MAIN ======
 */
 
+main div h1 {
+    line-height: 1em;
+}
+
 @media screen and (max-width: 330px) {
     .prodotti {
         grid-template-columns: repeat(auto-fill, minmax(20ch,1fr));
