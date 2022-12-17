@@ -126,18 +126,21 @@ main div a {
     text-decoration: none;
 }
 
-#banner1 {
-    background-color: rgb(0,0,0,0.45);
+#mobile-intro {
     background-image: url("./images/guitar1.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: overlay;
+    display: none;
+}
+
+#banner1 {
+    background-image: url("./images/guitar1.jpeg");
 }
 
 #banner2 {
-    background-color: rgb(0,0,0,0.45);
     background-image: url("./images/guitar2.jpg");
+}
+
+.banner {
+    background-color: rgb(0,0,0,0.45);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
