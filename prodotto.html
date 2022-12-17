@@ -5,154 +5,11 @@
         <title>Les Paul Classic Heritage - Guitart</title>
         <meta name="author" content="Nicola Cecchetto"/>
         <link rel="stylesheet" href="style.css" media="handheld, screen"/>
+        <link rel="stylesheet" href="prodotto.css" media="handheld, screen"/>
         <!-- <link rel="stylesheet" href="ex2s.css" media="handheld, screen"/> -->
         <!-- <link rel="stylesheet" href="ex3s.css" media="handheld, screen"/> -->
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
-        <style>
-            /*main {
-                padding: 0 7%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                background-color: #fff;
-                color: #000;
-            }
-
-            h2 {
-                line-height: 2.5em;
-                grid-column: 1 / 3;
-                grid-row: 1;
-            }
-
-            main img {
-                grid-column: 1;
-                grid-row: 2;
-                max-height: 300px;
-                max-width: 300px;
-                height: auto;
-                width: auto;
-                padding: 3%;
-                border-style: solid;
-                border-width: 2px;
-                border-color: #000;
-                border-radius: 10px;
-            }
-
-            #buy {
-                grid-column: 2;
-                grid-row: 2;
-                max-height: 300px;
-                height: auto;
-                padding: 0;
-            }
-
-            #price {
-                font-size: 3em;
-                color: green;
-            }
-
-            #specs {
-                grid-column: 1 / 3;
-                grid-row: 3;
-            }*/
-
-            main {
-                padding: 0 7%;
-                background-color: #fff;
-                color: #000;
-            }
-
-            main h2 {
-                margin-bottom: 2%;
-            }
-
-            /*main ul {
-                list-style-type: none;
-                display: grid;
-                grid-template-areas: 'img price'
-                                     'img buy'
-                                     'img description';
-                text-align: center;
-                align-items: center;
-            }*/
-
-            main ul {
-                list-style-type: none;
-                display: grid;
-                grid-template-columns: 50% 50%;
-                text-align: center;
-                align-items: center;
-            }
-
-            /*main li {
-                box-shadow: 10px 10px 5px #444;
-            }*/
-
-            #img {
-                /*grid-area: img;*/
-                grid-column: 1;
-                grid-row: 1 / 5;
-                max-width: 340px;
-                max-height: 510px;
-                width: auto;
-                height: auto;
-                margin: 0 auto;
-            }
-
-            #price {
-                /*grid-area: price;*/
-                grid-column: 2;
-                grid-row: 1;
-                font-size: 3em;
-                color: green;
-            }
-
-            #disp {
-                grid-column: 2;
-                grid-row: 2;
-                font-size: 1.5em;
-                color: red;
-                padding: 0;
-            }
-            
-            #buy {
-                /*grid-area: buy;*/
-                grid-column: 2;
-                grid-row: 3;
-            }
-
-            #button {
-                width: 100%;
-                padding: 30px;
-                border: none;
-                background-color: #000;
-                color:#fff;
-                font-size: 1.5em;
-                border-radius: 15px 5px 15px 5px;
-                transition: ease 0.2s;
-            }
-
-            #button:hover {
-                background-color: #555;
-                transition: ease 0.2s;
-            }
-
-            #button:active {
-                background-color: #AAA;
-                transition: ease 0.2s;
-            }
-
-            #description {
-                /*grid-area: description;*/
-                grid-column: 2;
-                grid-row: 4;
-            }
-
-            main dt {
-                font-weight: bold;
-                float:left;
-                margin-right: 0.5em;
-            }
-        </style>
+        <link rel="stylesheet" href="productmini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     </head>
     <body>
         <header>
@@ -166,17 +23,17 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <h2>Gibson Les Paul Classic Heritage</h2>
+        <main id="product">
             <ul>
+                <li id="title">
+                    <h2>Gibson</h2>
+                    <h3>Les Paul Classic Heritage</h3>
+                </li>
                 <li id="img">
-                    <img src="images/lespaul.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="510" width="340"/>
+                    <img src="images/LesPaulClassicHeritage.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="510" width="340"/>
                 </li>
                 <li id="price">
                     <p>€ 1.995,00</p>
-                </li>
-                <li id="disp">
-                    <p>Disponibili 3</p>
                 </li>
                 <li id="buy">
                     <form>
@@ -187,17 +44,17 @@
                     <p>Descrizione BLA BLA BLA asjndaijsn asjiddn dasjdnaśjdnaij dnaidn addn aidnadn asd aid asi jd nasijd aijsd aisnd aindaij sndaijnd andando NDADN AJDNAIJDAD</p>
                 </li>
             </ul>
-            <dl>
-                <dt>Marchio:</dt>
-                <dd><span lang="en">Gibson</span></dd>
-                <dt>Colore:</dt>
-                <dd><span lang="en">Cherry Sunburst</span></dd>
-                <dt>Corpo:</dt>
-                <dd>Mogano</dd>
-                <dt>Tastiera:</dt>
-                <dd>Palissandro</dd>
-                <dt>Numero Tasti:</dt>
-                <dd>22</dd>
+            <dl id="specs">
+                <dt class="spec1">Marchio:</dt>
+                <dd class="spec1"><span lang="en">Gibson</span></dd>
+                <dt class="spec1">Colore:</dt>
+                <dd class="spec1"><span lang="en">Cherry Sunburst</span></dd>
+                <dt class="spec2">Corpo:</dt>
+                <dd class="spec2">Mogano</dd>
+                <dt class="spec2">Tastiera:</dt>
+                <dd class="spec2">Palissandro</dd>
+                <dt class="spec1">Numero Tasti:</dt>
+                <dd class="spec1">22</dd>
             </dl>   
         </main>
         <footer>

@@ -1,0 +1,93 @@
+/*
+====== SEZIONE PRODUCT ======
+*/
+
+#product {
+    padding: 0 7%;
+    background-color: #fff;
+    color: #000;
+}
+
+#product h2 {
+    margin-bottom: 2%;
+}
+
+#product ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    align-items: center;
+}
+
+#title {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#img {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    max-width: 340px;
+    max-height: 510px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+#price {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 3em;
+    color: green;
+}
+
+#buy {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#button {
+    width: 100%;
+    padding: 30px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.5em;
+    border-radius: 15px 5px 15px 5px;
+    transition: ease 0.2s;
+}
+
+#button:hover {
+    background-color: #555;
+    transition: ease 0.2s;
+}
+
+#button:active {
+    background-color: #AAA;
+    transition: ease 0.2s;
+}
+
+#description {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+#specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 3em;
+}
+
+#specs dt {
+    font-weight: bold;
+    float: left;
+}
+
+.spec1 {
+    background-color: #AAA;
+}
+
+.spec2 {
+    background-color: #777;
+}
