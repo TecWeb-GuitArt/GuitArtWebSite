@@ -1,3 +1,5 @@
+
+/*orginale main*/
 * {
     padding: 0em;
     margin: 0em;
@@ -6,8 +8,8 @@
 :root {
     --headerbgcolor: #fff;
     --headertxtcolor: #000;
-    --contentbgcolor: #fff;
-    --contenttxtcolor: #000;
+    --contentbgcolor: #000;
+    --contenttxtcolor: #fff;
     --menulinkcolor: #000;
     --menuvisitedcolor: #000;
     --mainlinkbg: #fff;
@@ -67,6 +69,12 @@ header nav a:visited {
     color: var(--menuvisitedcolor);
 }
 
+/* #cart {
+    background-image: url('./images/cart.png');
+    background-position: right center;
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+} */
 
 /*
 ====== SEZIONE MAIN ======
@@ -75,56 +83,48 @@ header nav a:visited {
 main {
     background-color: var(--contentbgcolor);
     color: var(--contenttxtcolor);
-    text-align: center;    
 }
 
-main h1 {
+main div {
+    padding: 10em;
     text-align: center;
-    padding: 1em;
+}
+
+main div h1 {
+    padding-bottom: 1em;
     font-size: 4em;
-    
 }
 
-main p {
-    padding: 1.9em;
-    margin: auto;
+main div p {
+    padding-bottom: 1.9em;
 }
 
-main nav{
-   padding: 2em;
+main div a {
+    padding: 0.8em 1em;
+    background-color: var(--mainlinkbg);
+    color: var(--mainlinktxt);
+    border: 0.3em;
+    border-radius: 3em;
+    text-decoration: none;
 }
 
-
-
-.inform{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));   
-    
+#storm-shift {
+    background-color: rgb(0,0,0,0.45);
+    background-image: url("./images/guitar1.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
 }
 
-
-
-dt{
-    text-transform: uppercase;    
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.25em;
-    padding: 0.3em;
-    
+#r1-lite {
+    background-color: rgb(0,0,0,0.45);
+    background-image: url("./images/guitar2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
 }
-dd{
-    text-align: center;
-    font-size: 1em;
-    padding: 0.3em;
-}
-
-h2{
-    text-transform: uppercase;    
-    text-align: center;
-    font-size: 2em;
-    padding-bottom: 0.5em;
-}
-
 
 /*
 ====== SEZIONE FOOTER ======
@@ -133,5 +133,5 @@ h2{
 footer {
     padding: 2em;
     text-align: center;
-    
 }
+*/
