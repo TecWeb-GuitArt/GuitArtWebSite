@@ -4,6 +4,8 @@
 
 header h1 {
     width: 100%;
+    float: none;
+    background-position: center;
     margin-bottom: 0.5em;
     padding-bottom: 0em;
     text-align: center;
@@ -19,4 +21,32 @@ header nav li {
     margin-bottom: 0.4em;
     margin-left: 0.2em;
     margin-right: 0.2em;
+}
+
+/*
+====== SEZIONE MAIN ======
+*/
+
+main div h1 {
+    line-height: 1em;
+    font-size: 3em;
+}
+
+#mobile-intro {
+    display: block;
+}
+
+@media screen and (max-width: 330px) {
+    main div h1 {
+        font-size: 2.5em;
+    }
+
+    .prodotti {
+        grid-template-columns: repeat(auto-fill, minmax(20ch,1fr));
+    }
+    
+    .prodotti li img {
+        height: 225px;
+        width: 150px;
+    }
 }
