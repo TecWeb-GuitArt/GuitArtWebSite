@@ -49,4 +49,37 @@ main div h1 {
         height: 225px;
         width: 150px;
     }
+===== SEZIONE PRODUCT =====
+*/
+
+#product ul {
+    display: block;
+}
+
+#title {
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+#price {
+    margin: 20px 0;
+}
+
+#description {
+    margin: 20px 0;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+#specs {
+    display: block;
+    text-align: center;
+}
+
+#specs dt{
+    float: none;
+}
+
+.specs1, .specs2{ /*non funziona*/
+    background-color: white;
 }
