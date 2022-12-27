@@ -3,7 +3,7 @@
 */
 
 #product {
-    padding: 0 7%;
+    padding: 20px 7%;
     background-color: #fff;
     color: #000;
 }
@@ -16,7 +16,7 @@
     list-style-type: none;
     display: grid;
     grid-template-columns: 50% 50%;
-    text-align: center;
+    text-align: left;
     align-items: center;
 }
 
@@ -38,13 +38,12 @@
 #price {
     grid-column: 2;
     grid-row: 2;
-    font-size: 3em;
-    color: green;
+    font-size: 2em;
 }
 
 #buy {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 #button {
@@ -54,7 +53,7 @@
     background-color: #000;
     color: #fff;
     font-size: 1.5em;
-    border-radius: 15px 5px 15px 5px;
+    border-radius: 15px 15px 15px 15px;
     transition: ease 0.2s;
 }
 
@@ -70,18 +69,22 @@
 
 #description {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 3;
 }
 
 #specs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 3em;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px auto 0 auto;
+    max-width: 600px;
+}
+
+#specs dt, #specs dd {
+    padding: 5px 10px;
 }
 
 #specs dt {
     font-weight: bold;
-    float: left;
 }
 
 .spec1 {
