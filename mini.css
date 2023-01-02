@@ -86,3 +86,19 @@ main div h1 {
 .specs1, .specs2{ /*non funziona*/
     background-color: white;
 }
+
+/*
+=========== SEZIONE CONTATTI ==============
+*/
+
+nav.info{
+    display: block;
+}
+
+dl{
+    margin: 3em;
+}
+
+#title{
+    font-size: 3em;
+}
