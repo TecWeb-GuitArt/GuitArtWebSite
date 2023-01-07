@@ -1,0 +1,44 @@
+main {
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+h1#title{
+    font-size: 4em;
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+
+section#presentation{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 2em;
+}
+
+#presentation p{
+    font-size: 1.5em;
+    padding: 2em;
+    text-align: left;    
+}
+
+#titleteam{
+    font-size: 2em;
+}
+
+#team{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 2em;
+}
+
+#team li{
+    font-weight: bold;
+}
+
+#team li>p{
+    font-weight: normal;
+}

@@ -2,11 +2,6 @@ main {
     background-color: white;
     color: black;
     text-align: center;
-      
-    /*grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));  */
-    
-
-
 }
 
 #title {
@@ -24,7 +19,7 @@ main nav{
     grid-template-areas: "u t i"
                          "e o i";
     padding: 2em;
-
+    align-items: center;
 }
 
 dl.uffici{
@@ -48,28 +43,27 @@ dt.telefono{
 
 dl.email{
     grid-area: e;
-    background: url("images/email_icon.svg") top no-repeat;
-
+    background: url("images/email_icon.svg") top no-repeat;   
 }
 
 dt.email{
     padding-top: 3em;    
 }
 
-.orario{
+dl.orario{
     grid-area: o;
-    
+    background: url("images/clock.svg") top no-repeat;
 }
 
-
+#titleorario{
+    padding-top: 3em;
+}
 
 dt.orario{
+    padding-top: 0em;
     float: left;
     width: 50%;
-    
 }
-
-
 
 img{
     grid-area: i;    
@@ -82,28 +76,15 @@ h2{
 }
 
 dt{
-    text-transform: uppercase;    
-    /*text-align: center;*/
+    text-transform: uppercase;
     font-weight: bold;
     font-size: 1.25em;
     padding: 0.3em;  
     margin: auto;
-    
-      
 }
 
 dd{
-    /*text-align: center;*/
     font-size: 1em;
     padding: 0.3em;
-    margin: auto;
-    
+    margin: auto;    
 }
-/*
-main nav h2{
-    text-transform: uppercase;    
-    text-align: center;
-    font-size: 2em;
-    padding-bottom: 0.5em;
-    
-}*/
