@@ -10,7 +10,7 @@ h1#title{
     margin-bottom: 1em;
 }
 
-section#presentation{
+div#presentation{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;

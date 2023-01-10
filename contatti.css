@@ -11,7 +11,7 @@ main {
     font-size: 4em;    
 }
 
-main nav{
+main div{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -63,6 +63,9 @@ dt.orario{
     padding-top: 0em;
     float: left;
     width: 50%;
+    /*padding-left: 4em;
+    
+    text-align: left;*/
 }
 
 img{
