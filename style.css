@@ -79,6 +79,10 @@ header nav a:visited {
     color: var(--menuvisitedcolor);
 }
 
+header nav a img {
+    vertical-align: middle;
+}
+
 /* #cart {
     background-image: url('./images/cart.png');
     background-position: right center;
@@ -155,6 +159,14 @@ main div a {
     background-position: center;
     background-size: cover;
     background-blend-mode: overlay;
+}
+
+#success {
+    color: green;
+}
+
+#errors {
+    color: red;
 }
 
 /*
