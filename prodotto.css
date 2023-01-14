@@ -2,7 +2,7 @@
 ====== SEZIONE PRODUCT ======
 */
 
-#product {
+#product, #productError {
     padding: 20px 7%;
     background-color: #fff;
     color: #000;
