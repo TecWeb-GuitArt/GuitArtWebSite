@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         $formMessages .= '<li>Inserire una email</li>';
     }
     else {
-        if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", $username)) {
+        if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", $email)) {
             $formMessages .= '<li>L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri</li>';
         }
     }
