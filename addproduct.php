@@ -1,6 +1,8 @@
 <?php
 
-// CONNESSIONE AL DB
+use DB\DBAccess;
+require_once "connection.php";
+$connection = new DBAccess();
 
 $HTMLpage = file_get_contents("addproduct.html");
 $messaggi = "";
@@ -67,6 +69,7 @@ if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
             $messaggi .= "<li>Inserire un prezzo maggiore di 0!</li>";
         }
     }
+    $type = $_POST['formType'];
     $strings = cleanInput($_POST['formStrings']);
     if(strlen($strings) == 0) {
         $messaggi .= "<li>Corde non può essere vuoto!</li>";
@@ -101,22 +104,42 @@ if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
             $messaggi .= "<li>Legno della tastiera può contenere solo lettere, spazi e trattini!</li>";
         }
     }
-    $pickupType = cleanInput($_POST['formPickupType']);
-    if(strlen($pickupType) == 0) {
-        $messaggi .= "<li>Tipologia pickup non può essere vuoto!</li>";
+    if(isset($_POST['formPickupConf'])) {
+        $pickupConf = $_POST['formPickupConf'];
     } else {
-        $pickupTypeNoTags = strip_tags($pickupType);
-        if(!checkAllowNumbers($pickupTypeNoTags)) {
-            $messaggi .= "<li>Tipologia pickup può contenere solo lettere, numeri, spazi e trattini!</li>";
-        }
+        $pickupConf = "-";
     }
+    if(isset($_POST['formPickupType'])) {
+        $pickupType = cleanInput($_POST['formPickupType']);
+        if(strlen($pickupType) == 0) {
+            $messaggi .= "<li>Tipologia pickup non può essere vuoto!</li>";
+        } else {
+            $pickupTypeNoTags = strip_tags($pickupType);
+            if(!checkAllowNumbers($pickupTypeNoTags)) {
+                $messaggi .= "<li>Tipologia pickup può contenere solo lettere, numeri, spazi e trattini!</li>";
+            }
+        }
+    } else {
+        $pickupType = "-";
+    }
+    
     $description = cleanInput($_POST['formDescription']);
     if(strlen($description) == 0) {
         $messaggi .= "<li>Descrizione non può essere vuoto!</li>";
     }
 
     if($messaggi == "") {
-        $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+        $connOk = $connection->openConnection();
+        if($connOk) {
+            if($connection->insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) {
+                $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+            } else {
+                $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+            }
+        } else {
+            $messaggi = "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+        }
+        
     } else {
         $messaggi = "<ul class='formError'>" . $messaggi . "</ul>";
     }
@@ -127,12 +150,12 @@ $HTMLpage = str_replace('<valBrand />', $brand, $HTMLpage);
 $HTMLpage = str_replace('<valModel />', $model, $HTMLpage);
 $HTMLpage = str_replace('<valColor />', $color, $HTMLpage);
 $HTMLpage = str_replace('<valPrice />', $price, $HTMLpage);
-$HTMLpage = str_replace('<valType />', $type, $HTMLpage); //NON CORRETTO
+$HTMLpage = str_replace('<valType />', $type, $HTMLpage);
 $HTMLpage = str_replace('<valStrings />', $strings, $HTMLpage);
 $HTMLpage = str_replace('<valFrets />', $frets, $HTMLpage);
 $HTMLpage = str_replace('<valBody />', $body, $HTMLpage);
 $HTMLpage = str_replace('<valFretboard />', $fretboard, $HTMLpage);
-$HTMLpage = str_replace('<valPickupConf />', $pickupConf, $HTMLpage); //NON CORRETTO
+$HTMLpage = str_replace('<valPickupConf />', $pickupConf, $HTMLpage);
 $HTMLpage = str_replace('<valPickupType />', $pickupType, $HTMLpage);
 $HTMLpage = str_replace('<valDescription />', $description, $HTMLpage);
 
