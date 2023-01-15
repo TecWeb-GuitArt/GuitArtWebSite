@@ -29,7 +29,7 @@ if ($connOk) {
     $guitars = $connection->getGuitars();
     $connection->closeConnection();
 
-    if ($giocatori != null) {
+    if ($guitars != null) {
         $listText .= '<ul class="prodotti">';
         foreach ($guitars as $guitar) {
             $listText .= '<li>' .
