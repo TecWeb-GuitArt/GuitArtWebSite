@@ -1,0 +1,23 @@
+main{
+    background-color: white;
+    color: black;
+    padding-left: 5em;
+    margin: auto;
+}
+
+main h1 {
+    text-align: center;
+    padding: 1em;
+    font-size: 4em;    
+}
+
+main p {
+    padding: 1.9em;
+    font-size: 3em;
+    
+}
+
+a#logout{
+    float: right;
+    margin-right: 5em;
+}

@@ -112,7 +112,8 @@ section#presentation, #team{
 }
 
 #team li{
-    padding: 1em;
+    /*padding: 1em;*/
+    margin-top: 2em;
     font-size: 1.25em;
 }
 

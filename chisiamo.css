@@ -10,18 +10,13 @@ h1#title{
     margin-bottom: 1em;
 }
 
-div#presentation{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    padding: 2em;
-}
-
-#presentation p{
+#presentation{
     font-size: 1.5em;
     padding: 2em;
-    text-align: left;    
+    float: left;
+    text-align: left;
 }
+
 
 #titleteam{
     font-size: 2em;
@@ -36,9 +31,28 @@ div#presentation{
 }
 
 #team li{
+    padding-top: 3em;
     font-weight: bold;
+    
 }
 
 #team li>p{
     font-weight: normal;
+    
+}
+
+.member1{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member2{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member3{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member4{
+    background: url("images/user.png")  no-repeat center top;
 }
