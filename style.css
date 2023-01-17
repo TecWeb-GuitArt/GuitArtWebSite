@@ -16,6 +16,8 @@
     --breadvisitedcolor: rgb(187, 187, 187);
     --mainlinkbg: #fff;
     --mainlinktxt: #000;
+    --mainlinkbginv: #000;
+    --mainlinktxtinv: #fff;
 }
 
 html, body {
@@ -82,13 +84,6 @@ header nav a:visited {
 header nav a img {
     vertical-align: middle;
 }
-
-/* #cart {
-    background-image: url('./images/cart.png');
-    background-position: right center;
-    background-size: 1.2em;
-    background-repeat: no-repeat;
-} */
 
 /*
 ====== SEZIONE BREADCRUMB ======

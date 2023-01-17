@@ -5,16 +5,15 @@ require_once "connection.php";
 $HTMLpage = file_get_contents("products.html");
 $connection = new DBAccess();
 
-$loginBtns = '<li><a href="./login.php">Login</a></li><li><a href="./registrati.php">Registrati</a></li>';
+$loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>';
 
 $guitars = '';
 $listText = '';
 
 $newGuitarLink = '<a id="addNewGuitar" href="">Aggiungi chitarra</a>'; // link pagina nuova chitarra
-
 if (isset($_SESSION['session_id'])) {
-    $userPage = '<li><a href="./utente.php">' . $_SESSION['session_username'] . '</a></li>';
-    $HTMLpage = str_replace($loginBtns, $userPage, $HTMLpage);
+    $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="account"/></a></li>';
+    $HTMLpage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
     if ($_SESSION['role'] == 'admin') {
         $HTMLpage = str_replace('<linkNuovaChitarra />', $newGuitarLink, $HTMLpage);
     }

@@ -37,8 +37,8 @@ class DBAccess {
         }
     }
 
-    public function getGuitar($ID) {
-        $query = "SELECT * FROM guitars WHERE ID = $ID";
+    public function getGuitar($guitar_id) {
+        $query = "SELECT * FROM guitars WHERE ID = $guitar_id";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -99,12 +99,26 @@ class DBAccess {
         }
     }
 
+    public function getUserRole($email) {
+        $query = "SELECT role FROM users WHERE email = $email";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return null;
+        }
+        else {
+            $result = mysqli_fetch_assoc($queryResult);
+            $queryResult->free();
+            return $result['role'];
+        }
+    }
+
     public function insertNewGuitar() {
 
     }
 
-    public function deleteGuitar($ID) {
-        $query = "DELETE FROM guitars WHERE ID = $ID";
+    public function deleteGuitar($guitar_id) {
+        $query = "DELETE FROM guitars WHERE ID = $guitar_id";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -115,8 +129,8 @@ class DBAccess {
         }
     }
 
-    public function addToFavourites($user_id, $guitar_id) {
-        $query = "INSERT INTO favourites (user_id, guitar_id) VALUES (\"$user_id\", \"$guitar_id\")";
+    public function addToFavourites($email, $guitar_id) {
+        $query = "INSERT INTO favourites (user_id, guitar_id) VALUES (\"$email\", \"$guitar_id\")";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -127,8 +141,8 @@ class DBAccess {
         }
     }
 
-    public function removeFromFavourites($user_id, $guitar_id) {
-        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = ($user_id, $guitar_id)";
+    public function removeFromFavourites($email, $guitar_id) {
+        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = ($email, $guitar_id)";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -153,6 +167,19 @@ class DBAccess {
             }
             $queryResult->free();
             return $result;
+        }
+    }
+
+    public function checkFavourite($email, $guitar_id) {
+        $query = "SELECT * FROM favourites WHERE user_id = $email AND guitar_id = $guitar_id";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return false;
+        }
+        else {
+            $queryResult->free();
+            return true;
         }
     }
 

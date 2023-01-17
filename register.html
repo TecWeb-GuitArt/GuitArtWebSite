@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css" media="handheld, screen"/>
         <link rel="stylesheet" href="register.css" media="handheld, screen"/>
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+        <script src="validate_register.js"></script>
     </head>
     <body>
         <header>
@@ -14,16 +15,16 @@
             <h1>Guitart</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Prodotti</a></li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a href="#"><img src="./images/favourites.svg" height="44" width="44" alt="account"/></a></li>
+                    <li><a href="./index.php"><span lang="en">Home</span></a></li>
+                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./login.php"><span lang="en">Login</span></a></li>
                 </ul>
             </nav>
         </header>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href=""><span lang="en">Home</span></a>  &rarr;  Registrazione</p>
+            <p>Ti trovi in: <a href="./index.php"><span lang="en">Home</span></a>  &rarr;  Registrati</p>
         </nav>
         <main id="content">
             <h2>Registrati</h2>
@@ -32,19 +33,19 @@
                 <fieldset>
                     <legend>Dati utente</legend>
                     <label for="username"><span lang="en">Username</span></label>
-                    <input type="text" name="username" id="username" value="<valusername />" /><br />
+                    <span><input type="text" name="username" id="username" value="<valusername />" /></span><br />
                     <label for="email"><span lang="en">Email</span></label>
-                    <input type="email" name="email" id="email" value="<valemail />" /><br />
+                    <span><input type="email" name="email" id="email" value="<valemail />" /></span><br />
                     <label for="password"><span lang="en">Password</span></label>
-                    <input type="password" name="password" id="password" /><br />
+                    <span><input type="password" name="password" id="password" /></span><br />
                     <label for="password2"><span lang="en">Ripeti la password</span></label>
-                    <input type="password" name="password2" id="password2" /><br />
+                    <span><input type="password" name="password2" id="password2" /></span><br />
                     <input type="submit" id="submit">
                 </fieldset>
             </form>
         </main>
         <footer>
-            <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights Reserved</span></p>
+            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
         </footer>
     </body>
 </html>
