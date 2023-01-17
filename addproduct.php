@@ -33,6 +33,11 @@ function checkProhibitNumbers($value) {
     return preg_match("/^[a-zA-Z\-\ ]+$/", $value);
 }
 
+if (isset($_SESSION['session_id']) && $_SESSION['session_role'] != "admin") {
+    // NON SEI ADMIN, TI BUTTO FUORI
+    exit;
+}
+
 if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
     $brand = cleanInput($_POST['formBrand']);
     if(strlen($brand) == 0) {
@@ -132,7 +137,17 @@ if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
         $connOk = $connection->openConnection();
         if($connOk) {
             if($connection->insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) {
-                $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+                $ID = $connection->getLastID();
+                $name = explode(".", $_FILES["formImage"]["name"]);
+                $image = $_FILES["formImage"]["tmp_name"];
+                $path = "images/".$ID . "." . end($name);
+                if(move_uploaded_file($image,$path)) {
+                    $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+                } else {
+                    $connection->deleteGuitar($ID);
+                    $messaggi = "<p class='formError'>L'immagine non è stata caricata a causa di un errore interno. Riprovare a reinviare il form in un altro momento.</p>";
+                }
+                $connection->closeConnection();
             } else {
                 $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
             }
