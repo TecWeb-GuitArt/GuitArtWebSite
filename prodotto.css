@@ -51,7 +51,7 @@
     grid-row: 4;
 }
 
-#button {
+#button, #buttonDelete {
     width: 100%;
     padding: 30px;
     border: none;
@@ -64,6 +64,11 @@
 
 #button:hover {
     background-color: #555;
+    transition: ease 0.2s;
+}
+
+#buttonDelete:hover {
+    background-color: rgb(86, 0, 0);
     transition: ease 0.2s;
 }
 
