@@ -7,9 +7,10 @@ require_once "connessione.php";
 $htmlPage = file_get_contents("login.html");
 $connessione = new DBAccess();
 
-$msg = '';
 $utente = '';
 $password = '';
+$role = '';
+$messaggiPerForm  = '';
 function cleanInput($value) { 
     $value = trim($value);
     $value = strip_tags($value);
@@ -29,7 +30,7 @@ if(isset($_POST['submit'])) {
         $messaggiPerForm .= '<li>Inserire una mail valida</li>';
     } else {
         if(!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3]$/", $email))
-            $formMessages .= '<li>Inserire un email valida</li>';
+            $messaggiPerForm .= '<li>Inserire un email valida</li>';
     }
 
     $password = cleanInput($_POST['password']);
@@ -44,21 +45,26 @@ if(isset($_POST['submit'])) {
             $queryOk = $connection->verifyLogin($email, $pw_hash);
             if($queryOk) {
                 $formMessages = '<div id="success"><p>Login avvenuto con successo.</p></div>';
+                $role = $connection->getUserRole($email);
                 $_SESSION["session_id"] = session_id();
-                $_SESSION["session_user"] = $email;
+                $_SESSION["session_email"] = $email;
+                $_SESSION["session_role"] = $role;
                 header('Location: index.php');
                 exit;
             } else {
-                $formMessages = '<div id="errors"><p>Credenziali errate</p></div>';
+                $messaggiPerForm = '<div id="errors"><p>Credenziali errate</p></div>';
             }
         } else {
-            $formMessages = '<div id="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
+            $messaggiPerForm = '<div id="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
         }
     } else {
-        $formMessages = '<div id="errors"><ul>' . $formMessages . '</ul></div>';
+        $messaggiPerForm = '<div id="errors"><ul>' . $messaggiPerForm . '</ul></div>';
     }
 }
 
-$HTMLpage = str_replace('<formMessages />', $formMessages, $HTMLpage);
+$HTMLpage = str_replace('<messaggiPerForm />', $messaggiPerForm, $HTMLpage);
 $HTMLpage = str_replace('<valEmail />', $email, $HTMLpage);
 $HTMLpage = str_replace('<valPassword />', $password, $HTMLpage);
+echo $htmlPage;
+
+?>
