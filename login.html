@@ -20,25 +20,29 @@
                     <li><a href="./products.php">Prodotti</a></li>
                     <li><a href="./contatti.php">Contatti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
-                    <li><a href="./favourites.php">Preferiti</a></li>
-                    <li><a href="#"><span lang="en">Login</span></a></li>
+                    <li><span lang="en">Login</span></li>
+                    <li><a href="./registrati.php">Registrati</a></li>
+
                 </ul>
             </nav>
         </header>
 
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="">Home</a>  &rarr;  login</p>
+            <p>Ti trovi in: <a href="">Home</a>  &rarr;  Login</p>
         </nav>
 
         <main id="content">
-            <form action="login.php" class="login-form">
-                <fieldset>
-                    <legend>User and Password</legend>
+            <h2>Accedi al tuo account</h2>
+            <messaggiPerForm />
 
-                    <label for="email">Email:</label>
-                    <span><input type="text" name="email" id="email" value="Email" /></span>
-                    <label for="password">Password:</label>
-                    <span><input type="password" name="password" id="password" value="Password" /></span>
+            <form action="login.php" method="post" class="login-form">
+                <fieldset>
+                    <legend>Nome utente/Email e <span lang="en">Passoword</span></legend>
+
+                    <label for="utente">Utente:</label>
+                    <span><input type="text" name="utente" id="utente" value="valUtente" /></span>
+                    <label for="password"><span lang="en">Passoword</span>:</label>
+                    <span><input type="password" name="password" id="password" value="valPassword" /></span>
                     <input type="submit" id="submit" name="submit" class="" value="Accedi" />
                 </fieldset>
 
