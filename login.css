@@ -23,6 +23,11 @@ main {
     margin:.5rem 0;
    
   }
+
+  legend {
+    text-align: center;
+    font-weight: bold;
+  }
   
   input, textarea{
       display:block;
@@ -39,6 +44,5 @@ main {
     color:white;
     width:20%;
     border: 2px solid;
-    text-decoration: none;
   }
   
