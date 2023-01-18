@@ -13,15 +13,21 @@ main {
 
 main div{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 20px;
-    grid-template-areas: "u t"
-                         "e o";
+    grid-template-areas: "u t i"
+                         "e o i";
     padding: 2em;
     align-items: center;
-    
 
+    background-image: url("images/guitart_shop.webp");
+    background-position: right;
+    background-size: 30vw;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    
+    
 }
 
 dl.uffici{
@@ -54,7 +60,7 @@ dt.email{
 
 dl.orario{
     grid-area: o;
-    background: url("images/clock.svg") top no-repeat;
+    background: url("images/clock_icon.svg") top no-repeat;
 }
 
 #titleorario{

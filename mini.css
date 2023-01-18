@@ -93,6 +93,9 @@ main div h1 {
 
 div.info{
     display: block;
+    padding-bottom: 60vh;
+    background-position: bottom;
+    background-size: 70vw 60vh;
 }
 
 dl{
