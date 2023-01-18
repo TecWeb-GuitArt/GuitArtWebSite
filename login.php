@@ -1,7 +1,6 @@
 <?php
 use DB\DBAccess;
 
-session_start();
 require_once "connessione.php"; 
 
 $htmlPage = file_get_contents("login.html");
@@ -24,13 +23,15 @@ if (isset($_SESSION['session_id'])) {
     exit;
 }
 
+$isEmail = true;
 if(isset($_POST['submit'])) {
-    $email = cleanInput($_post['email']);
+    $email = cleanInput($_post['utente']);
     if(strlen($email)== 0) {
-        $messaggiPerForm .= '<li>Inserire una mail valida</li>';
+        $messaggiPerForm .= '<li>Inserire un nome utente o mail valida</li>';
     } else {
-        if(!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3]$/", $email))
-            $messaggiPerForm .= '<li>Inserire un email valida</li>';
+        if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3]$/", $utente)) 
+            //$messaggiPerForm .= '<li>Inserire un email valida</li>';
+            $isEmail = false;        
     }
 
     $password = cleanInput($_POST['password']);
@@ -42,12 +43,15 @@ if(isset($_POST['submit'])) {
         $connOk = $connessione->openConnection();
         if($connOk) {
             $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-            $queryOk = $connection->verifyLogin($email, $pw_hash);
+            if($isEmail)
+                $queryOk = $connection->verifyLoginEmail($utente, $pw_hash);
+            else 
+                $queryOk = $connection->verifyLoginUsername($utente, $pw_hash); //da aggiungere query
             if($queryOk) {
                 $formMessages = '<div id="success"><p>Login avvenuto con successo.</p></div>';
-                $role = $connection->getUserRole($email);
+                $role = $connection->getUserRole($utente);
                 $_SESSION["session_id"] = session_id();
-                $_SESSION["session_email"] = $email;
+                $_SESSION["session_user"] = $utente;
                 $_SESSION["session_role"] = $role;
                 header('Location: index.php');
                 exit;
@@ -63,7 +67,7 @@ if(isset($_POST['submit'])) {
 }
 
 $HTMLpage = str_replace('<messaggiPerForm />', $messaggiPerForm, $HTMLpage);
-$HTMLpage = str_replace('<valEmail />', $email, $HTMLpage);
+$HTMLpage = str_replace('<valUtente />', $email, $HTMLpage);
 $HTMLpage = str_replace('<valPassword />', $password, $HTMLpage);
 echo $htmlPage;
 

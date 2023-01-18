@@ -1,20 +1,18 @@
 <?php
 use DB\DBAccess;
 
-session_start();
 require_once "connessione.php"; 
 $htmlPage = file_get_contents("favourites.html");
 $connessione = new DBAccess();
 
 $favourites = '';
 $listText = '';
-$loginBtns = '<li><a href="./login.php">Login</a></li><li><a href="./registrati.php">Registrati</a></li>';
+$loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>';
 
 
 if (isset($_SESSION['session_id'])) {
-    //$userPage = '<li><a href="./utente.php">' . $_SESSION['session_username'] . '</a></li>';
-    //$htmlPage = str_replace($loginBtns, $userPage, $HTMLpage);
-
+    $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="account"/></a></li>';
+    $htmlPage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
 } else {
     header('Location: login.php');
     exit;
@@ -22,18 +20,18 @@ if (isset($_SESSION['session_id'])) {
 
 $connOk = $connessione->openConnection();
 if($connOk) {
-    $favourites = $connection->getFavourites($_SESSION['email']);
+    $favourites = $connection->getFavourites($_SESSION['user']);
     $connection->closeConnection();
 
     if($favourites != null) {
-        $listText .= '<ul class="prodotti">';
+        $listText .= '<ul class="preferiti">';
         foreach ($favourites as $favourite) {
             $listText .= '<li>' .
-            '<img src=". ' . $favourite['Image'] . '" height="300" width="200" alt="' . $favourite['Alt'] . '" />' . // manca alt
+            '<img src=". ' . $favourite['Image'] . '" height="300" width="200" alt="' . $favourite['Alt'] . '" />' . 
             '<h3>' . $favourite['Brand'] . '</h3>' .
             '<p>' . $favourite['Model'] . '</p>' .
             '<p>' . $favourite['Price'] . '</p>' .
-            '<a href="./product.php?id=' . $favourite['ID'] . '">Vedi</a>' . //link
+            '<a href="./product.php?id=' . $favourite['ID'] . '">Vedi</a>' . 
             '</li>';
         }
         $listText .= '</ul>'; 
@@ -47,7 +45,7 @@ if($connOk) {
     $listText = "<p>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
 }
 
-echo str_replace("<listaProdotti />", $listText, $HTMLpage);
+echo str_replace("<listaPreferiti />", $listText, $HTMLpage);
 
 
 echo $htmlPage;
