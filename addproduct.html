@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <title>GuitArt</title>
+    <meta name="author" content="Nicola Cecchetto" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+    <link rel="stylesheet" href="style.css" media="handheld, screen" />
+    <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)" />
+    <link rel="stylesheet" href="addproduct.css" media="handheld, screen" />
+    <script src="addproduct.js"></script>
+</head>
+
+<body>
+    <header>
+        <a class="nav-help" href="#content">Passa al contenuto principale</a>
+        <h1>Guitart</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Prodotti</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+                <li><a href="#">Chi siamo</a></li>
+                <li><a id="cart" href="#">Carrello</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <span lang="en">Home</span> &rarr; Area Admin &rarr; Aggiungi nuovo prodotto</p>
+    </nav>
+    <main id="content">
+        <h2>Aggiungi un nuovo prodotto</h2>
+        <form method="post" action="addproduct.php" enctype="multipart/form-data">
+            <messaggiForm />
+            <fieldset>
+                <legend>Caratteristiche generali</legend>
+                <label for="formBrand">Marchio:</label>
+                <p id="pBrand">Sono concessi lettere, numeri, spazi e trattini.</p>
+                <span><input type="text" name="formBrand" id="formBrand" value="<valBrand />" onblur="checkNull(value, 'Brand')"></span><br>
+                <label for="formModel">Modello:</label>
+                <p id="pModel">Sono concessi lettere, numeri, spazi e trattini.</p>
+                <span><input type="text" name="formModel" id="formModel" value="<valModel />" onblur="checkNull(value, 'Model')"></span><br>
+                <label for="formColor">Finitura:</label>
+                <p id="pColor">Sono concessi lettere, spazi e trattini.</p>
+                <span><input type="text" name="formColor" id="formColor" value="<valColor />" onblur="checkNull(value, 'Color')"></span><br>
+                <label for="formPrice">Prezzo:</label>
+                <p id="pPrice">Il prezzo deve essere maggiore di 0. Sono concessi anche centesimi di euro.</p>
+                <span><input type="number" name="formPrice" id="formPrice" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
+                <label for="formType">Tipologia:</label>
+                <select name="formType" id="formType" value="<valType />" onchange="typeChanged(value)">
+                    <option value="Classica">Classica</option>
+                    <option value="Acustica">Acustica</option>
+                    <option value="Semiacustica">Semiacustica</option>
+                    <option value="Elettrica">Elettrica</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Caratteristiche tecniche</legend>
+                <label for="formStrings">Numero di corde:</label>
+                <p id="pStrings">Il numero di corde deve essere tra 4 e 12.</p>
+                <span><input type="number" name="formStrings" id="formStrings" value="<valStrings />" onblur="checkNull(value, 'Strings')"></span><br>
+                <label for="formFrets">Numero di tasti:</label>
+                <p id="pFrets">Il numero di tasti deve essere tra 12 e 36.</p>
+                <span><input type="number" name="formFrets" id="formFrets" value="<valFrets />" onblur="checkNull(value, 'Frets')"></span><br>
+                <label for="formBody">Legno del corpo:</label>
+                <p id="pBody">Sono concessi lettere, spazi e trattini.</p>
+                <span><input type="text" name="formBody" id="formBody" value="<valBody />" onblur="checkNull(value, 'Body')"></span><br>
+                <label for="formFretboard">Legno della tastiera:</label>
+                <p id="pFretboard">Sono concessi lettere, spazi e trattini.</p>
+                <span><input type="text" name="formFretboard" id="formFretboard" value="<valFretboard />" onblur="checkNull(value, 'Fretboard')"></span><br>
+                <label for="formPickupConf">Configurazione pickup:</label>
+                <select name="formPickupConf" id="formPickupConf" value="<valPickupConf />" disabled>
+                    <option value="-">-</option>
+                    <option value="S">S</option>
+                    <option value="SS">SS</option>
+                    <option value="SSS">SSS</option>
+                    <option value="HH">HH</option>
+                    <option value="SSH">SSH</option>
+                </select><br>
+                <label for="formPickupType">Tipologia pickup</label>
+                <p id="pPickupType">Sono concessi lettere, numeri, spazi e trattini.</p>
+                <span><input type="text" name="formPickupType" id="formPickupType" value="<valPickupType />" onblur="checkNull(value, 'PickupType')" disabled></span><br>
+            </fieldset>
+            <fieldset>
+                <legend>Informazioni aggiuntive</legend>
+                <label for="formDescription">Descrizione: </label>
+                <p id="pDescription">Formatta il testo usando i tag adeguati.</p>
+                <span><textarea id="formDescription" name="formDescription" onblur="checkNull(value, 'Description')"><valDescription /></textarea></span><br>
+                <label for="formImage">Immagine: </label>
+                <span><input type="file" id="formImage" name="formImage" value=""/></span>
+            </fieldset>
+            <fieldset>
+                <legend>Bottoni</legend>
+                <input type="submit" id="formSubmit" name="formSubmit" value="Inserisci nuovo prodotto" />
+                <input type="reset" id="formReset" name="formReset" value="Cancella dati inseriti" />
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights
+                Reserved</span></p>
+    </footer>
+</body>
+
+</html>
