@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>GuitArt</title>
     <meta name="author" content="Nicola Cecchetto" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" media="handheld, screen" />
     <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)" />
     <link rel="stylesheet" href="addproduct.css" media="handheld, screen" />
@@ -18,10 +18,11 @@
         <h1>Guitart</h1>
         <nav>
             <ul>
-                <li><a href="#">Prodotti</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
-                <li><a href="#">Chi siamo</a></li>
-                <li><a id="cart" href="#">Carrello</a></li>
+                <li><a href="./prodotti.php">Prodotti</a></li>
+                <li><a href="./contatti.php">Contatti</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li>
+                <li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
             </ul>
         </nav>
     </header>
@@ -30,7 +31,7 @@
     </nav>
     <main id="content">
         <h2>Aggiungi un nuovo prodotto</h2>
-        <form method="post" action="addproduct.php" enctype="multipart/form-data">
+        <form method="post" action="aggiungi-prodotto.php" enctype="multipart/form-data">
             <messaggiForm />
             <fieldset>
                 <legend>Caratteristiche generali</legend>
@@ -87,6 +88,7 @@
                 <p id="pDescription">Formatta il testo usando i tag adeguati.</p>
                 <span><textarea id="formDescription" name="formDescription" onblur="checkNull(value, 'Description')"><valDescription /></textarea></span><br>
                 <label for="formImage">Immagine: </label>
+                <p id="pImage">Inserisci un'immagine in formato .webp.</p>
                 <span><input type="file" id="formImage" name="formImage" value=""/></span>
             </fieldset>
             <fieldset>

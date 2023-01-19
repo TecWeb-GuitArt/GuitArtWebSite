@@ -7,11 +7,19 @@ $connection = new DBAccess();
 $HTMLpage = file_get_contents("product.html");
 $title = "";
 $breadcrumb = "";
+$error = "";
 $mainReplace = "";
 $id = "-1"; // id non valido
 
 if(isset($_GET["id"])) {
     $id = $_GET["id"];
+}
+
+$loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>';
+
+if (isset($_SESSION['session_id'])) {
+    $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>';
+    $HTMLpage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
 }
 
 $connOk = $connection->openConnection();
@@ -20,10 +28,10 @@ if(isset($_POST["formDelete"])) { // ENTRA QUI SE L'ADMIN CANCELLA UNA CHITARRA
     if($connOK) {
         $connection->deleteGuitar($id);
         $connection->closeConnection();
-        header('Location: products.php');
+        header('Location: prodotti.php');
         exit;
     } else {
-        // RIP DB
+        $error = "<p>Impossibile cancellare la chitarra a causa di un errore durante la connessione con il database.</p>";
     }
 }
 
@@ -31,7 +39,7 @@ if(isset($_POST["formDelFav"])) { // ENTRA QUI SE LO USER TOGLIE DAI PREFERITI
     if($connOK) {
         $connection->removeFromFavourites($_SESSION['session_email'], $id);
     } else {
-        // RIP DB
+        $error = "<p>Impossibile togliere la chitarra dai preferiti a causa di un errore durante la connessione con il database.</p>";
     }
 }
 
@@ -39,18 +47,16 @@ if(isset($_POST["formAddFav"])) { // ENTRA QUI SE LO USER AGGIUNGE AI PREFERITI
     if($connOK) {
         $connection->addToFavourites($_SESSION['session_email'], $id);
     } else {
-        // RIP DB
+        $error = "<p>Impossibile aggiungere la chitarra ai preferiti a causa di un errore durante la connessione con il database.</p>";
     }
 }
 
-if($connOk) {
+if($connOk) { // CONNESSIONE AL DB OK
     $info = $connection->getGuitar($id);
-    
-    
-    if($info != null) {
+    if($info != null) { // QUERY OK
         $title = $info['Alt'];
         $breadcrumb = $info['Model'];
-        $mainReplace = '<main id="product">
+        $mainReplace = '<main id="product"><error />
                             <ul>
                                 <li id="img">
                                     <img src="./images/' . $info['ID'] . '.webp" alt="' . $info['Alt'] . '" height="510" width="340"/>
@@ -69,22 +75,22 @@ if($connOk) {
                                 
         if(isset($_SESSION['session_id'])) { // UTENTE AUTENTICATO
             if($_SESSION['session_role'] == 'admin') { // UTENTE ADMIN
-                $mainReplace .= '<form method="post" action="product.php?id=\'' . $id . '\'">
+                $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
                                     <input type="submit" id="buttonDelete" name="formDelete" value="Elimina chitarra" />
                                 </form>';
             } else { // UTENTE NON ADMIN
                 if($connection->checkFavourite($_SESSION['session_email'], $id)) { // CHITARRA TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="product.php?id=\'' . $id . '\'">
+                    $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
                                         <input type="submit" id="buttonDelete" name="formDelFav" value="Togli dai preferiti" />
                                     </form>';
                 } else { // CHITARRA NON TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="product.php?id=\'' . $id . '\'">
+                    $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
                                         <input type="submit" id="button" name="formAddFav" value="Aggiungi ai preferiti" />
                                     </form>';
                 }
             }
         } else { // UTENTE NON AUTENTICATO
-            $mainReplace .= '<a id="button" href="login.php">Effettua il login per poter aggiungere questa chitarra tra i tuoi preferiti</a>';
+            $mainReplace .= '<a id="button" href="login.php">Effettua il login</a>';
         }
         $connection->closeConnection(); // chiudo qui la connessione con il DB perchè ora sono sicuro che non mi serve più
         $mainReplace .=         '</li>
@@ -112,7 +118,7 @@ if($connOk) {
                                 <dd class="spec1">' . $info['Pickup_Type'] . '</dd>';                       
         }
         $mainReplace .= '</dl></main>';
-    } else {
+    } else { // QUERY NON OK
         $title = "Errore - Chitarra non Trovata";
         $breadcrumb = "Errore";
         $mainReplace = "<main id='productError'>
@@ -125,7 +131,7 @@ if($connOk) {
                             <p>Assicurarsi di usare i link all'interno del nostro sito per essere sicuri di visualizzare le chitarre disponibili. Se l'errore persiste contattare l'amministratore.</p>
                         </main>";
     }
-} else {
+} else { // NESSUNA CONNESSIONE AL DB
     $title = "Errore - Sistemi non disponibili";
     $breadcrumb = "Errore";
     $mainReplace = "<main id='productError'>
@@ -136,6 +142,7 @@ if($connOk) {
 
 $HTMLpage = str_replace("<titleReplace />", $title, $HTMLpage);
 $HTMLpage = str_replace("<breadcrumbReplace />", $breadcrumb, $HTMLpage);
+$HTMLpage = str_replace("<error />", $error, $HTMLpage);
 $HTMLpage = str_replace("<mainReplace />", $mainReplace, $HTMLpage);
 
 echo $HTMLpage;

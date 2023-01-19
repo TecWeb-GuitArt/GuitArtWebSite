@@ -5,6 +5,7 @@ require_once "connection.php";
 $connection = new DBAccess();
 
 $HTMLpage = file_get_contents("addproduct.html");
+
 $messaggi = "";
 $model = "";
 $brand = "";
@@ -33,12 +34,12 @@ function checkProhibitNumbers($value) {
     return preg_match("/^[a-zA-Z\-\ ]+$/", $value);
 }
 
-if (isset($_SESSION['session_id']) && $_SESSION['session_role'] != "admin") {
-    // NON SEI ADMIN, TI BUTTO FUORI
+if (isset($_SESSION['session_id']) && $_SESSION['session_role'] == "admin") { // redirect se l'utente non è admin
+    header("Location: index.php");
     exit;
 }
 
-if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
+if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
     $brand = cleanInput($_POST['formBrand']);
     if(strlen($brand) == 0) {
         $messaggi .= "<li>Marchio non può essere vuoto!</li>";
@@ -133,29 +134,32 @@ if(isset($_POST['formSubmit'])) { // if user clicked submit button do this
         $messaggi .= "<li>Descrizione non può essere vuoto!</li>";
     }
 
-    if($messaggi == "") {
+    if($messaggi == "") { // FORM VALIDO
         $connOk = $connection->openConnection();
-        if($connOk) {
-            if($connection->insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) {
+        if($connOk) { // CONNESSIONE COL DB OK
+            if($connection->insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) { // QUERY HA AVUTO SUCCESSO
                 $ID = $connection->getLastID();
                 $name = explode(".", $_FILES["formImage"]["name"]);
-                $image = $_FILES["formImage"]["tmp_name"];
-                $path = "images/".$ID . "." . end($name);
-                if(move_uploaded_file($image,$path)) {
-                    $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
-                } else {
-                    $connection->deleteGuitar($ID);
-                    $messaggi = "<p class='formError'>L'immagine non è stata caricata a causa di un errore interno. Riprovare a reinviare il form in un altro momento.</p>";
+                if(end($name) == "webp") { // IMMAGINE COL FORMATO GIUSTO
+                    $image = $_FILES["formImage"]["tmp_name"];
+                    $path = "images/".$ID . "." . end($name);
+                    if(move_uploaded_file($image,$path)) { // FILE SPOSTATO CORRETTAMENTE
+                        $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+                    } else { // FILE NON SPOSTATO CORRETTAMENTE
+                        $connection->deleteGuitar($ID);
+                        $messaggi = "<p class='formError'>L'immagine non è stata caricata a causa di un errore interno. Riprovare a reinviare il form in un altro momento.</p>";
+                    }
+                } else { // IMMAGINE COL FORMATO SBAGLIATO
+                    $messaggi = "<p class='formError'>L'immagine non è nel formato .webp! Riprovare reinserendo un'immagine in questo formato.</p>";
                 }
-                $connection->closeConnection();
-            } else {
+            } else { // QUERY FALLITA
                 $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
             }
-        } else {
+        } else { // NESSUNA CONNESSIONE COL DB
             $messaggi = "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
         }
-        
-    } else {
+        $connection->closeConnection(); // posso chiudere solo qui la connessione
+    } else { // FORM NON VALIDO
         $messaggi = "<ul class='formError'>" . $messaggi . "</ul>";
     }
 }
