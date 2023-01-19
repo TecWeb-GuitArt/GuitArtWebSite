@@ -86,3 +86,41 @@ main div h1 {
 .specs1, .specs2{ /*non funziona*/
     background-color: white;
 }
+
+/*
+=========== SEZIONE CONTATTI ==============
+*/
+
+div.info{
+    display: block;
+    padding-bottom: 60vh;
+    background-image: none;
+}
+
+dl{
+    margin: 3em;
+}
+
+#title{
+    font-size: 3em;
+}
+
+/*
+=========== SEZIONE CHI SIAMO ==============
+*/
+
+section#presentation, #team{
+    display: block;
+}
+
+#team li{
+    /*padding: 1em;*/
+    margin-top: 2em;
+    font-size: 1.25em;
+}
+
+h1#title{
+    font-size: 4em;
+    padding-top: 1em;
+    margin-bottom: 0em;
+}

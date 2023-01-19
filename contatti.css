@@ -1,50 +1,103 @@
 main {
     background-color: white;
     color: black;
-    text-align: center;    
+    text-align: center;
 }
 
-main h1 {
+#title {
+    grid-column: 4;
     text-align: center;
     padding: 1em;
-    font-size: 4em;
-    
+    font-size: 4em;    
 }
 
-main p {
-    padding: 1.9em;
-    margin: auto;
-}
-
-main nav{
-   padding: 2em;
-}
-
-
-
-.inform{
+main div{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "u t i"
+                         "e o i";
+    padding: 2em;
+    align-items: center;
+
+    background-image: url("images/guitart_shop.webp");
+    background-position: right;
+    background-size: 30vw;
+    background-repeat: no-repeat;
+    background-position: 95%;
     
+    
+}
+
+dl.uffici{
+    grid-area: u;
+    background: url("images/location_icon.svg") top no-repeat;
+}
+
+dt.uffici{
+    padding-top: 3em;    
+}
+
+dl.telefono{
+    grid-area: t;
+    background: url("images/phone_icon.svg") top no-repeat;
+}
+
+dt.telefono{
+    padding-top: 3em;
+
+}
+
+dl.email{
+    grid-area: e;
+    background: url("images/email_icon.svg") top no-repeat;   
+}
+
+dt.email{
+    padding-top: 3em;    
+}
+
+dl.orario{
+    grid-area: o;
+    background: url("images/clock_icon.svg") top no-repeat;
+}
+
+#titleorario{
+    padding-top: 3em;
+}
+
+dt.orario{
+    padding-top: 0em;
+    float: left;
+    width: 50%;
+    /*padding-right: 20%;*/    
+    text-align: center;
+}
+
+dt.orario>dd{
+    /*float: right;*/
+    /*padding-right: 30%;*/
+    text-align: center;
+    width: 50%;
+}
+
+
+
+h2{
+    margin-bottom: 0.5em;
 }
 
 dt{
-    text-transform: uppercase;    
-    text-align: center;
+    text-transform: uppercase;
     font-weight: bold;
     font-size: 1.25em;
-    padding: 0.3em;
-    
-}
-dd{
-    text-align: center;
-    font-size: 1em;
-    padding: 0.3em;
+    padding: 0.3em;  
+    margin: auto;
 }
 
-h2{
-    text-transform: uppercase;    
-    text-align: center;
-    font-size: 2em;
-    padding-bottom: 0.5em;
+dd{
+    font-size: 1em;
+    padding: 0.3em;
+    margin: auto;    
 }

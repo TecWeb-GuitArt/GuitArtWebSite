@@ -1,0 +1,62 @@
+main {
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+h1#title{
+    font-size: 4em;
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+#presentation{
+    font-size: 1.25em;
+    padding: 2em;
+    /*float: left;*/
+    text-align: left;
+    
+    
+    
+}
+
+
+#titleteam{
+    font-size: 2em;
+}
+
+#team{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 2em;
+}
+
+#team li{
+    padding-top: 3em;
+    font-weight: bold;
+    
+}
+
+#team li>p{
+    font-weight: normal;
+    
+}
+
+.member1{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member2{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member3{
+    background: url("images/user.png")  no-repeat center top;
+}
+
+.member4{
+    background: url("images/user.png")  no-repeat center top;
+}
