@@ -1,0 +1,29 @@
+#product {
+    display: block;
+}
+
+#title {
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+#price {
+    margin: 20px 0;
+}
+
+#description {
+    margin: 20px 0;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+#specs dt, #specs dd {
+    padding: 5px 10px;
+}
+
+/* PER QUANDO MODIFICHEREMO mini.css : CANCELLA QUESTE COSE E CANCELLA ANCHE IN mini.css LA SEZIONE PRODUCT*/
+
+#specs {
+    display: grid;
+    text-align: left;
+}

@@ -6,13 +6,12 @@
         <meta name="author" content="Nicola Cecchetto"/>
         <link rel="stylesheet" href="style.css" media="handheld, screen"/>
         <link rel="stylesheet" href="prodotto.css" media="handheld, screen"/>
-        <!-- <link rel="stylesheet" href="ex2s.css" media="handheld, screen"/> -->
-        <!-- <link rel="stylesheet" href="ex3s.css" media="handheld, screen"/> -->
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
-        <link rel="stylesheet" href="productmini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+        <link rel="stylesheet" href="prodottomini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     </head>
     <body>
         <header>
+            <a class="nav-help" href="#product">Passa al contenuto principale</a>
             <h1>Guitart</h1>
             <nav>
                 <ul>
@@ -23,34 +22,38 @@
                 </ul>
             </nav>
         </header>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href=""><span lang="en">Home</span></a>  &rarr;  <a href="#">Prodotti</a> &rarr; Les Paul Classic Heritage</p>
+        </nav>
         <main id="product">
             <ul>
+                <li id="img">
+                    <img src="images/LesPaulClassicHeritage.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="510" width="340"/>
+                </li>
                 <li id="title">
                     <h2>Gibson</h2>
                     <h3>Les Paul Classic Heritage</h3>
                 </li>
-                <li id="img">
-                    <img src="images/LesPaulClassicHeritage.jpg" alt="Les Paul Classic Heritage Cherry Sunburst" height="510" width="340"/>
-                </li>
                 <li id="price">
                     <p>€ 1.995,00</p>
+                </li>
+                <li id="description">
+                    <p>Descrizione BLA BLA BLA asjndaijsn asjiddn dasjdnaśjdnaij dnaidn addn aidnadn asd aid asi jd nasijd aijsd aisnd aindaij sndaijnd andando NDADN AJDNAIJDAD</p>
                 </li>
                 <li id="buy">
                     <form>
                         <input id="button" type="submit" value="Aggiungi al Carrello"/>
                     </form>
                 </li>
-                <li id="description">
-                    <p>Descrizione BLA BLA BLA asjndaijsn asjiddn dasjdnaśjdnaij dnaidn addn aidnadn asd aid asi jd nasijd aijsd aisnd aindaij sndaijnd andando NDADN AJDNAIJDAD</p>
-                </li>
             </ul>
+            <h2>Caratteristiche del prodotto</h2>
             <dl id="specs">
                 <dt class="spec1">Marchio:</dt>
                 <dd class="spec1"><span lang="en">Gibson</span></dd>
-                <dt class="spec1">Colore:</dt>
-                <dd class="spec1"><span lang="en">Cherry Sunburst</span></dd>
-                <dt class="spec2">Corpo:</dt>
-                <dd class="spec2">Mogano</dd>
+                <dt class="spec2">Colore:</dt>
+                <dd class="spec2"><span lang="en">Cherry Sunburst</span></dd>
+                <dt class="spec1">Corpo:</dt>
+                <dd class="spec1">Mogano</dd>
                 <dt class="spec2">Tastiera:</dt>
                 <dd class="spec2">Palissandro</dd>
                 <dt class="spec1">Numero Tasti:</dt>
