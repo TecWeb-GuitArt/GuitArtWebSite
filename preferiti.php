@@ -1,7 +1,7 @@
 <?php
 use DB\DBAccess;
 
-require_once "connessione.php"; 
+require_once "connection.php"; 
 $htmlPage = file_get_contents("favourites.html");
 $connessione = new DBAccess();
 
@@ -27,11 +27,11 @@ if($connOk) {
         $listText .= '<ul class="preferiti">';
         foreach ($favourites as $favourite) {
             $listText .= '<li>' .
-            '<img src=". ' . $favourite['Image'] . '" height="300" width="200" alt="' . $favourite['Alt'] . '" />' . 
+            '<img src="./images/' . $favourite['ID'] . '.webp" height="300" width="200" alt="' . $favourite['Alt'] . '" />' . 
             '<h3>' . $favourite['Brand'] . '</h3>' .
             '<p>' . $favourite['Model'] . '</p>' .
             '<p>' . $favourite['Price'] . '</p>' .
-            '<a href="./product.php?id=' . $favourite['ID'] . '">Vedi</a>' . 
+            '<a href="./prodotto.php?id=' . $favourite['ID'] . '">Vedi</a>' . 
             '</li>';
         }
         $listText .= '</ul>'; 

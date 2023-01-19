@@ -113,9 +113,19 @@ class DBAccess {
         }
     }
 
-    public function insertNewGuitar() {
+    public function insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, $alt, $description) { // NUOVA
+        $query = "INSERT INTO guitars (Model, Brand, Color, Price, Type, Strings, Frets, Body, Fretboard, Pickup_Configuration, Pickup_Type, Alt, Description)
+                  VALUES (\"$model\", \"$brand\", \"$color\", \"$price\", \"$type\", \"$strings\", \"$frets\", \"$body\", \"$fretboard\", \"$pickupConf\", \"$pickupType\", \"$alt\", \"$description\")";
 
+        $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
+        if (mysqli_affected_rows($this->connection) > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+
 
     public function deleteGuitar($guitar_id) {
         $query = "DELETE FROM guitars WHERE ID = $guitar_id";
@@ -126,6 +136,20 @@ class DBAccess {
         }
         else {
             return false;
+        }
+    }
+
+    public function getLastID() { // NUOVA
+        $query = "SELECT max(ID) FROM guitars";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return -1;
+        }
+        else {
+            $row = mysqli_fetch_array($queryResult);
+            $queryResult->free();
+            return $row[0];
         }
     }
 
@@ -183,8 +207,27 @@ class DBAccess {
         }
     }
 
-    public function verifyLogin($email, $pw_hash) {
+    public function verifyLoginEmail($email, $pw_hash) {
         $query = "SELECT email, pw_hash FROM users WHERE email = $email";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return false;
+        }
+        else {
+            $result = mysqli_fetch_assoc($queryResult);
+            $queryResult->free();
+            if (password_verify($result['pw_hash'], $pw_hash)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    public function verifyLoginUsername($username, $pw_hash) {
+        $query = "SELECT username, pw_hash FROM users WHERE username = $username";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {

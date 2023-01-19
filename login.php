@@ -1,7 +1,7 @@
 <?php
 use DB\DBAccess;
 
-require_once "connessione.php"; 
+require_once "connection.php"; 
 
 $htmlPage = file_get_contents("login.html");
 $connessione = new DBAccess();
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])) {
             if($isEmail)
                 $queryOk = $connection->verifyLoginEmail($utente, $pw_hash);
             else 
-                $queryOk = $connection->verifyLoginUsername($utente, $pw_hash); //da aggiungere query
+                $queryOk = $connection->verifyLoginUsername($utente, $pw_hash);
             if($queryOk) {
                 $formMessages = '<div id="success"><p>Login avvenuto con successo.</p></div>';
                 $role = $connection->getUserRole($utente);

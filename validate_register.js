@@ -1,7 +1,7 @@
 var form_details = [
-    "username" = [/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/, "L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri"],
-    "email" = [/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/, "L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri"],
-    "password" = [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/, "La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &"]
+    "username" = ["/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/", "L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri"],
+    "email" = ["/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", "L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri"],
+    "password" = ["/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/", "La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &"]
 ];
 
 function load() {
@@ -20,7 +20,7 @@ function validateField(field) {
     }
     var regex = form_details[field.id][0];
     var value = field.value;
-    if (!(regex.test(value))) {
+    if (!(regex.test(value))) { // modificare regex.test() perché non va
         showError(field);
         field.focus();
         return false;

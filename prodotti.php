@@ -10,7 +10,7 @@ $loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li
 $guitars = '';
 $listText = '';
 
-$newGuitarLink = '<a id="addNewGuitar" href="">Aggiungi chitarra</a>'; // link pagina nuova chitarra
+$newGuitarLink = '<a id="addNewGuitar" href="./aggiungi-prodotto.php">Aggiungi chitarra</a>'; // link pagina nuova chitarra
 if (isset($_SESSION['session_id'])) {
     $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>';
     $HTMLpage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
@@ -20,6 +20,9 @@ if (isset($_SESSION['session_id'])) {
     else {
         $HTMLpage = str_replace('<linkNuovaChitarra />', '', $HTMLpage);
     }
+}
+else {
+    $HTMLpage = str_replace('<linkNuovaChitarra />', '', $HTMLpage);
 }
 
 $connOk = $connection->openConnection();
@@ -32,11 +35,11 @@ if ($connOk) {
         $listText .= '<ul class="prodotti">';
         foreach ($guitars as $guitar) {
             $listText .= '<li>' .
-                '<img src=". ' . $guitar['Image'] . '" height="300" width="200" alt="' . $guitar['Alt'] . '" />' . // manca alt
+                '<img src="./images/' . $guitar['ID'] . '.webp" height="300" width="200" alt="' . $guitar['Alt'] . '" />' . // manca alt
                 '<h3>' . $guitar['Brand'] . '</h3>' .
                 '<p>' . $guitar['Model'] . '</p>' .
                 '<p>' . $guitar['Price'] . '</p>' .
-                '<a href="./product.php?id=' . $guitar['ID'] . '">Vedi</a>' . // manca il link alla pagina specifica
+                '<a href="./prodotto.php?id=' . $guitar['ID'] . '">Vedi</a>' . // manca il link alla pagina specifica
                 '</li>';
         }
         $listText .= '</ul>';

@@ -53,7 +53,7 @@ if($connOk) {
         $mainReplace = '<main id="product">
                             <ul>
                                 <li id="img">
-                                    <img src=".' . $info['Image'] . '" alt="' . $info['Alt'] . '" height="510" width="340"/>
+                                    <img src="./images/' . $info['ID'] . '.webp" alt="' . $info['Alt'] . '" height="510" width="340"/>
                                 </li>
                                 <li id="title">
                                     <h2>' . $info['Brand'] . '</h2>
@@ -73,7 +73,7 @@ if($connOk) {
                                     <input type="submit" id="buttonDelete" name="formDelete" value="Elimina chitarra" />
                                 </form>';
             } else { // UTENTE NON ADMIN
-                if($connection->checkFavourite($_SESSION['session_email'])) { // CHITARRA TRA I PREFERITI
+                if($connection->checkFavourite($_SESSION['session_email'], $id)) { // CHITARRA TRA I PREFERITI
                     $mainReplace .= '<form method="post" action="product.php?id=\'' . $id . '\'">
                                         <input type="submit" id="buttonDelete" name="formDelFav" value="Togli dai preferiti" />
                                     </form>';
