@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="style.css" media="handheld, screen"/> 
         <link rel="stylesheet" href="login.css" media="handheld, screen"/> 
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+        <script src="loginValidation.js"></script>
     </head>
     <body>
         <header>
@@ -36,14 +37,16 @@
             <h2>Accedi al tuo account</h2>
             <messaggiPerForm />
 
-            <form action="login.php" method="post" class="login-form">
+            <form action="login.php" method="post" onsubmit="checkInput()" class="login-form">
                 <fieldset>
                     <legend>Utente/Email e <span lang="en">Passoword</span></legend>
 
                     <label for="utente">Utente:</label>
-                    <span><input type="text" name="utente" id="utente" value="valUtente" /></span>
+                    <p id="user"></p>
+                    <span><input type="text" name="utente" id="utente" value="<valUtente />" /></span>
                     <label for="password"><span lang="en">Passoword</span>:</label>
-                    <span><input type="password" name="password" id="password" value="valPassword" /></span>
+                    <p user="password"></p>
+                    <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
                     <input type="submit" id="submit" name="submit" class="" value="Accedi" />
                 </fieldset>
 

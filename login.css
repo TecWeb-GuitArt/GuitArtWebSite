@@ -46,3 +46,6 @@ main {
     border: 2px solid;
   }
   
+  .error {
+    color: red;
+  }
