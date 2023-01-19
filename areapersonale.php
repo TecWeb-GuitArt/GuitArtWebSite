@@ -1,13 +1,20 @@
 <?php
     use DB\DBAccess;
     require_once "connection.php";
-    //session_start();
     $paginaHTML = file_get_contents("areapersonale.html");
+
+    //controllo logout
+    if(isset($_POST['logout'])){
+        session_destroy();
+        header('Location: index.php');
+        exit();
+    }
 
     //connessione DB
     $connection = new DBAccess();
     $connOk = $connection->openConnection();
     //
+    
 
     //paginaAdmin
     $paginaAdmin = "";
