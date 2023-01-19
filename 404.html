@@ -8,7 +8,7 @@
         <meta name="author" content="Andrea Meneghello"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="style.css" media="handheld, screen"/> 
-        <link rel="stylesheet" href="favourites.css" media="handheld, screen"/> 
+        <link rel="stylesheet" href="404.css" media="handheld, screen"/> 
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     </head>
     <body>
@@ -18,23 +18,25 @@
             <nav>
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
-                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./products.php">Prodotti</a></li>
                     <li><a href="./contatti.php">Contatti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
-                    <li>Preferiti</li>
+                    <li><a href="./login.php"><span lang="en">Login</span></a></li>
+                    <li><a href="./registrati.php">Registrati</a></li>
                 </ul>
             </nav>
         </header>
-
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href=""><span lang="en">Home</span></a>  &rarr;  Preferiti</p>
-        </nav>
-
         <main id="content">
-            <h2>I tuoi preferiti</h2>
-            <listaPreferiti />
+            <div class="e404">
+                <h1>404</h1>
+                <p class="subtitle">Stiamo accordando le nostre chitarre...</p>
+                <p>La pagina che sta cercando non è stata trovata perchè non esiste, è stata spostata o il <span lang="en">link</span> non è valido.</p>
+                <p>Riprovare a ricaricare la pagine, se il problema persiste, clicca il link per tornare alla <span lang="en">home</span>.</p>
+                <a href="./index.php">Ritorna alla <span lang="en">Home</span></a>
+            </div>
         </main>
         <footer>
-            <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights Reserved</span></p>        </footer>
+            <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights Reserved</span></p>    
+        </footer>
     </body>
 </html>
