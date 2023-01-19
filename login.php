@@ -30,7 +30,6 @@ if(isset($_POST['submit'])) {
         $messaggiPerForm .= '<li>Inserire un nome utente o mail valida</li>';
     } else {
         if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3]$/", $utente)) 
-            //$messaggiPerForm .= '<li>Inserire un email valida</li>';
             $isEmail = false;        
     }
 
