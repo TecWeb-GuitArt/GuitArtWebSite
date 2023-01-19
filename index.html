@@ -4,25 +4,28 @@
         <meta charset="utf-8"/>
         <title>GuitArt</title>
         <meta name="author" content="Niccolò Fasolo"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="style.css" media="handheld, screen"/>
         <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     </head>
     <body>
         <header>
+            <a class="nav-help" href="#content">Passa al contenuto principale</a>
             <h1>Guitart</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Prodotti</a></li>
-                    <li><a href="contatti.html">Contatti</a></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a id="cart" href="#">Carrello</a></li>
+                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./login.php"><span lang="en">Login</span></a></li>
+                    <li><a href="./registrati.php">Registrati</a></li>
                 </ul>
             </nav>
         </header>
         <nav id="breadcrumb">
             <p>Ti trovi in: <span lang="en">Home</span></p>
         </nav>
-        <main>
+        <main id="content">
             <div class="banner" id="mobile-intro">
                 <h1>Benvenuto su GuitArt</h1>
                 <p>Scopri tutte le nostre chitarre!</p>
@@ -40,7 +43,7 @@
             </div>
         </main>
         <footer>
-            <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights Reserved</span></p>
+            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
         </footer>
     </body>
 </html>

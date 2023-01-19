@@ -16,12 +16,22 @@
     --breadvisitedcolor: rgb(187, 187, 187);
     --mainlinkbg: #fff;
     --mainlinktxt: #000;
+    --mainlinkbginv: #000;
+    --mainlinktxtinv: #fff;
 }
 
 html, body {
     font-size: 100%;
     font-family: "Futura", sans-serif;
     line-height: 1.5em;
+}
+
+.nav-help{ 
+    position: absolute; 
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden; 
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 /*
@@ -71,12 +81,9 @@ header nav a:visited {
     color: var(--menuvisitedcolor);
 }
 
-/* #cart {
-    background-image: url('./images/cart.png');
-    background-position: right center;
-    background-size: 1.2em;
-    background-repeat: no-repeat;
-} */
+header nav a img {
+    vertical-align: middle;
+}
 
 /*
 ====== SEZIONE BREADCRUMB ======
@@ -149,6 +156,14 @@ main div a {
     background-blend-mode: overlay;
 }
 
+#success {
+    color: green;
+}
+
+#errors {
+    color: red;
+}
+
 /*
 ====== SEZIONE FOOTER ======
 */
@@ -157,4 +172,3 @@ footer {
     padding: 2em;
     text-align: center;
 }
-*/
