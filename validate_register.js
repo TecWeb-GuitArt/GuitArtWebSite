@@ -20,7 +20,7 @@ function validateField(field) {
     }
     var regex = form_details[field.id][0];
     var value = field.value;
-    if (!(regex.test(value))) { // modificare regex.test() perché non va
+    if (value.search(regex) == 0) { // modificare regex.test() perché non va
         showError(field);
         field.focus();
         return false;
