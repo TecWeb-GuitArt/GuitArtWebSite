@@ -3,6 +3,11 @@
     require_once "connection.php";
     $paginaHTML = file_get_contents("areapersonale.html");
 
+    if(!isset($_SESSION['session_id'])) {
+        header('Location: index.php');
+        exit();
+    }
+
     //controllo logout
     if(isset($_POST['logout'])){
         session_destroy();

@@ -34,7 +34,7 @@ function checkProhibitNumbers($value) {
     return preg_match("/^[a-zA-Z\-\ ]+$/", $value);
 }
 
-if (isset($_SESSION['session_id']) && $_SESSION['session_role'] == "admin") { // redirect se l'utente non è admin
+if (!isset($_SESSION['session_role']) && $_SESSION['session_role'] != "admin") { // redirect se l'utente non è admin
     header("Location: index.php");
     exit;
 }

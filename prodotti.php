@@ -5,15 +5,12 @@ require_once "connection.php";
 $HTMLpage = file_get_contents("products.html");
 $connection = new DBAccess();
 
-$loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>';
-
 $guitars = '';
 $listText = '';
 
 $newGuitarLink = '<a id="addNewGuitar" href="./aggiungi-prodotto.php">Aggiungi chitarra</a>'; // link pagina nuova chitarra
 if (isset($_SESSION['session_id'])) {
-    $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>';
-    $HTMLpage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
+    $HTMLpage = str_replace('<login />', '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
     if ($_SESSION['role'] == 'admin') {
         $HTMLpage = str_replace('<linkNuovaChitarra />', $newGuitarLink, $HTMLpage);
     }
@@ -22,6 +19,7 @@ if (isset($_SESSION['session_id'])) {
     }
 }
 else {
+    $HTMLpage = str_replace('<login />', '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>', $HTMLpage);
     $HTMLpage = str_replace('<linkNuovaChitarra />', '', $HTMLpage);
 }
 

@@ -15,11 +15,10 @@ if(isset($_GET["id"])) {
     $id = $_GET["id"];
 }
 
-$loginBtns = '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>';
-
 if (isset($_SESSION['session_id'])) {
-    $loggedInBtns = '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>';
-    $HTMLpage = str_replace($loginBtns, $loggedInBtns, $HTMLpage);
+    $HTMLpage = str_replace("<login />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
+} else {
+    $HTMLpage = str_replace("<login />", '<li><a href="./login.php"><span lang="en">Login</span></a></li><li><a href="./registrati.php">Registrati</a></li>', $HTMLpage);
 }
 
 $connOk = $connection->openConnection();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
         <meta charset="utf-8"/>
         <title>Area personale - GuitArt</title>
@@ -10,19 +10,21 @@
     </head>
     <body>
         <header>
-            <h1>Guitart</h1>
+            <a class="nav-help" href="#content">Passa al contenuto principale</a>
+            <h1>GuitArt</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li>Prodotti</li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a id="cart" href="#">Carrello</a></li>
+                    <li><a href="./index.php"><span lang="en">Home</span></a></li>
+                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li>
+                    <li><img src="./images/account.svg" height="44" width="44" alt="area personale"/></li>
                 </ul>
             </nav>
         </header>
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="">Area personale</a></p>
+            <p>Ti trovi in: <a href="./index.php"><span lang="en">Home</span></a> &rarr; <a href="./utente.php">Area Personale</a></p>
         </nav>
         <main>
             <h1>Benvenuto</h1>
@@ -32,7 +34,7 @@
             <areaPersonale/>            
         </main>
         <footer>
-            <p>Niccolò Fasolo, Nicola Cecchetto, Andrea Meneghello, Andrea Longo - <span lang="en">All Rights Reserved</span></p>
+            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
         </footer>
     </body>
 </html>
