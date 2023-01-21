@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8"/>
+        <title>GuitArt</title>
+        <meta name="author" content="Andrea Longo"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" media="handheld, screen"/>
+        <link rel="stylesheet" href="mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+    </head>
+    <body>
+        <header>
+            <a class="nav-help" href="#content">Passa al contenuto principale</a>
+            <h1>GuitArt</h1>
+            <nav>
+                <ul>
+                    <li><span lang="en">Home</span></li>
+                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <login />
+                </ul>
+            </nav>
+        </header>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="./index.php"><span lang="en">Home</span></a> &rarr; <a href="./utente.php">Area Personale</a> &rarr; Modifica Profilo</p>
+        </nav>
+        <main id="content">
+            <messaggiForm />
+            <form method="post" action="modificaprofilo.php">
+                <legend>Modifica il tuo profilo</legend>
+                <label>Nome utente:</label>
+                <input type="text" name="nomeutente" id="nomeutente" value="<valName />"/><br/>
+                <input type="submit" name="nomesubmit" id="nomesubmit" />
+            </form>
+            <form method="post" action="modificaprofilo.php">
+                <legend>Modifica la tua password</legend>
+                <label>password:</label>
+                <input type="password" name="password" id="password" value="<valPassword />" /><br/>
+                <input type="submit" name="passwordsubmit" id="passwordsubmit" />
+            </form>
+        </main>
+        <footer>
+            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
+        </footer>
+    </body>
+</html>

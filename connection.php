@@ -64,7 +64,7 @@ class DBAccess {
     }
 
     public function updateUsername($email, $username) {
-        $query = "UPDATE users SET username = $username WHERE email = $email";
+        $query = "UPDATE users SET username = \"$username\" WHERE email = \"$email\"";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -76,7 +76,7 @@ class DBAccess {
     }
 
     public function updatePassword($email, $pw_hash) {
-        $query = "UPDATE users SET pw_hash = $pw_hash WHERE email = $email";
+        $query = "UPDATE users SET pw_hash = \"$pw_hash\" WHERE email = \"$email\"";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
