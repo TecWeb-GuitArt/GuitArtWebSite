@@ -71,7 +71,7 @@ main h2 {
     border: 0.3em;
     border-radius: 3em;
     text-decoration: none;
-    background-image: url('./images/add.svg');
+    background-image: url('../images/add.svg');
     background-position: 3% 50%;
     background-size: 2em;
     background-repeat: no-repeat;
