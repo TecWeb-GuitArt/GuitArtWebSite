@@ -46,7 +46,7 @@ header {
 }
 
 header h1 {
-    background-image: url('./images/logo.png');
+    background-image: url('../images/logo.png');
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
@@ -136,16 +136,16 @@ main div a {
 }
 
 #mobile-intro {
-    background-image: url("./images/guitar1.jpeg");
+    background-image: url("../images/guitar1.jpeg");
     display: none;
 }
 
 #banner1 {
-    background-image: url("./images/6index.webp");
+    background-image: url("../images/6index.webp");
 }
 
 #banner2 {
-    background-image: url("./images/7index.webp");
+    background-image: url("../images/7index.webp");
 }
 
 .banner {

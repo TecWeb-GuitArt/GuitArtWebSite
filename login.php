@@ -1,9 +1,9 @@
 <?php
 use DB\DBAccess;
 
-require_once "connection.php"; 
+require_once "./connection.php"; 
 
-$htmlPage = file_get_contents("login.html");
+$htmlPage = file_get_contents("./html/login.html");
 $connessione = new DBAccess();
 
 $utente = '';

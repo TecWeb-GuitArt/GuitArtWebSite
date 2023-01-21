@@ -1,10 +1,10 @@
 <?php
 
 use DB\DBAccess;
-require_once "connection.php";
+require_once "./connection.php";
 $connection = new DBAccess();
 
-$HTMLpage = file_get_contents("product.html");
+$HTMLpage = file_get_contents("./html/product.html");
 $title = "";
 $breadcrumb = "";
 $error = "";
@@ -74,22 +74,22 @@ if($connOk) { // CONNESSIONE AL DB OK
                                 
         if(isset($_SESSION['session_id'])) { // UTENTE AUTENTICATO
             if($_SESSION['session_role'] == 'admin') { // UTENTE ADMIN
-                $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
+                $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
                                     <input type="submit" id="buttonDelete" name="formDelete" value="Elimina chitarra" />
                                 </form>';
             } else { // UTENTE NON ADMIN
                 if($connection->checkFavourite($_SESSION['session_email'], $id)) { // CHITARRA TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
+                    $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
                                         <input type="submit" id="buttonDelete" name="formDelFav" value="Togli dai preferiti" />
                                     </form>';
                 } else { // CHITARRA NON TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="prodotto.php?id=\'' . $id . '\'">
+                    $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
                                         <input type="submit" id="button" name="formAddFav" value="Aggiungi ai preferiti" />
                                     </form>';
                 }
             }
         } else { // UTENTE NON AUTENTICATO
-            $mainReplace .= '<a id="button" href="login.php">Effettua il login</a>';
+            $mainReplace .= '<a id="button" href="./login.php">Effettua il login</a>';
         }
         $connection->closeConnection(); // chiudo qui la connessione con il DB perchè ora sono sicuro che non mi serve più
         $mainReplace .=         '</li>

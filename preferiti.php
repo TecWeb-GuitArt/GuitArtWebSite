@@ -1,8 +1,8 @@
 <?php
 use DB\DBAccess;
 
-require_once "connection.php"; 
-$htmlPage = file_get_contents("favourites.html");
+require_once "./connection.php"; 
+$htmlPage = file_get_contents("./html/favourites.html");
 $connessione = new DBAccess();
 
 $favourites = '';

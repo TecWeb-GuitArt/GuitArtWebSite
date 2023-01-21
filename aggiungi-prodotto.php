@@ -1,10 +1,10 @@
 <?php
 
 use DB\DBAccess;
-require_once "connection.php";
+require_once "./connection.php";
 $connection = new DBAccess();
 
-$HTMLpage = file_get_contents("addproduct.html");
+$HTMLpage = file_get_contents("./html/addproduct.html");
 
 $messaggi = "";
 $model = "";

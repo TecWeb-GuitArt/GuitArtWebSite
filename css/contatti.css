@@ -21,7 +21,7 @@ main div{
     padding: 2em;
     align-items: center;
 
-    background-image: url("images/guitart_shop.webp");
+    background-image: url("../images/guitart_shop.webp");
     background-position: right;
     background-size: 30vw;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@ main div{
 
 dl.uffici{
     grid-area: u;
-    background: url("images/location_icon.svg") top no-repeat;
+    background: url("../images/location_icon.svg") top no-repeat;
 }
 
 dt.uffici{
@@ -41,7 +41,7 @@ dt.uffici{
 
 dl.telefono{
     grid-area: t;
-    background: url("images/phone_icon.svg") top no-repeat;
+    background: url("../images/phone_icon.svg") top no-repeat;
 }
 
 dt.telefono{
@@ -51,7 +51,7 @@ dt.telefono{
 
 dl.email{
     grid-area: e;
-    background: url("images/email_icon.svg") top no-repeat;   
+    background: url("../images/email_icon.svg") top no-repeat;   
 }
 
 dt.email{
@@ -60,7 +60,7 @@ dt.email{
 
 dl.orario{
     grid-area: o;
-    background: url("images/clock_icon.svg") top no-repeat;
+    background: url("../images/clock_icon.svg") top no-repeat;
 }
 
 #titleorario{

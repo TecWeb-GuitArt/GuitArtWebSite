@@ -1,8 +1,8 @@
 <?php
 use DB\DBAccess;
-require_once "connection.php"; //importo DBAccess dentro connection.php
+require_once "./connection.php"; //importo DBAccess dentro connection.php
 
-$HTMLpage = file_get_contents("register.html");
+$HTMLpage = file_get_contents("./html/register.html");
 $connection = new DBAccess();
 
 $tagPermessi = '<em><strong><ul><li><span>';

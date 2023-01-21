@@ -1,8 +1,8 @@
 <?php
 use DB\DBAccess;
-require_once "connection.php";
+require_once "./connection.php";
 
-$HTMLpage = file_get_contents("products.html");
+$HTMLpage = file_get_contents("./html/products.html");
 $connection = new DBAccess();
 
 $guitars = '';

@@ -46,17 +46,17 @@ h1#title{
 }
 
 .member1{
-    background: url("images/user.png")  no-repeat center top;
+    background: url("../images/user.png")  no-repeat center top;
 }
 
 .member2{
-    background: url("images/user.png")  no-repeat center top;
+    background: url("../images/user.png")  no-repeat center top;
 }
 
 .member3{
-    background: url("images/user.png")  no-repeat center top;
+    background: url("../images/user.png")  no-repeat center top;
 }
 
 .member4{
-    background: url("images/user.png")  no-repeat center top;
+    background: url("../images/user.png")  no-repeat center top;
 }
