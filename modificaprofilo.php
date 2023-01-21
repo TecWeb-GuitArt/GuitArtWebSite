@@ -9,7 +9,7 @@
     $password ="";
 
     if(!isset($_SESSION['session_id'])) {
-        header('Location: index.php');
+        header('Location: accessonegato.php');
         exit();
     } 
 

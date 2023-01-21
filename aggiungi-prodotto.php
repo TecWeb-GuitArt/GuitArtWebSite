@@ -35,7 +35,7 @@ function checkProhibitNumbers($value) {
 }
 
 if (!isset($_SESSION['session_role']) && $_SESSION['session_role'] != "admin") { // redirect se l'utente non è admin
-    header("Location: index.php");
+    header("Location: accessonegato.php");
     exit;
 }
 

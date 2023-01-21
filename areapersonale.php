@@ -4,7 +4,7 @@
     $paginaHTML = file_get_contents("./html/areapersonale.html");
 
     if(!isset($_SESSION['session_id'])) {
-        header('Location: index.php');
+        header('Location: accessonegato.php');
         exit();
     }
 
