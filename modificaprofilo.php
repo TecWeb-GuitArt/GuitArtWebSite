@@ -8,7 +8,7 @@
     $username ="";
     $password ="";
 
-    if(isset($_SESSION['session_id'])) {
+    if(!isset($_SESSION['session_id'])) {
         header('Location: index.php');
         exit();
     } 
@@ -19,8 +19,6 @@
         $value = htmlentities($value);
         return $value;
     }
-
-    $htmlPage = str_replace("<login />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./utente.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $htmlPage);
 
     //valido form nome utente
     if(isset($_POST['nomesubmit'])){
@@ -38,7 +36,7 @@
             $connOk = $connection->openConnection();
             if($connOk){
                 //conn col db ok
-                if($connection->updateUsername("test@test.it", $username)){
+                if($connection->updateUsername($_SESSION['session_user'], $username)){
                     //query ok
                     $messaggi .= "<p id='formSuccess'>Nome utente aggiornto con successo</p>";
                 } else{
@@ -76,7 +74,7 @@
             $connOk = $connection->openConnection();
             if($connOk){
                 //conn col db ok
-                if($connection->updatePassword("test@test.it", password_hash($password, PASSWORD_DEFAULT))){
+                if($connection->updatePassword($_SESSION['session_user'], password_hash($password, PASSWORD_DEFAULT))){
                     //query ok
                     $messaggi .= "<p id='formSuccess'>Password aggiornto con successo</p>";
                 } else{
