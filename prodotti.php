@@ -12,11 +12,13 @@ $listText = '';
 
 $newGuitarLink = '<a id="addNewGuitar" href="./aggiungi-prodotto.php">Aggiungi chitarra</a>'; // link pagina nuova chitarra
 if (isset($_SESSION['session_id'])) {
-    $HTMLpage = str_replace('<login />', '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
+    
     if ($_SESSION['session_role'] == 'admin') {
+        $HTMLpage = str_replace('<login />', '<li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
         $HTMLpage = str_replace('<linkNuovaChitarra />', $newGuitarLink, $HTMLpage);
     }
     else {
+        $HTMLpage = str_replace('<login />', '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
         $HTMLpage = str_replace('<linkNuovaChitarra />', '', $HTMLpage);
     }
 }
