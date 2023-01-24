@@ -2,7 +2,9 @@
     use DB\DBAccess;    
     require_once "connection.php";
     $connection = new DBAccess();
-    $htmlPage = file_get_contents("modificaprofilo.html");
+    $htmlPage = file_get_contents("./html/modificaprofilo.html");
+
+    session_start();
 
     $messaggi ="";
     $username ="";
@@ -38,7 +40,7 @@
                 //conn col db ok
                 if($connection->updateUsername($_SESSION['session_user'], $username)){
                     //query ok
-                    $messaggi .= "<p id='formSuccess'>Nome utente aggiornto con successo</p>";
+                    $messaggi .= "<p id='formSuccess'>Nome utente aggiornato con successo</p>";
                 } else{
                     //query andata male
                     $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
@@ -76,7 +78,7 @@
                 //conn col db ok
                 if($connection->updatePassword($_SESSION['session_user'], password_hash($password, PASSWORD_DEFAULT))){
                     //query ok
-                    $messaggi .= "<p id='formSuccess'>Password aggiornto con successo</p>";
+                    $messaggi .= "<p id='formSuccess'>Password aggiornata con successo.</p>";
                 } else{
                     //query andata male
                     $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";

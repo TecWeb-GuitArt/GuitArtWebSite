@@ -5,13 +5,15 @@ require_once "./connection.php";
 $HTMLpage = file_get_contents("./html/products.html");
 $connection = new DBAccess();
 
+session_start();
+
 $guitars = '';
 $listText = '';
 
 $newGuitarLink = '<a id="addNewGuitar" href="./aggiungi-prodotto.php">Aggiungi chitarra</a>'; // link pagina nuova chitarra
 if (isset($_SESSION['session_id'])) {
     $HTMLpage = str_replace('<login />', '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>', $HTMLpage);
-    if ($_SESSION['role'] == 'admin') {
+    if ($_SESSION['session_role'] == 'admin') {
         $HTMLpage = str_replace('<linkNuovaChitarra />', $newGuitarLink, $HTMLpage);
     }
     else {

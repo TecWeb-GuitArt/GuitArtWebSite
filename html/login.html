@@ -36,15 +36,13 @@
             <h2>Accedi al tuo account</h2>
             <messaggiPerForm />
 
-            <form action="./login.php" method="post" onsubmit="checkInput()" class="login-form">
+            <form action="./login.php" method="post" onsubmit="return checkInput();" class="login-form">
                 <fieldset>
-                    <legend>Utente/Email e <span lang="en">Passoword</span></legend>
+                    <legend>Utente/Email e <span lang="en">Password</span></legend>
 
                     <label for="utente">Utente:</label>
-                    <p id="user"></p>
                     <span><input type="text" name="utente" id="utente" value="<valUtente />" /></span>
-                    <label for="password"><span lang="en">Passoword</span>:</label>
-                    <p user="password"></p>
+                    <label for="password"><span lang="en">Password</span>:</label>
                     <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
                     <input type="submit" id="submit" name="submit" class="" value="Accedi" />
                 </fieldset>

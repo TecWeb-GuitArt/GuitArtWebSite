@@ -5,6 +5,8 @@ require_once "./connection.php";
 $connection = new DBAccess();
 
 $HTMLpage = file_get_contents("./html/product.html");
+
+session_start();
 $title = "";
 $breadcrumb = "";
 $error = "";
@@ -24,7 +26,7 @@ if (isset($_SESSION['session_id'])) {
 $connOk = $connection->openConnection();
 
 if(isset($_POST["formDelete"])) { // ENTRA QUI SE L'ADMIN CANCELLA UNA CHITARRA
-    if($connOK) {
+    if($connOk) {
         $connection->deleteGuitar($id);
         $connection->closeConnection();
         header('Location: prodotti.php');
@@ -35,16 +37,16 @@ if(isset($_POST["formDelete"])) { // ENTRA QUI SE L'ADMIN CANCELLA UNA CHITARRA
 }
 
 if(isset($_POST["formDelFav"])) { // ENTRA QUI SE LO USER TOGLIE DAI PREFERITI
-    if($connOK) {
-        $connection->removeFromFavourites($_SESSION['session_email'], $id);
+    if($connOk) {
+        $connection->removeFromFavourites($_SESSION['session_user'], $id);
     } else {
         $error = "<p>Impossibile togliere la chitarra dai preferiti a causa di un errore durante la connessione con il database.</p>";
     }
 }
 
 if(isset($_POST["formAddFav"])) { // ENTRA QUI SE LO USER AGGIUNGE AI PREFERITI
-    if($connOK) {
-        $connection->addToFavourites($_SESSION['session_email'], $id);
+    if($connOk) {
+        $connection->addToFavourites($_SESSION['session_user'], $id);
     } else {
         $error = "<p>Impossibile aggiungere la chitarra ai preferiti a causa di un errore durante la connessione con il database.</p>";
     }
@@ -74,16 +76,16 @@ if($connOk) { // CONNESSIONE AL DB OK
                                 
         if(isset($_SESSION['session_id'])) { // UTENTE AUTENTICATO
             if($_SESSION['session_role'] == 'admin') { // UTENTE ADMIN
-                $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
+                $mainReplace .= '<form method="post" action="./prodotto.php?id=' . $id . '">
                                     <input type="submit" id="buttonDelete" name="formDelete" value="Elimina chitarra" />
                                 </form>';
             } else { // UTENTE NON ADMIN
-                if($connection->checkFavourite($_SESSION['session_email'], $id)) { // CHITARRA TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
+                if($connection->checkFavourite($_SESSION['session_user'], $id)) { // CHITARRA TRA I PREFERITI
+                    $mainReplace .= '<form method="post" action="./prodotto.php?id=' . $id . '">
                                         <input type="submit" id="buttonDelete" name="formDelFav" value="Togli dai preferiti" />
                                     </form>';
                 } else { // CHITARRA NON TRA I PREFERITI
-                    $mainReplace .= '<form method="post" action="./prodotto.php?id=\'' . $id . '\'">
+                    $mainReplace .= '<form method="post" action="./prodotto.php?id=' . $id . '">
                                         <input type="submit" id="button" name="formAddFav" value="Aggiungi ai preferiti" />
                                     </form>';
                 }

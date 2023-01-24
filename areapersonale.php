@@ -3,6 +3,8 @@
     require_once "./connection.php";
     $paginaHTML = file_get_contents("./html/areapersonale.html");
 
+    session_start();
+
     if(!isset($_SESSION['session_id'])) {
         header('Location: accessonegato.php');
         exit();
@@ -15,6 +17,10 @@
         exit();
     }
 
+    /*if() {
+        // elimina utente
+    }*/
+
     //connessione DB
     $connection = new DBAccess();
     $connOk = $connection->openConnection();
@@ -23,22 +29,22 @@
 
     //paginaAdmin
     $paginaAdmin = "";
-    $paginaAdmin .= "<p>" . $_SESSION['session_username'] . "</p>";
+    $paginaAdmin .= "<p>" . $_SESSION['session_user'] . "</p>";
     $paginaAdmin .= "<ul>";
-    $paginaAdmin .= "<li><a href='./'>Modifica il profilo</a></li>";
+    $paginaAdmin .= "<li><a href='./modificaprofilo.php'>Modifica il profilo</a></li>";
     $paginaAdmin .= "</ul>";
 
     //paginaUtente
     $paginaUtente = "";
-    $paginaUtente .= "<p>" . $_SESSION['session_username'] . "</p>";
+    $paginaUtente .= "<p>" . $_SESSION['session_user'] . "</p>";
     $paginaUtente .= "<ul>";
     $paginaUtente .= "<li><a href='./preferiti.php'>Visualizza i preferiti</a></li>";
-    $paginaUtente .= "<li><a href='./'>Modifica il profilo</a></li>";
+    $paginaUtente .= "<li><a href='./modificaprofilo.php'>Modifica il profilo</a></li>";
     $paginaUtente .= "<li><a href='./'>Elimina il profilo</a></li>";
     $paginaUtente .= "</ul>";
 
     if (isset($_SESSION['session_id'])) {
-        if ($_SESSION['role'] == 'admin') {
+        if ($_SESSION['session_role'] == 'admin') {
             $paginaHTML = str_replace('<areaPersonale/>', $paginaAdmin, $paginaHTML);
         }
         else {

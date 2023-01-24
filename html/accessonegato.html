@@ -5,35 +5,34 @@
         <meta name="description" content="Questa pagina rappresenta una raccolta dei preferiti." />
         <!-- <meta name="keywords" content="" /> -->
         <title>GuitArt</title>
-        <meta name="author" content="Andrea Meneghello"/>
+        <meta name="author" content="Nicola Cecchetto"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/> 
-        <link rel="stylesheet" href="./css/favourites.css" media="handheld, screen"/> 
+        <link rel="stylesheet" href="./css/accessonegato.css" media="handheld, screen"/> 
         <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
     </head>
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1>Guitart</h1>
+            <h1>GuitArt</h1>
             <nav>
                 <ul>
-                    <li><a href='./index.php'><span lang="en">Home</span></a></li>
+                    <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
                     <li><a href="./contatti.php">Contatti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
-                    <li><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></li>
-                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
+                    <login />
                 </ul>
             </nav>
         </header>
-
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href=""><span lang="en">Home</span></a>  &rarr;  Preferiti</p>
-        </nav>
-
         <main id="content">
-            <h2>I tuoi preferiti</h2>
-            <listaPreferiti />
+            <div class="accessonegato">
+                <h1>Accesso Negato</h1>
+                <p class="subtitle">Non dovresti essere qui...</p>
+                <p>Questa pagina non è accessibile da te al momento.</p>
+                <a href="./index.php">Ritorna alla <span lang="en">Home</span></a>
+                <a href="./login.php">Effettua il <span lang="en">login</span></a>
+            </div>
         </main>
         <footer>
             <p>GuitArt - <span lang="en">All Rights Reserved</span></p>

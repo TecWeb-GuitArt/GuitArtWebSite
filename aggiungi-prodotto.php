@@ -6,6 +6,8 @@ $connection = new DBAccess();
 
 $HTMLpage = file_get_contents("./html/addproduct.html");
 
+session_start();
+
 $messaggi = "";
 $model = "";
 $brand = "";
@@ -34,9 +36,14 @@ function checkProhibitNumbers($value) {
     return preg_match("/^[a-zA-Z\-\ ]+$/", $value);
 }
 
-if (!isset($_SESSION['session_role']) && $_SESSION['session_role'] != "admin") { // redirect se l'utente non è admin
-    header("Location: accessonegato.php");
+if (!isset($_SESSION['session_id'])) {
+    header('Location: index.php');
     exit;
+} else {
+    if($_SESSION['session_role'] != "admin") {
+        header('Location: index.php');
+        exit;
+    }
 }
 
 if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
@@ -137,7 +144,7 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
     if($messaggi == "") { // FORM VALIDO
         $connOk = $connection->openConnection();
         if($connOk) { // CONNESSIONE COL DB OK
-            if($connection->insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) { // QUERY HA AVUTO SUCCESSO
+            if($connection->insertNewGuitar($model, $brand, $color, "€ ". $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, strip_tags($brand) . " " . strip_tags($model), $description)) { // QUERY HA AVUTO SUCCESSO
                 $ID = $connection->getLastID();
                 $name = explode(".", $_FILES["formImage"]["name"]);
                 if(end($name) == "webp") { // IMMAGINE COL FORMATO GIUSTO

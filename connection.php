@@ -88,7 +88,7 @@ class DBAccess {
     }
 
     public function deleteUser($email) {
-        $query = "DELETE FROM users WHERE email = $email";
+        $query = "DELETE FROM users WHERE email = \"$email\"";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -100,7 +100,7 @@ class DBAccess {
     }
 
     public function getUserRole($email) {
-        $query = "SELECT role FROM users WHERE email = $email";
+        $query = "SELECT role FROM users WHERE email = \"$email\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -113,9 +113,10 @@ class DBAccess {
         }
     }
 
-    public function insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, $alt, $description) { // NUOVA
-        $query = "INSERT INTO guitars (Model, Brand, Color, Price, Type, Strings, Frets, Body, Fretboard, Pickup_Configuration, Pickup_Type, Alt, Description)
-                  VALUES (\"$model\", \"$brand\", \"$color\", \"$price\", \"$type\", \"$strings\", \"$frets\", \"$body\", \"$fretboard\", \"$pickupConf\", \"$pickupType\", \"$alt\", \"$description\")";
+    public function insertNewGuitar($model, $brand, $color, $price, $type, $strings, $frets, $body, $fretboard, $pickupConf, $pickupType, $alt, $description) {
+        $id = $this->getLastID() + 1;
+        $query = "INSERT INTO guitars (ID, Model, Brand, Color, Price, Type, Strings, Frets, Body, Fretboard, Pickup_Configuration, Pickup_Type, Alt, Description)
+                  VALUES ($id, \"$model\", \"$brand\", \"$color\", \"$price\", \"$type\", $strings, $frets, \"$body\", \"$fretboard\", \"$pickupConf\", \"$pickupType\", \"$alt\", \"$description\")";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -166,7 +167,7 @@ class DBAccess {
     }
 
     public function removeFromFavourites($email, $guitar_id) {
-        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = ($email, $guitar_id)";
+        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = (\"$email\", $guitar_id)";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -178,7 +179,7 @@ class DBAccess {
     }
 
     public function getFavourites($email) {
-        $query = "SELECT * FROM favourites INNER JOIN guitars ON guitar_id = ID WHERE user_id = $email";
+        $query = "SELECT * FROM favourites INNER JOIN guitars ON guitar_id = ID WHERE user_id = \"$email\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -195,7 +196,7 @@ class DBAccess {
     }
 
     public function checkFavourite($email, $guitar_id) {
-        $query = "SELECT * FROM favourites WHERE user_id = $email AND guitar_id = $guitar_id";
+        $query = "SELECT * FROM favourites WHERE user_id = \"$email\" AND guitar_id = $guitar_id";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -207,8 +208,8 @@ class DBAccess {
         }
     }
 
-    public function verifyLoginEmail($email, $pw_hash) {
-        $query = "SELECT email, pw_hash FROM users WHERE email = $email";
+    public function verifyLoginEmail($email, $password) {
+        $query = "SELECT email, pw_hash FROM users WHERE email = \"$email\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -217,7 +218,7 @@ class DBAccess {
         else {
             $result = mysqli_fetch_assoc($queryResult);
             $queryResult->free();
-            if (password_verify($result['pw_hash'], $pw_hash)) {
+            if (password_verify($password,$result['pw_hash'])) {
                 return true;
             }
             else {
@@ -226,8 +227,8 @@ class DBAccess {
         }
     }
 
-    public function verifyLoginUsername($username, $pw_hash) {
-        $query = "SELECT username, pw_hash FROM users WHERE username = $username";
+    public function verifyLoginUsername($username, $password) {
+        $query = "SELECT username, pw_hash FROM users WHERE username = \"$username\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -236,12 +237,25 @@ class DBAccess {
         else {
             $result = mysqli_fetch_assoc($queryResult);
             $queryResult->free();
-            if (password_verify($result['pw_hash'], $pw_hash)) {
+            if (password_verify($password,$result['pw_hash'])) {
                 return true;
             }
             else {
                 return false;
             }
+        }
+    }
+
+    public function checkAlreadyExistingEmail($email) {
+        $query = "SELECT * FROM users WHERE email = \"$email\"";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return false; // email non presente nel sistema
+        }
+        else {
+            $queryResult->free();
+            return true; // email presente nel sistema
         }
     }
 

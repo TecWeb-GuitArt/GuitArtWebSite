@@ -1,8 +1,8 @@
-var form_details = [
-    "username" = ["/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/", "L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri"],
-    "email" = ["/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", "L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri"],
-    "password" = ["/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/", "La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &"]
-];
+var form_details = {
+    "username" : [/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/, "L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri."],
+    "email" : [/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/, "L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri."],
+    "password" : [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/, "La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &."]
+};
 
 function load() {
     for (var fieldId in form_details) {
@@ -20,7 +20,7 @@ function validateField(field) {
     }
     var regex = form_details[field.id][0];
     var value = field.value;
-    if (value.search(regex) == 0) { // modificare regex.test() perché non va
+    if (!regex.test(value)) {
         showError(field);
         field.focus();
         return false;
@@ -51,13 +51,17 @@ function validateP2() {
 }
 
 function validate() {
+    var errors = false;
     for (var fieldId in form_details) {
         var field = document.getElementById(fieldId);
         if (!validateField(field)) {
-            return false;
+            errors = true;
         }
     }
     if (!validateP2()) {
+        errors = true;
+    }
+    if(errors) {
         return false;
     }
     return true;
@@ -66,7 +70,7 @@ function validate() {
 function showError(field) {
     var parent = field.parentNode;
     var err = document.createElement("p");
-    err.className("errors");
+    err.className = "errors";
     err.appendChild(document.createTextNode(form_details[field.id][1]));
     parent.appendChild(err);
 }
@@ -74,7 +78,7 @@ function showError(field) {
 function showErrorP2(error) {
     var parent = document.getElementById("password2").parentNode;
     var err = document.createElement("p");
-    err.className("errors");
+    err.className = "errors";
     err.appendChild(document.createTextNode(error));
     parent.appendChild(err);
 }

@@ -32,13 +32,13 @@
             <form method="post" action="modificaprofilo.php" onsubmit="return validateName();">
                 <legend>Modifica il tuo profilo</legend>
                 <label>Nome utente:</label>
-                <input type="text" name="nomeutente" id="nomeutente" value="<valName />"/><br/>
+                <span><input type="text" name="nomeutente" id="nomeutente" value="<valName />"/></span><br/>
                 <input type="submit" name="nomesubmit" id="nomesubmit" />
             </form>
             <form method="post" action="modificaprofilo.php" onsubmit="return validatePassword();">
                 <legend>Modifica la tua password</legend>
                 <label>password:</label>
-                <input type="password" name="password" id="password" value="<valPassword />" /><br/>
+                <span><input type="password" name="password" id="password" value="<valPassword />" /></span><br/>
                 <input type="submit" name="passwordsubmit" id="passwordsubmit" />
             </form>
         </main>

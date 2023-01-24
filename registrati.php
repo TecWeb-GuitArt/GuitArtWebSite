@@ -5,6 +5,8 @@ require_once "./connection.php"; //importo DBAccess dentro connection.php
 $HTMLpage = file_get_contents("./html/register.html");
 $connection = new DBAccess();
 
+session_start();
+
 $tagPermessi = '<em><strong><ul><li><span>';
 $formMessages = '';
 
@@ -29,22 +31,22 @@ if (isset($_POST['submit'])) {
     // Controllo USERNAME
     $username = cleanInput($_POST['username']);
     if (strlen($username) == 0) {
-        $formMessages .= '<li>Inserire un username</li>';
+        $formMessages .= '<li>Inserire uno username.</li>';
     }
     else {
         if (!preg_match("/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/", $username)) {
-            $formMessages .= '<li>L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri</li>';
+            $formMessages .= '<li>L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri.</li>';
         }
     }
 
     // Controllo EMAIL
     $email = cleanInput($_POST['email']);
     if (strlen($email) == 0) {
-        $formMessages .= '<li>Inserire una email</li>';
+        $formMessages .= '<li>Inserire una email.</li>';
     }
     else {
         if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", $email)) {
-            $formMessages .= '<li>L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri</li>';
+            $formMessages .= '<li>L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri.</li>';
         }
     }
 
@@ -54,11 +56,11 @@ if (isset($_POST['submit'])) {
     $passCheck = false;
 
     if (strlen($password) == 0) {
-        $formMessages .= '<li>Inserire una password</li>';
+        $formMessages .= '<li>Inserire una password.</li>';
     }
     else {
         if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/", $password)) {
-            $formMessages .= '<li>La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &</li>';
+            $formMessages .= '<li>La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &.</li>';
         }
         else {
             $passCheck = true;
@@ -66,16 +68,16 @@ if (isset($_POST['submit'])) {
     }
 
     if (strlen($password2) == 0) {
-        $formMessages .= '<li>Ripetere la password</li>';
+        $formMessages .= '<li>Ripetere la password.</li>';
     }
     else {
         if ($passCheck) {
             if ($password != $password2) {
-                $formMessages .= '<li>Le due password non combaciano</li>';
+                $formMessages .= '<li>Le due password non combaciano.</li>';
             }
         }
         else {
-            $formMessages .= '<li>Le due password non combaciano</li>';
+            $formMessages .= '<li>Le due password non combaciano.</li>';
         }
     }
 
@@ -83,13 +85,17 @@ if (isset($_POST['submit'])) {
     if ($formMessages == '') { // Ovvero non ci sono errori
         $connOK = $connection->openConnection();
         if ($connOK) {
-            $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-            $queryOK = $connection->insertNewUser($username, $email, $pw_hash);
-            if ($queryOK) {
-                $formMessages = '<div id="success"><p>Registrazione avvenuta con successo.</p></div>';
-            }
-            else {
-                $formMessages = '<div id="errors"><p>Problema nell\'inserimento dei dati, controlla di non aver usato caratteri speciali.</p></div>';
+            if($connection->checkAlreadyExistingEmail($email)) {
+                $formMessages .= '<li>L\'email è già stata usata per creare un account. Usare un\'email diversa.</li>';
+            } else {
+                $pw_hash = password_hash($password, PASSWORD_DEFAULT);
+                $queryOK = $connection->insertNewUser($username, $email, $pw_hash);
+                if ($queryOK) {
+                    $formMessages = '<div id="success"><p>Registrazione avvenuta con successo.</p><a href="./login.php">Effettua il login.</a></div>';
+                }
+                else {
+                    $formMessages = '<div id="errors"><p>Problema nell\'inserimento dei dati, controlla di non aver usato caratteri speciali.</p></div>';
+                }
             }
         }
         else {
@@ -99,6 +105,7 @@ if (isset($_POST['submit'])) {
     else {
         $formMessages = '<div id="errors"><ul>' . $formMessages . '</ul></div>';
     }
+    $connection->closeConnection();
 }
 
 $HTMLpage = str_replace('<formMessages />', $formMessages, $HTMLpage);
