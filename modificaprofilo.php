@@ -52,6 +52,7 @@
                     //query andata male
                     $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
                 }
+                $connection->closeConnection();
             } 
             else 
             { // NESSUNA CONNESSIONE COL DB

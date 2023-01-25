@@ -59,6 +59,7 @@ if(isset($_POST['submit'])) {
             } else {
                 $messaggiPerForm = '<p class="errors">Credenziali errate.</p>';
             }
+            $connessione->closeConnection();
         } else {
             $messaggiPerForm = '<p class="errors">I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p>';
         }

@@ -56,6 +56,7 @@
                 //query andata male 
                 $messaggi .= "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
             }
+            $connection->closeConnection();
         } else{
             // NESSUNA CONNESSIONE COL DB
             $messaggi .= "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";

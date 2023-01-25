@@ -97,6 +97,7 @@ if (isset($_POST['submit'])) {
                     $formMessages = '<div class="errors"><p>Problema nell\'inserimento dei dati, controlla di non aver usato caratteri speciali.</p></div>';
                 }
             }
+            $connection->closeConnection();
         }
         else {
             $formMessages = '<div class="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
