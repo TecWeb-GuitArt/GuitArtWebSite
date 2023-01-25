@@ -70,7 +70,7 @@ function validate() {
 function showError(field) {
     var parent = field.parentNode;
     var err = document.createElement("p");
-    err.className = "errors";
+    err.className = "messages";
     err.appendChild(document.createTextNode(form_details[field.id][1]));
     parent.appendChild(err);
 }
@@ -78,7 +78,7 @@ function showError(field) {
 function showErrorP2(error) {
     var parent = document.getElementById("password2").parentNode;
     var err = document.createElement("p");
-    err.className = "errors";
+    err.className = "messages";
     err.appendChild(document.createTextNode(error));
     parent.appendChild(err);
 }

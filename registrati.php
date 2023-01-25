@@ -91,19 +91,19 @@ if (isset($_POST['submit'])) {
                 $pw_hash = password_hash($password, PASSWORD_DEFAULT);
                 $queryOK = $connection->insertNewUser($username, $email, $pw_hash);
                 if ($queryOK) {
-                    $formMessages = '<div id="success"><p>Registrazione avvenuta con successo.</p><a href="./login.php">Effettua il login.</a></div>';
+                    $formMessages = '<div class="success"><p>Registrazione avvenuta con successo.</p><a href="./login.php">Effettua il login</a></div>';
                 }
                 else {
-                    $formMessages = '<div id="errors"><p>Problema nell\'inserimento dei dati, controlla di non aver usato caratteri speciali.</p></div>';
+                    $formMessages = '<div class="errors"><p>Problema nell\'inserimento dei dati, controlla di non aver usato caratteri speciali.</p></div>';
                 }
             }
         }
         else {
-            $formMessages = '<div id="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
+            $formMessages = '<div class="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
         }
     }
     else {
-        $formMessages = '<div id="errors"><ul>' . $formMessages . '</ul></div>';
+        $formMessages = '<div class="errors"><ul>' . $formMessages . '</ul></div>';
     }
     $connection->closeConnection();
 }

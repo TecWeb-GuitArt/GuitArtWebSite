@@ -6,44 +6,54 @@
         <meta name="author" content="Niccolò Fasolo"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/>
-        <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+        <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)"/>
     </head>
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1>GuitArt</h1>
-            <nav>
+            <h1><span lang="en">GuitArt</span></h1>
+            <nav id="nav-desktop" aria-labelledby="menudesk">
+                <p class="nav-help" id="menudesk">Menu di navigazione</p>
                 <ul>
-                    <li><span lang="en">Home</span></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
                     <li><a href="./contatti.php">Contatti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
                     <login />
                 </ul>
             </nav>
+            <nav id="nav-mobile" aria-labelledby="menumobile">
+                <p class="nav-help" id="menumobile">Menu di navigazione</p>
+                <ul>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/></a></li>
+                    <li><a href="./contatti.php"><img src="./images/contatti.svg" height="44" width="44" alt="contatti"/></a></li>
+                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="chi siamo"/></a></li>
+                    <loginM />
+                </ul>
+            </nav>
         </header>
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" aria-labelledby="breadcrumbhelp">
+            <p class="nav-help" id="breadcrumbhelp"><span lang="en">Breadcrumb</span></p>
             <p>Ti trovi in: <span lang="en">Home</span></p>
         </nav>
         <main id="content">
             <div class="banner" id="mobile-intro">
-                <h1>Benvenuto su GuitArt</h1>
+                <h1>Benvenuto su <span lang="en">GuitArt</span></h1>
                 <p>Scopri tutte le nostre chitarre!</p>
                 <a href="./prodotti.php">Prodotti</a>
             </div>
             <div class="banner" id="banner1">
-                <h1>Ibanez AM53-SRF</h1>
+                <h1><span lang="en">Ibanez AM53-SRF</span></h1>
                 <p>Una semi-acustica dai toni caldi e prezzo contenuto.</p>
                 <a href="./prodotto.php?id=6">Vedi il prodotto</a>
             </div>
             <div class="banner" id="banner2">
-                <h1>Gibson Les Paul Classic Heritage</h1>
-                <p>Suonabilità ed estetica in una classica Gibson</p>
+                <h1><span lang="en">Gibson Les Paul Classic Heritage</span></h1>
+                <p>Suonabilità ed estetica in una classica <span lang="en">Gibson</span></p>
                 <a href="./prodotto.php?id=7">Vedi il prodotto</a>
             </div>
         </main>
         <footer>
-            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
+            <p><span lang="en">GuitArt - All Rights Reserved</span></p>
         </footer>
     </body>
 </html>

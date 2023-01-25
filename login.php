@@ -49,7 +49,6 @@ if(isset($_POST['submit'])) {
             else 
                 $queryOk = $connessione->verifyLoginUsername($email, $password);
             if($queryOk) {
-                $formMessages = '<div id="success"><p>Login avvenuto con successo.</p></div>';
                 $role = $connessione->getUserRole($email);
                 session_start();
                 $_SESSION["session_id"] = session_id();
@@ -58,13 +57,13 @@ if(isset($_POST['submit'])) {
                 header('Location: index.php');
                 exit();
             } else {
-                $messaggiPerForm = '<div id="errors"><p>Credenziali errate.</p></div>';
+                $messaggiPerForm = '<p class="errors">Credenziali errate.</p>';
             }
         } else {
-            $messaggiPerForm = '<div id="errors"><p>I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p></div>';
+            $messaggiPerForm = '<p class="errors">I nostri sistemi sono al momento non funzionanti, ci scusiamo per il disagio.</p>';
         }
     } else {
-        $messaggiPerForm = '<div id="errors"><ul>' . $messaggiPerForm . '</ul></div>';
+        $messaggiPerForm = '<ul class="errors">' . $messaggiPerForm . '</ul>';
     }
 }
 

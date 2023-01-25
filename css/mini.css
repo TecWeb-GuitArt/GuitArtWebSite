@@ -2,25 +2,47 @@
 ====== SEZIONE HEADER ======
 */
 
+header {
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
 header h1 {
     width: 100%;
     float: none;
     background-position: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
     padding-bottom: 0em;
     text-align: center;
 }
 
 header nav {
+    width: 100%;
     margin-left: 0%;
     text-align: center;
+    position: fixed;
+    bottom: 0%;
+}
+
+header nav ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--headerbgcolor);
 }
 
 header nav li {
-    display: block;
     margin-bottom: 0.4em;
-    margin-left: 0.2em;
-    margin-right: 0.2em;
+    flex: 1 0 50px;
+}
+
+#nav-desktop {
+    display: none;
+}
+
+#nav-mobile {
+    display: block;
 }
 
 /*
@@ -93,16 +115,11 @@ main div h1 {
 
 div.info{
     display: block;
-    padding-bottom: 60vh;
     background-image: none;
 }
 
 dl{
     margin: 3em;
-}
-
-#title{
-    font-size: 3em;
 }
 
 /*
@@ -123,4 +140,13 @@ h1#title{
     font-size: 4em;
     padding-top: 1em;
     margin-bottom: 0em;
+}
+
+
+/*
+====== SEZIONE FOOTER ======
+*/
+
+footer {
+    margin-bottom: 20%;
 }

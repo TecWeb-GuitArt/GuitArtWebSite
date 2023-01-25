@@ -37,11 +37,11 @@ if ($connOk) {
         $listText .= '<ul class="prodotti">';
         foreach ($guitars as $guitar) {
             $listText .= '<li>' .
-                '<img src="./images/' . $guitar['ID'] . '.webp" height="300" width="200" alt="' . $guitar['Alt'] . '" />' . // manca alt
+                '<img src="./images/' . $guitar['ID'] . '.webp" height="300" width="200" alt="' . $guitar['Alt'] . '" />' .
                 '<h3>' . $guitar['Brand'] . '</h3>' .
                 '<p>' . $guitar['Model'] . '</p>' .
                 '<p>' . $guitar['Price'] . '</p>' .
-                '<a href="./prodotto.php?id=' . $guitar['ID'] . '">Vedi</a>' . // manca il link alla pagina specifica
+                '<a href="./prodotto.php?id=' . $guitar['ID'] . '">Vedi</a>' .
                 '</li>';
         }
         $listText .= '</ul>';

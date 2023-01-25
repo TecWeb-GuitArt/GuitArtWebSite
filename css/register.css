@@ -1,46 +1,45 @@
 main {
-    margin-top: 2em;
     padding: 0em 3.5em;
+    margin-top: 2em;
     background-color: var(--headerbgcolor);
     color: var(--headertxtcolor);
-}
-
-form {
+  }
+  
+  form{
     max-width:500px;
     margin:2em auto;
-    padding:2em; 
-}
-
-label{
-    display:block;
-    padding:.7em .25em;
-    text-transform:uppercase;
-    font-size:14px;
-}
-
-fieldset {
+    padding:2em;  
+  }
+  
+  label{
+      display:block;
+      padding:.7em .25em;
+      text-transform:uppercase;
+      font-size:14px;
+  }
+  
+  fieldset {
     border: 0;
     margin:.5rem 0;
-}
+   
+  }
 
-legend {
+  legend {
     text-align: center;
     font-weight: bold;
-}
-
-input, textarea{
-    display:block;
-    width:100%;
-    padding:.5em;
-    font-size:18px;
-    border-radius:10px;
-}
-
-#submit{
+  }
+  
+  input, textarea{
+      display:block;
+      width:100%;
+      padding:.5em 0em;
+      font-size:18px;
+      border: #000 solid 1px;
+      box-sizing: border-box;
+  }
+  
+  #submit{
     background:#000;
-    padding:.5em;
     margin-top: 1em;
     color:white;
-    width:20%;
-    border: 2px solid;
   }

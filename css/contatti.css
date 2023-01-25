@@ -1,31 +1,32 @@
 main {
     background-color: white;
     color: black;
-    text-align: center;
+    margin-top: 2em;
+    padding: 0em 3.5em;
 }
 
 #title {
     grid-column: 4;
-    text-align: center;
-    padding: 1em;
-    font-size: 4em;    
+    font-size: 2em;
+    margin-bottom: 1em;
 }
 
 main div{
+    text-align: center;
     display: grid;
+    padding: 0;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 20px;
     grid-template-areas: "u t i"
                          "e o i";
-    padding: 2em;
     align-items: center;
 
     background-image: url("../images/guitart_shop.webp");
     background-position: right;
     background-size: 30vw;
     background-repeat: no-repeat;
-    background-position: 95%;
+    background-position: 100%;
     
     
 }
@@ -72,7 +73,7 @@ dt.orario{
     float: left;
     width: 50%;
     /*padding-right: 20%;*/    
-    text-align: center;
+    text-align: left;
 }
 
 dt.orario>dd{
@@ -91,7 +92,6 @@ h2{
 dt{
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.25em;
     padding: 0.3em;  
     margin: auto;
 }

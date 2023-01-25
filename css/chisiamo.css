@@ -2,23 +2,24 @@ main {
     background-color: white;
     color: black;
     text-align: center;
+    margin-top: 2em;
+    padding: 0em 3.5em;
 }
 
-h1#title{
-    font-size: 4em;
-    padding-top: 1em;
+main div {
+    padding: 4em 0em;
+}
+
+#title{
+    font-size: 2em;
     margin-bottom: 1em;
+    text-align: left;
 }
 
 
 #presentation{
     font-size: 1.25em;
-    padding: 2em;
-    /*float: left;*/
     text-align: left;
-    
-    
-    
 }
 
 
