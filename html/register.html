@@ -2,7 +2,7 @@
 <html lang="it">
     <head>
         <meta charset="utf-8"/>
-        <title>Products - GuitArt</title>
+        <title>Registrati - GuitArt</title>
         <meta name="author" content="Niccolò Fasolo"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/>
@@ -46,13 +46,13 @@
             <form action="./registrati.php" method="post" onsubmit="return validate();">
                 <fieldset>
                     <legend>Dati utente</legend>
-                    <label for="username"><span lang="en">Username</span></label>
+                    <label for="username"><span lang="en">Username</span>:</label>
                     <span><input type="text" name="username" id="username" value="<valusername />" /></span><br />
-                    <label for="email"><span lang="en">Email</span></label>
+                    <label for="email"><span lang="en">Email</span>:</label>
                     <span><input type="email" name="email" id="email" value="<valemail />" /></span><br />
-                    <label for="password"><span lang="en">Password</span></label>
+                    <label for="password"><span lang="en">Password</span>:</label>
                     <span><input type="password" name="password" id="password" /></span><br />
-                    <label for="password2"><span lang="en">Ripeti la password</span></label>
+                    <label for="password2">Ripeti la <span lang="en">password</span>:</label>
                     <span><input type="password" name="password2" id="password2" /></span><br />
                     <input type="submit" id="submit" name="submit" value="Registrati" />
                 </fieldset>
