@@ -29,17 +29,28 @@ main {
     font-weight: bold;
   }
   
-  input, textarea{
+  input, textarea, select{
       display:block;
       width:100%;
-      padding:.5em 0em;
-      font-size:18px;
+      padding: 0.8em 1em;
       border: #000 solid 1px;
       box-sizing: border-box;
+      margin-bottom: 1em;
+      background-color: white;
   }
   
-  #submit{
-    background:#000;
-    margin-top: 1em;
-    color:white;
+  input[type=submit], input[type=reset]{
+    padding: 0.8em 1em;
+    background-color: var(--mainlinkbginv);
+    color: var(--mainlinktxtinv);
+    border: 0.3em;
+    border-radius: 3em;
+    font-size: 1em;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  input:disabled, textarea:disabled, select:disabled {
+    background-color: rgb(206, 206, 206);
   }

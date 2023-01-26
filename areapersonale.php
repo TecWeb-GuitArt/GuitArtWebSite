@@ -22,11 +22,11 @@
 
     
     if (isset($_SESSION['session_id']) && $_SESSION['session_role'] == 'guest') {
-        $paginaHTML = str_replace("<login />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><img src="./images/account.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
-        $paginaHTML = str_replace("<loginM />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><img src="./images/account.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
+        $paginaHTML = str_replace("<login />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><img src="./images/accountActive.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
+        $paginaHTML = str_replace("<loginM />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><img src="./images/accountActive.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
     } else if(isset($_SESSION['session_id']) && $_SESSION['session_role'] == 'admin') {    
-        $paginaHTML = str_replace("<login />", '<li><img src="./images/account.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
-        $paginaHTML = str_replace("<loginM />", '<li><img src="./images/account.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
+        $paginaHTML = str_replace("<login />", '<li><img src="./images/accountActive.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
+        $paginaHTML = str_replace("<loginM />", '<li><img src="./images/accountActive.svg" height="44" width="44" alt="area personale"/></li>', $paginaHTML);
     }
 
 
@@ -69,28 +69,32 @@
 
     //paginaAdmin
     $paginaAdmin = "";
-    $paginaAdmin .= "<p>" . $_SESSION['session_user'] . "</p>";
-    $paginaAdmin .= "<ul>";
+    $paginaAdmin .= "<div><ul>";
     $paginaAdmin .= "<li><a href='./modificaprofilo.php'>Modifica il profilo</a></li>";
     $paginaAdmin .= "</ul>";
+    $paginaAdmin .= '<form id="formLogout" method="post" action="./areapersonale.php">
+                        <span><input type="submit" id="logout" name="logout" value="Logout"></span>
+                    </form></div>';
 
     //paginaUtente
     $paginaUtente = "";
-    $paginaUtente .= "<p>" . $_SESSION['session_user'] . "</p>";
-    $paginaUtente .= "<ul>";
+    $paginaUtente .= "<div><ul>";
     $paginaUtente .= "<li><a href='./preferiti.php'>Visualizza i preferiti</a></li>";
     $paginaUtente .= "<li><a href='./modificaprofilo.php'>Modifica il profilo</a></li>";
     $paginaUtente .= "</ul>";
+    $paginaUtente .= '<form id="formLogout" method="post" action="./areapersonale.php">
+                        <span><input type="submit" id="logout" name="logout" value="Logout"></span>
+                    </form>';
     $paginaUtente .= "<messaggiForm />";
-    $paginaUtente .= "<form method='post' action='areapersonale.php' onsubmit='return validatePassword();'>
+    $paginaUtente .= "<form id='formDelete' method='post' action='areapersonale.php' onsubmit='return validatePassword();'>
                         <fieldset>
                         <legend>Elimina il profilo</legend>
-                        <p>Attenzione: questa azione ti porterà alla pagina iniziale.</p>
+                        <p class='messages'>Attenzione: questa azione ti porterà alla pagina iniziale.</p>
                         <label>Inserisci la password:</label>
                         <span><input type='password' name='password' id='password'  /></span>
                         <span><input type='submit' name='elimina' id='elimina' value='Elimina profilo' /></span>
                         </fieldset>
-                    </form>";
+                    </form></div>";
     
 
     if (isset($_SESSION['session_id'])) {
@@ -100,8 +104,8 @@
         else {
             $paginaHTML = str_replace('<areaPersonale/>', $paginaUtente, $paginaHTML);
         }
+        $paginaHTML = str_replace('<user />', $_SESSION['session_user'], $paginaHTML);
     }
-
 
     $paginaHTML = str_replace('<messaggiForm />', $messaggi, $paginaHTML);
     echo $paginaHTML;

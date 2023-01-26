@@ -60,10 +60,6 @@ main h2 {
     color: var(--menulinkcolor);
 }
 
-.prodotti li a:visited {
-    color: var(--menuvisitedcolor);
-}
-
 #addNewGuitar {
     padding: 0.8em 1em 0.8em 2.2em;
     background-color: var(--mainlinkbginv);

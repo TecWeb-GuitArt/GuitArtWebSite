@@ -50,11 +50,11 @@ if ($connOk) {
         $listText .= '</ul>';
     }
     else {
-        $listText = "<p>Nessuna chitarra presente.</p>";
+        $listText = "<p class='info'>Nessuna chitarra presente.</p>";
     }
 }
 else {
-    $listText = "<p>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
+    $listText = "<p class='info'>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
 }
 
 echo str_replace("<listaProdotti />", $listText, $HTMLpage);

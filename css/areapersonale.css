@@ -1,23 +1,74 @@
 main{
     background-color: white;
     color: black;
-    padding-left: 5em;
+    margin-top: 2em;
+    padding: 0em 3.5em;
+}
+
+main div {
+    max-width:500px;
     margin: auto;
-}
-
-main h1 {
-    text-align: center;
     padding: 1em;
-    font-size: 4em;    
 }
 
-main p {
-    padding: 1.9em;
-    font-size: 3em;
+input[type=submit], main div a {
+    padding: 0.8em 1em;
+    background-color: var(--mainlinkbginv);
+    color: var(--mainlinktxtinv);
+    border: 0.3em;
+    border-radius: 3em;
+    font-size: 1em;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+#formLogout {
+    padding-top: 1em;
+    width: 100%;
+}
+
+#formDelete{
+    max-width:500px;
+    margin:2em auto;
+    padding-top: 2em;
+    text-align: left;
+  }
+  
+  #formDelete label{
+      display:block;
+      padding:.7em .25em;
+      text-transform:uppercase;
+      font-size:14px;
+  }
+  
+  #formDelete fieldset {
+    border: 0;
+    margin:.5rem 0;
+   
+  }
+
+  #formDelete legend {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  #formDelete input, #formDelete textarea{
+      display:block;
+      width:100%;
+      padding: 0.8em 1em;
+      border: #000 solid 1px;
+      box-sizing: border-box;
+      margin-bottom: 1em;
+  }
+
+  main ul {
+    list-style-type: none;
+    width: 100%;
+  }
+
+  main li {
+    margin: 1.5em 0em;
     
-}
-
-a#logout{
-    float: right;
-    margin-right: 5em;
-}
+    display: block;
+  }

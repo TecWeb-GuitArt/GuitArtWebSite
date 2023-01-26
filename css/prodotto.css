@@ -52,29 +52,13 @@
 }
 
 #button, #buttonDelete {
-    width: 100%;
-    padding: 30px;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    font-size: 1.5em;
-    border-radius: 15px 15px 15px 15px;
-    transition: ease 0.2s;
-}
-
-#button:hover {
-    background-color: #555;
-    transition: ease 0.2s;
-}
-
-#buttonDelete:hover {
-    background-color: rgb(86, 0, 0);
-    transition: ease 0.2s;
-}
-
-#button:active {
-    background-color: #AAA;
-    transition: ease 0.2s;
+    padding: 0.8em 1em;
+    background-color: var(--mainlinkbginv);
+    color: var(--mainlinktxtinv);
+    border: 0.3em;
+    border-radius: 3em;
+    text-decoration: underline;
+    font-size: 1.2em;
 }
 
 #description {
@@ -87,6 +71,7 @@
     grid-template-columns: 1fr 1fr;
     margin: 20px auto;
     max-width: 600px;
+    border: #000 1px solid;
 }
 
 #specs dt, #specs dd {
@@ -98,9 +83,9 @@
 }
 
 .spec1 {
-    background-color: #AAA;
+    background-color: #fff;
 }
 
 .spec2 {
-    background-color: #777;
+    background-color: rgb(206, 206, 206);
 }

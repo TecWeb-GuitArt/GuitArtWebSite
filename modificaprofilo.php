@@ -88,20 +88,20 @@
                 //conn col db ok
                 if($connection->updatePassword($_SESSION['session_user'], password_hash($password, PASSWORD_DEFAULT))){
                     //query ok
-                    $messaggi .= "<p id='formSuccess'>Password aggiornata con successo.</p>";
+                    $messaggi .= "<p class='success'>Password aggiornata con successo.</p>";
                 } else{
                     //query andata male
-                    $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                    $messaggi = "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
                 }
             } 
             else 
             { // NESSUNA CONNESSIONE COL DB
-                $messaggi = "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+                $messaggi = "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
             }
             $connection->closeConnection(); 
         } else{
             //form non valido
-            $messaggi = "<ul class='formError'>" . $messaggi . "</ul>";
+            $messaggi = "<ul class='errors'>" . $messaggi . "</ul>";
         }
 
         

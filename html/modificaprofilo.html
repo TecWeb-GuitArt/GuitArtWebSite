@@ -6,10 +6,10 @@
         <meta name="author" content="Andrea Longo"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/>
-        <link rel="stylesheet" href="./css/addproduct.css" media="handheld, screen"/>
-        <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)"/>
+        <link rel="stylesheet" href="./css/login.css" media="handheld, screen"/>
+        <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)"/>
         <script src="./javascript/modificaprofiloValidation.js"></script>
-    </head>
+    <link rel="stylesheet" href="./css/print.css" media="print"/></head>
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
@@ -43,18 +43,18 @@
             <form method="post" action="modificaprofilo.php" onsubmit="return validateName();">
                 <legend>Modifica il tuo profilo</legend>
                 <label>Nome utente:</label>
-                <span><input type="text" name="nomeutente" id="nomeutente" value="<valName />"/></span><br/>
-                <input type="submit" name="nomesubmit" id="nomesubmit" />
+                <span><input type="text" name="nomeutente" id="nomeutente" value="<valName />"/></span>
+                <input type="submit" name="nomesubmit" id="nomesubmit" value="Modifica nome utente"/>
             </form>
             <form method="post" action="modificaprofilo.php" onsubmit="return validatePassword();">
                 <legend>Modifica la tua password</legend>
                 <label>password:</label>
-                <span><input type="password" name="password" id="password" value="<valPassword />" /></span><br/>
-                <input type="submit" name="passwordsubmit" id="passwordsubmit" />
+                <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
+                <input type="submit" name="passwordsubmit" id="passwordsubmit" value="Modifica password"/>
             </form>
         </main>
         <footer>
-            <p>GuitArt - <span lang="en">All Rights Reserved</span></p>
+            <p><span lang="en">GuitArt - All Rights Reserved</span></p>
         </footer>
     </body>
 </html>

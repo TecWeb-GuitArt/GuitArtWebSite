@@ -25,7 +25,7 @@ hints = {
 function checkNull(value, field) {
     if(value.length == 0) {
         document.getElementById("p" + field).innerText = "Campo vuoto!";
-        document.getElementById("p" + field).className = "formError";
+        document.getElementById("p" + field).className = "messages";
     } else {
         document.getElementById("p" + field).innerText = hints[field];
         document.getElementById("p" + field).className = "";

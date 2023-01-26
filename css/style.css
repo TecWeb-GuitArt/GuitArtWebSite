@@ -11,19 +11,22 @@
     --contentbgcolor: #000;
     --contenttxtcolor: #fff;
     --menulinkcolor: #000;
-    --menuvisitedcolor: rgb(96, 96, 96);
     --breadlinkcolor: #fff;
-    --breadvisitedcolor: rgb(187, 187, 187);
     --mainlinkbg: #fff;
     --mainlinktxt: #000;
     --mainlinkbginv: #000;
     --mainlinktxtinv: #fff;
+    --visitedcolor: #7259ff;
 }
 
 html, body {
     font-size: 100%;
     font-family: "Futura", sans-serif;
     line-height: 1.5em;
+}
+
+a:visited {
+    color: var(--visitedcolor);
 }
 
 .nav-help{
@@ -77,10 +80,6 @@ header nav a:link {
     color: var(--menulinkcolor);
 }
 
-header nav a:visited {
-    color: var(--menuvisitedcolor);
-}
-
 header nav img {
     vertical-align: middle;
 }
@@ -94,17 +93,13 @@ header nav img {
 */
 
 #breadcrumb {
-    padding: 1em 0em 1em 3.5em;
+    padding: 1em 3.5em 1em 3.5em;
     color: var(--contenttxtcolor);
     background-color: var(--contentbgcolor);
 }
 
 #breadcrumb a:link {
     color: var(--breadlinkcolor);
-}
-
-#breadcrumb a:visited {
-    color: var(--breadvisitedcolor);
 }
 
 /*
@@ -121,7 +116,7 @@ main div {
     text-align: center;
 }
 
-main div h1 {
+main div h2 {
     padding-bottom: 1em;
     font-size: 4em;
 }
@@ -157,6 +152,7 @@ main div a {
     background-position: center;
     background-size: cover;
     background-blend-mode: overlay;
+    line-height: 3.5em;
 }
 
 .success {
@@ -177,6 +173,10 @@ main div a {
 
 .messages {
     color: red;
+}
+
+.info {
+    padding-top: 1.5em;
 }
 
 /*

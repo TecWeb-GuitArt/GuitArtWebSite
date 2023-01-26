@@ -45,10 +45,3 @@ main h2 {
 .preferiti li a:link {
     color: var(--menulinkcolor);
 }
-
-.preferiti li a:visited {
-    color: var(--menuvisitedcolor);
-}
-
-
-

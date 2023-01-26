@@ -1,0 +1,41 @@
+* {
+    padding: 0em;
+    margin: 0em;
+}
+
+html, body {
+    font-size: 12pt;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5em;
+    margin: auto;
+}
+
+#nav-desktop, #nav-mobile, .nav-help {
+    display: none;
+}
+
+a::after {
+    content: " ["attr(href)"]";
+}
+
+header h1 {
+    content: url(../images/logo.png);
+    width: 10ch;
+}
+
+#breadcrumb, main h2 {
+    padding: 1em 0em;
+}
+
+dt {
+    padding-top: 1em;
+    font-size: 14pt;
+}
+
+.prodotti {
+    column-count: 2;
+}
+
+footer {
+    padding-top: 2em;
+}

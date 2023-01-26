@@ -151,23 +151,23 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
                     $image = $_FILES["formImage"]["tmp_name"];
                     $path = "images/".$ID . "." . end($name);
                     if(move_uploaded_file($image,$path)) { // FILE SPOSTATO CORRETTAMENTE
-                        $messaggi = "<p id='formSuccess'>Chitarra inserita con successo!</p>";
+                        $messaggi = "<p class='success'>Chitarra inserita con successo!</p>";
                     } else { // FILE NON SPOSTATO CORRETTAMENTE
                         $connection->deleteGuitar($ID);
-                        $messaggi = "<p class='formError'>L'immagine non è stata caricata a causa di un errore interno. Riprovare a reinviare il form in un altro momento.</p>";
+                        $messaggi = "<p class='errors'>L'immagine non è stata caricata a causa di un errore interno. Riprovare a reinviare il form in un altro momento.</p>";
                     }
                 } else { // IMMAGINE COL FORMATO SBAGLIATO
-                    $messaggi = "<p class='formError'>L'immagine non è nel formato .webp! Riprovare reinserendo un'immagine in questo formato.</p>";
+                    $messaggi = "<p class='errors'>L'immagine non è nel formato .webp! Riprovare reinserendo un'immagine in questo formato.</p>";
                 }
             } else { // QUERY FALLITA
-                $messaggi = "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                $messaggi = "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
             }
         } else { // NESSUNA CONNESSIONE COL DB
-            $messaggi = "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+            $messaggi = "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
         }
         $connection->closeConnection(); // posso chiudere solo qui la connessione
     } else { // FORM NON VALIDO
-        $messaggi = "<ul class='formError'>" . $messaggi . "</ul>";
+        $messaggi = "<ul class='errors'>" . $messaggi . "</ul>";
     }
 }
 

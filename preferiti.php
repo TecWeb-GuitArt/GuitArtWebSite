@@ -25,7 +25,7 @@ if($connOk) {
     $connection->closeConnection();
 
     if($favourites != null) {
-        $listText .= '<ul class="preferiti">';
+        $listText .= '<ul class="prodotti">';
         foreach ($favourites as $favourite) {
             $listText .= '<li>' .
             '<img src="./images/' . $favourite['ID'] . '.webp" height="300" width="200" alt="' . $favourite['Alt'] . '" />' . 
@@ -37,13 +37,13 @@ if($connOk) {
         }
         $listText .= '</ul>'; 
     } else {
-        $listText = "<p>Lista preferiti vuota</p>";
+        $listText = "<p class='info'>Lista preferiti vuota</p>";
     }
 
     //clicca pulsante
 
 } else {
-    $listText = "<p>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
+    $listText = "<p class='info'>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
 }
 
 $HTMLpage = str_replace("<listaPreferiti />", $listText, $HTMLpage);
