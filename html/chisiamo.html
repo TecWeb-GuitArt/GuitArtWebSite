@@ -13,14 +13,25 @@
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1>GuitArt</h1>
-            <nav>
+            <h1><span lang="en">GuitArt</span></h1>
+            <nav id="nav-desktop" aria-labelledby="menudesk">
+                <p class="nav-help" id="menudesk">Menu di navigazione</p>
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
                     <li><a href="./contatti.php">Contatti</a></li>
                     <li>Chi siamo</li>
                     <login />
+                </ul>
+            </nav>
+            <nav id="nav-mobile" aria-labelledby="menumobile">
+                <p class="nav-help" id="menumobile">Menu di navigazione</p>
+                <ul>
+                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/></a></li>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/></a></li>
+                    <li><a href="./contatti.php"><img src="./images/contatti.svg" height="44" width="44" alt="contatti"/></a></li>
+                    <li><img src="./images/chisiamo.svg" height="44" width="44" alt="chi siamo"/></li>
+                    <loginM />
                 </ul>
             </nav>
         </header>
@@ -34,10 +45,26 @@
             <div id='ourteam'>
                 <h2 id='titleteam'>Il nostro Team</h2>
                 <ul id='team'>
-                    <li class='member1'>Nicola Cecchetto <p>L'esperto</p></li>
-                    <li class='member2'>Niccolò Fasolo <p>Il manager</p></li>
-                    <li class='member3'>Andrea Meneghello <p>Addetto alle vendite</p></li>
-                    <li class='member4'>Andrea Longo <p>Servizio clienti</p></li>
+                    <li>
+                        <img src="./images/ronnie.webp" alt="Nicola Cecchetto" height="100" width="100" />
+                        <p>Nicola Cecchetto</p>
+                        <p>L'esperto</p>
+                    </li>
+                    <li>
+                        <img src="./images/john.webp" alt="Niccolò Fasolo" height="100" width="100" />
+                        <p>Niccolò Fasolo</p>
+                        <p>Il manager</p>
+                    </li>
+                    <li>
+                        <img src="./images/chris.webp" alt="Andrea Meneghello" height="100" width="100" />
+                        <p>Andrea Meneghello</p>
+                        <p>Addetto alle vendite</p>
+                    </li>
+                    <li>
+                        <img src="./images/arnold.webp" alt="Andrea Longo" height="100" width="100" />
+                        <p>Andrea Longo</p>
+                        <p>Servizio clienti</p>
+                    </li>
                 </ul>           
             </div>            
         </main>

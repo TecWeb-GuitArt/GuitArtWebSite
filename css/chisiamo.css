@@ -38,26 +38,12 @@ main div {
 #team li{
     padding-top: 3em;
     font-weight: bold;
-    
 }
 
 #team li>p{
     font-weight: normal;
-    
 }
 
-.member1{
-    background: url("../images/user.png")  no-repeat center top;
-}
-
-.member2{
-    background: url("../images/user.png")  no-repeat center top;
-}
-
-.member3{
-    background: url("../images/user.png")  no-repeat center top;
-}
-
-.member4{
-    background: url("../images/user.png")  no-repeat center top;
+#team img{
+    border-radius: 3em;
 }

@@ -99,8 +99,22 @@ class DBAccess {
         }
     }
 
-    public function getUserRole($email) {
+    public function getEmailRole($email) {
         $query = "SELECT role FROM users WHERE email = \"$email\"";
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
+
+        if (mysqli_num_rows($queryResult) == 0) {
+            return null;
+        }
+        else {
+            $result = mysqli_fetch_assoc($queryResult);
+            $queryResult->free();
+            return $result['role'];
+        }
+    }
+
+    public function getUserRole($user) {
+        $query = "SELECT role FROM users WHERE username = \"$user\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {

@@ -13,8 +13,9 @@
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1>GuitArt</h1>
-            <nav>
+            <h1><span lang="en">GuitArt</span></h1>
+            <nav id="nav-desktop" aria-labelledby="menudesk">
+                <p class="nav-help" id="menudesk">Menu di navigazione</p>
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
@@ -22,6 +23,17 @@
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
                     <li><a href="./login.php"><span lang="en">Login</span></a></li>
                     <li>Registrati</li>
+                </ul>
+            </nav>
+            <nav id="nav-mobile" aria-labelledby="menumobile">
+                <p class="nav-help" id="menumobile">Menu di navigazione</p>
+                <ul>
+                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/></a></li>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/></a></li>
+                    <li><a href="./contatti.php"><img src="./images/contatti.svg" height="44" width="44" alt="contatti"/></a></li>
+                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="chi siamo"/></a></li>
+                    <li><a href="./login.php"><img src="./images/login.svg" height="44" width="44" alt="login"/></a></li>
+                    <li><img src="./images/register.svg" height="44" width="44" alt="registrati"/></li>
                 </ul>
             </nav>
         </header>

@@ -49,7 +49,10 @@ if(isset($_POST['submit'])) {
             else 
                 $queryOk = $connessione->verifyLoginUsername($email, $password);
             if($queryOk) {
-                $role = $connessione->getUserRole($email);
+                if($isEmail)
+                    $role = $connessione->getEmailRole($email);
+                else
+                    $role = $connessione->getUserRole($email);
                 session_start();
                 $_SESSION["session_id"] = session_id();
                 $_SESSION["session_user"] = $email;

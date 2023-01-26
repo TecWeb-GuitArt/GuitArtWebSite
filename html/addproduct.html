@@ -7,7 +7,7 @@
     <meta name="author" content="Nicola Cecchetto" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css" media="handheld, screen" />
-    <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)" />
+    <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
     <link rel="stylesheet" href="./css/addproduct.css" media="handheld, screen" />
     <script src="./javascript/addproduct.js"></script>
 </head>
@@ -15,16 +15,27 @@
 <body>
     <header>
         <a class="nav-help" href="#content">Passa al contenuto principale</a>
-        <h1>GuitArt</h1>
-        <nav>
-            <ul>
-                <li><a href="./index.php"><span lang="en">Home</span></a></li>
-                <li><a href="./prodotti.php">Prodotti</a></li>
-                <li><a href="./contatti.php">Contatti</a></li>
-                <li><a href="./chisiamo.php">Chi siamo</a></li>
-                <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
-            </ul>
-        </nav>
+        <h1><span lang="en">GuitArt</span></h1>
+            <nav id="nav-desktop" aria-labelledby="menudesk">
+                <p class="nav-help" id="menudesk">Menu di navigazione</p>
+                <ul>
+                    <li><a href="./index.php"><span lang="en">Home</span></a></li>
+                    <li><a href="./prodotti.php">Prodotti</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
+                </ul>
+            </nav>
+            <nav id="nav-mobile" aria-labelledby="menumobile">
+                <p class="nav-help" id="menumobile">Menu di navigazione</p>
+                <ul>
+                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/></a></li>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/></a></li>
+                    <li><a href="./contatti.php"><img src="./images/contatti.svg" height="44" width="44" alt="contatti"/></a></li>
+                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="chi siamo"/></a></li>
+                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
+                </ul>
+            </nav>
     </header>
     <nav id="breadcrumb">
         <p>Ti trovi in: <a href="./index.php"><span lang="en">Home</span></a> &rarr; <a href="./areapersonale.php">Area Personale</a> &rarr; Aggiungi nuovo prodotto</p>
