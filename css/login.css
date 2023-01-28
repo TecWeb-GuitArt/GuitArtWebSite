@@ -44,7 +44,7 @@ main {
     background-color: var(--mainlinkbginv);
     color: var(--mainlinktxtinv);
     border: 0.3em;
-    border-radius: 3em;
+    border-radius: .5em;
     font-size: 1em;
     width: 100%;
     display: block;

@@ -19,7 +19,7 @@ $frets = "";
 $body = "";
 $fretboard = "";
 $pickupConf = "";
-$pickupType = "-";
+$pickupType = "";
 $description = "";
 
 function cleanInput($value) {

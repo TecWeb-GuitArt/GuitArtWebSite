@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
     <link rel="stylesheet" href="./css/login.css" media="handheld, screen" />
     <script src="./javascript/addproduct.js"></script>
-<link rel="stylesheet" href="./css/print.css" media="print"/></head>
+    <link rel="stylesheet" href="./css/print.css" media="print"/>
+    <link rel="icon" type="image/png" href="./images/icon96.ico" />
+</head>
 
 <body>
     <header>
@@ -21,19 +23,17 @@
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
-                    <li><a href="./contatti.php">Contatti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
-                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
+                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="account"/></a></li>
                 </ul>
             </nav>
             <nav id="nav-mobile" aria-labelledby="menumobile">
                 <p class="nav-help" id="menumobile">Menu di navigazione</p>
                 <ul>
-                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/></a></li>
-                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/></a></li>
-                    <li><a href="./contatti.php"><img src="./images/contatti.svg" height="44" width="44" alt="contatti"/></a></li>
-                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="chi siamo"/></a></li>
-                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="area personale"/></a></li>
+                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/><p lang="en">Home</p></a></li>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/><p>Prodotti</p></a></li>
+                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="contatti"/><p>Contatti</p></a></li>
+                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="account"/><p lang="en">Account</p></a></li>
                 </ul>
             </nav>
     </header>
@@ -82,12 +82,12 @@
                 <span><input type="text" name="formFretboard" id="formFretboard" value="<valFretboard />" onblur="checkNull(value, 'Fretboard')"></span><br>
                 <label for="formPickupConf">Configurazione pickup:</label>
                 <select name="formPickupConf" id="formPickupConf" value="<valPickupConf />" disabled>
-                    <option value="-">-</option>
-                    <option value="S">S</option>
-                    <option value="SS">SS</option>
-                    <option value="SSS">SSS</option>
-                    <option value="HH">HH</option>
-                    <option value="SSH">SSH</option>
+                    <option value="-">Nessuna configurazione</option>
+                    <option value="S"><abbr lang="en" title="Single Coil">S</abbr></option>
+                    <option value="SS"><abbr lang="en" title="Double Single Coil">SS</abbr></option>
+                    <option value="SSS"><abbr lang="en" title="Triple Single Coil">SSS</abbr></option>
+                    <option value="HH"><abbr lang="en" title="Double Humbucker">HH</abbr></option>
+                    <option value="SSH"><abbr lang="en" title="Double Single Coil and one Humbucker">SSH</abbr></option>
                 </select><br>
                 <label for="formPickupType">Tipologia pickup</label>
                 <p id="pPickupType">Sono concessi lettere, numeri, spazi e trattini.</p>
@@ -97,7 +97,7 @@
                 <legend>Informazioni aggiuntive</legend>
                 <label for="formDescription">Descrizione: </label>
                 <p id="pDescription">Formatta il testo usando i tag adeguati.</p>
-                <span><textarea id="formDescription" name="formDescription" onblur="checkNull(value, 'Description')"><valDescription /></textarea></span><br>
+                <span><textarea id="formDescription" name="formDescription" rows="4" cols="25" onblur="checkNull(value, 'Description')"><valDescription /></textarea></span><br>
                 <label for="formImage">Immagine: </label>
                 <p id="pImage">Inserisci un'immagine in formato .webp.</p>
                 <span><input type="file" id="formImage" name="formImage" value=""/></span>

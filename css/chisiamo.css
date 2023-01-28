@@ -1,7 +1,6 @@
 main {
     background-color: white;
     color: black;
-    text-align: center;
     margin-top: 2em;
     padding: 0em 3.5em;
 }
@@ -10,7 +9,7 @@ main div {
     padding: 4em 0em;
 }
 
-#title{
+.title{
     font-size: 2em;
     margin-bottom: 1em;
     text-align: left;
@@ -22,9 +21,14 @@ main div {
     text-align: left;
 }
 
+#ourteam {
+    text-align: center;
+}
+
 
 #titleteam{
     font-size: 2em;
+    line-height: 1em;
 }
 
 #team{
@@ -36,14 +40,99 @@ main div {
 }
 
 #team li{
-    padding-top: 3em;
     font-weight: bold;
 }
 
 #team li>p{
     font-weight: normal;
+    padding: 0.5em 0em;
 }
 
 #team img{
     border-radius: 3em;
+}
+
+.info {
+    text-align: center;
+    display: grid;
+    padding: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "u t i"
+                         "e o i";
+    align-items: center;
+
+    background-image: url("../images/guitart_shop.webp");
+    background-position: right;
+    background-size: 30vw;
+    background-repeat: no-repeat;
+    background-position: 100%;
+}
+
+dl.uffici{
+    grid-area: u;
+    background: url("../images/location_icon.svg") top no-repeat;
+}
+
+dt.uffici{
+    padding-top: 3em;    
+}
+
+dl.telefono{
+    grid-area: t;
+    background: url("../images/phone_icon.svg") top no-repeat;
+}
+
+dt.telefono{
+    padding-top: 3em;
+
+}
+
+dl.email{
+    grid-area: e;
+    background: url("../images/email_icon.svg") top no-repeat;   
+}
+
+dt.email{
+    padding-top: 3em;    
+}
+
+dl.orario{
+    grid-area: o;
+    background: url("../images/clock_icon.svg") top no-repeat;
+}
+
+#titleorario{
+    padding-top: 3em;
+}
+
+.orario dl dt{
+    padding-top: 0em;
+    margin-right: 1em;
+    float: left;
+    width: 50%;
+    /*padding-right: 20%;*/    
+    text-align: center;
+}
+
+.orario dl dd {
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 0.5em;
+}
+
+dt{
+    text-transform: uppercase;
+    font-weight: bold;
+    /* padding: 0.3em; */  
+    margin: auto;
+}
+
+dd{
+    font-size: 1em;
+    /* padding: 0.3em; */
+    margin: auto;    
 }

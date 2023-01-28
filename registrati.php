@@ -106,7 +106,6 @@ if (isset($_POST['submit'])) {
     else {
         $formMessages = '<div class="errors"><ul>' . $formMessages . '</ul></div>';
     }
-    $connection->closeConnection();
 }
 
 $HTMLpage = str_replace('<formMessages />', $formMessages, $HTMLpage);

@@ -21,7 +21,7 @@
 
 html, body {
     font-size: 100%;
-    font-family: "Futura", sans-serif;
+    font-family: "Futura", "Verdana", sans-serif;
     line-height: 1.5em;
 }
 
@@ -121,11 +121,11 @@ main div h2 {
     font-size: 4em;
 }
 
-main div p {
+.banner p {
     padding-bottom: 1.9em;
 }
 
-main div a {
+.banner a {
     padding: 0.8em 1em;
     background-color: var(--mainlinkbg);
     color: var(--mainlinktxt);

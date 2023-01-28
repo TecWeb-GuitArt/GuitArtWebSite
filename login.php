@@ -57,7 +57,7 @@ if(isset($_POST['submit'])) {
                 $_SESSION["session_id"] = session_id();
                 $_SESSION["session_user"] = $email;
                 $_SESSION["session_role"] = $role;
-                header('Location: index.php');
+                header('Location: areapersonale.php');
                 exit();
             } else {
                 $messaggiPerForm = '<p class="errors">Credenziali errate.</p>';

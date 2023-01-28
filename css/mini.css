@@ -45,6 +45,16 @@ header nav li {
     display: block;
 }
 
+#nav-mobile li p {
+    vertical-align: bottom;
+    font-size: .8em;
+    line-height: 1.3em;
+}
+
+#nav-mobile img {
+    vertical-align: bottom;
+}
+
 /*
 ====== SEZIONE MAIN ======
 */
@@ -83,7 +93,7 @@ div.info{
 }
 
 dl{
-    margin: 3em;
+    margin: 2em 0em;
 }
 
 /*

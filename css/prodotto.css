@@ -56,8 +56,7 @@
     background-color: var(--mainlinkbginv);
     color: var(--mainlinktxtinv);
     border: 0.3em;
-    border-radius: 3em;
-    text-decoration: underline;
+    border-radius: .5em;
     font-size: 1.2em;
 }
 
