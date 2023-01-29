@@ -51,8 +51,8 @@ class DBAccess {
         }
     }
 
-    public function insertNewUser($username, $email, $pw_hash) {
-        $query = "INSERT INTO users (username, email, pw_hash, role) VALUES (\"$username\", \"$email\", \"$pw_hash\", \"guest\")";
+    public function insertNewUser($username, $pw_hash) {
+        $query = "INSERT INTO users (username, pw_hash, role) VALUES (\"$username\", \"$pw_hash\", \"guest\")";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -63,8 +63,8 @@ class DBAccess {
         }
     }
 
-    public function updateUsername($email, $username) {
-        $query = "UPDATE users SET username = \"$username\" WHERE email = \"$email\"";
+    public function updatePassword($user, $pw_hash) {
+        $query = "UPDATE users SET pw_hash = \"$pw_hash\" WHERE username = \"$user\"";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -75,8 +75,8 @@ class DBAccess {
         }
     }
 
-    public function updatePassword($email, $pw_hash) {
-        $query = "UPDATE users SET pw_hash = \"$pw_hash\" WHERE email = \"$email\"";
+    public function deleteUser($user) {
+        $query = "DELETE FROM users WHERE username = \"$user\"";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -84,32 +84,6 @@ class DBAccess {
         }
         else {
             return false;
-        }
-    }
-
-    public function deleteUser($email) {
-        $query = "DELETE FROM users WHERE email = \"$email\"";
-
-        $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
-        if (mysqli_affected_rows($this->connection) > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public function getEmailRole($email) {
-        $query = "SELECT role FROM users WHERE email = \"$email\"";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
-
-        if (mysqli_num_rows($queryResult) == 0) {
-            return null;
-        }
-        else {
-            $result = mysqli_fetch_assoc($queryResult);
-            $queryResult->free();
-            return $result['role'];
         }
     }
 
@@ -141,7 +115,6 @@ class DBAccess {
         }
     }
 
-
     public function deleteGuitar($guitar_id) {
         $query = "DELETE FROM guitars WHERE ID = $guitar_id";
 
@@ -168,8 +141,8 @@ class DBAccess {
         }
     }
 
-    public function addToFavourites($email, $guitar_id) {
-        $query = "INSERT INTO favourites (user_id, guitar_id) VALUES (\"$email\", \"$guitar_id\")";
+    public function addToFavourites($user, $guitar_id) {
+        $query = "INSERT INTO favourites (user_id, guitar_id) VALUES (\"$user\", \"$guitar_id\")";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -180,8 +153,8 @@ class DBAccess {
         }
     }
 
-    public function removeFromFavourites($email, $guitar_id) {
-        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = (\"$email\", $guitar_id)";
+    public function removeFromFavourites($user, $guitar_id) {
+        $query = "DELETE FROM favourites WHERE (user_id, guitar_id) = (\"$user\", $guitar_id)";
 
         $queryOK = mysqli_query($this->connection, $query) or die(mysqli_error($this->connection));
         if (mysqli_affected_rows($this->connection) > 0) {
@@ -192,8 +165,8 @@ class DBAccess {
         }
     }
 
-    public function getFavourites($email) {
-        $query = "SELECT * FROM favourites INNER JOIN guitars ON guitar_id = ID WHERE user_id = \"$email\"";
+    public function getFavourites($user) {
+        $query = "SELECT * FROM favourites INNER JOIN guitars ON guitar_id = ID WHERE user_id = \"$user\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -209,8 +182,8 @@ class DBAccess {
         }
     }
 
-    public function checkFavourite($email, $guitar_id) {
-        $query = "SELECT * FROM favourites WHERE user_id = \"$email\" AND guitar_id = $guitar_id";
+    public function checkFavourite($user, $guitar_id) {
+        $query = "SELECT * FROM favourites WHERE user_id = \"$user\" AND guitar_id = $guitar_id";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {
@@ -222,26 +195,7 @@ class DBAccess {
         }
     }
 
-    public function verifyLoginEmail($email, $password) {
-        $query = "SELECT email, pw_hash FROM users WHERE email = \"$email\"";
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
-
-        if (mysqli_num_rows($queryResult) == 0) {
-            return false;
-        }
-        else {
-            $result = mysqli_fetch_assoc($queryResult);
-            $queryResult->free();
-            if (password_verify($password,$result['pw_hash'])) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    }
-
-    public function verifyLoginUsername($username, $password) {
+    public function verifyLogin($username, $password) {
         $query = "SELECT username, pw_hash FROM users WHERE username = \"$username\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
@@ -260,8 +214,8 @@ class DBAccess {
         }
     }
 
-    public function checkAlreadyExistingEmail($email) {
-        $query = "SELECT * FROM users WHERE email = \"$email\"";
+    public function checkAlreadyExistingUser($user) {
+        $query = "SELECT * FROM users WHERE username = \"$user\"";
         $queryResult = mysqli_query($this->connection, $query) or die("Errore in openDBConnection: " . mysqli_error($this->connection));
 
         if (mysqli_num_rows($queryResult) == 0) {

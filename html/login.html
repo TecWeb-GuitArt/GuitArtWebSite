@@ -34,7 +34,7 @@
                     <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/><p lang="en">Home</p></a></li>
                     <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/><p>Prodotti</p></a></li>
                     <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="contatti"/><p>Contatti</p></a></li>
-                    <li><img src="./images/login.svg" height="44" width="44" alt="login"/><p lang="en">Login</p></li>
+                    <li><img src="./images/loginActive.svg" height="44" width="44" alt="login"/><p lang="en">Login</p></li>
                     <li><a href="./registrati.php"><img src="./images/register.svg" height="44" width="44" alt="registrati"/><p>Registrati</p></a></li>
                 </ul>
             </nav>
@@ -48,9 +48,9 @@
             <h2>Accedi al tuo account</h2>
             <messaggiPerForm />
 
-            <form action="./login.php" method="post" onsubmit="return checkInput();">
+            <form action="./login.php" method="post" onsubmit="return validate();">
                 <fieldset>
-                    <legend>Utente/Email e <span lang="en">Password</span></legend>
+                    <legend>Utente e <span lang="en">Password</span></legend>
                     <label for="utente">Utente:</label>
                     <span><input type="text" name="utente" id="utente" value="<valUtente />" /></span>
                     <label for="password"><span lang="en">Password</span>:</label>

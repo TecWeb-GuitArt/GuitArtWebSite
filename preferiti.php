@@ -39,9 +39,6 @@ if($connOk) {
     } else {
         $listText = "<p class='info'>Lista preferiti vuota</p>";
     }
-
-    //clicca pulsante
-
 } else {
     $listText = "<p class='info'>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
 }

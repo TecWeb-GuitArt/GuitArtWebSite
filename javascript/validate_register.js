@@ -1,6 +1,5 @@
 var form_details = {
     "username" : [/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/, "L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri."],
-    "email" : [/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/, "L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri."],
     "password" : [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/, "La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &."]
 };
 
@@ -45,7 +44,9 @@ function validateP2() {
         }
     }
     else {
-        showErrorP2("Le due password non combaciano");
+        if (p.value != field.value) {
+            showErrorP2("Le due password non combaciano");
+        }
         return false;
     }
 }

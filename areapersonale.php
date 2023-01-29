@@ -38,7 +38,7 @@
 
     if(isset($_POST['elimina'])) {
         if($connOk){
-            $ris = $connection->verifyLoginUsername($_SESSION['session_user'],$_POST['password']);
+            $ris = $connection->verifyLogin($_SESSION['session_user'],$_POST['password']);
             if($ris == 1){
                 //utente ha inserito password corretta
                 //elimino utente
@@ -49,19 +49,19 @@
                     exit();
                 } else{
                     // query andata male
-                    $messaggi .= "<p class='formError'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                    $messaggi .= "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
                 }
             } else if($ris == 0){                
                 // password sbagliata
-                $messaggi .= "<p class='formError'>La password inserita non è corretta.</p>";
+                $messaggi .= "<p class='errors'>La password inserita non è corretta.</p>";
             } else if($ris == -1){
                 //query andata male 
-                $messaggi .= "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+                $messaggi .= "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
             }
             $connection->closeConnection();
         } else{
             // NESSUNA CONNESSIONE COL DB
-            $messaggi .= "<p class='formError'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+            $messaggi .= "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
         }
     }
 

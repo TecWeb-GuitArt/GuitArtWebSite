@@ -40,17 +40,13 @@
         </nav>
         <main id="content">
             <messaggiForm />
-            <form method="post" action="modificaprofilo.php" onsubmit="return validateName();">
-                <legend>Modifica il tuo nome utente</legend>
-                <label>Nome utente:</label>
-                <span><input type="text" name="nomeutente" id="nomeutente" value="<valName />"/></span>
-                <input type="submit" name="nomesubmit" id="nomesubmit" value="Modifica nome utente"/>
-            </form>
             <form method="post" action="modificaprofilo.php" onsubmit="return validatePassword();">
-                <legend>Modifica la tua <span lang="en">password</span></legend>
-                <label><span lang="en">Password</span>:</label>
-                <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
-                <input type="submit" name="passwordsubmit" id="passwordsubmit" value="Modifica password"/>
+                <fieldset>
+                    <legend>Modifica la tua <span lang="en">password</span></legend>
+                    <label><span lang="en">Password</span>:</label>
+                    <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
+                    <input type="submit" name="passwordsubmit" id="passwordsubmit" value="Modifica password"/>
+                </fieldset>
             </form>
         </main>
         <footer>

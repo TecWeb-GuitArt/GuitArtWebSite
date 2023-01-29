@@ -11,7 +11,6 @@ $tagPermessi = '<em><strong><ul><li><span>';
 $formMessages = '';
 
 $username = '';
-$email = '';
 $password = '';
 $password2 = '';
 
@@ -40,7 +39,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Controllo EMAIL
-    $email = cleanInput($_POST['email']);
+    /* $email = cleanInput($_POST['email']);
     if (strlen($email) == 0) {
         $formMessages .= '<li>Inserire una email.</li>';
     }
@@ -48,7 +47,7 @@ if (isset($_POST['submit'])) {
         if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", $email)) {
             $formMessages .= '<li>L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri.</li>';
         }
-    }
+    } */
 
     // Controllo PASSWORD
     $password = cleanInput($_POST['password']);
@@ -85,11 +84,11 @@ if (isset($_POST['submit'])) {
     if ($formMessages == '') { // Ovvero non ci sono errori
         $connOK = $connection->openConnection();
         if ($connOK) {
-            if($connection->checkAlreadyExistingEmail($email)) {
-                $formMessages .= '<li>L\'email è già stata usata per creare un account. Usare un\'email diversa.</li>';
+            if($connection->checkAlreadyExistingUser($user)) {
+                $formMessages .= '<li>Il nome utente è già stato usato per creare un account. Usare un nome utente diverso.</li>';
             } else {
                 $pw_hash = password_hash($password, PASSWORD_DEFAULT);
-                $queryOK = $connection->insertNewUser($username, $email, $pw_hash);
+                $queryOK = $connection->insertNewUser($username, $pw_hash);
                 if ($queryOK) {
                     $formMessages = '<div class="success"><p>Registrazione avvenuta con successo.</p><a href="./login.php">Effettua il login</a></div>';
                 }
@@ -110,6 +109,5 @@ if (isset($_POST['submit'])) {
 
 $HTMLpage = str_replace('<formMessages />', $formMessages, $HTMLpage);
 $HTMLpage = str_replace('<valusername />', $username, $HTMLpage);
-$HTMLpage = str_replace('<valemail />', $email, $HTMLpage);
 echo $HTMLpage;
 ?>

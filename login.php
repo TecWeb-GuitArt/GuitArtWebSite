@@ -9,7 +9,7 @@ session_start();
 
 $connessione = new DBAccess();
 
-$email = '';
+$user = '';
 $password = '';
 $role = '';
 $messaggiPerForm  = '';
@@ -26,36 +26,26 @@ if (isset($_SESSION['session_id'])) {
     exit;
 }
 
-$isEmail = true;
 if(isset($_POST['submit'])) {
-    $email = cleanInput($_POST['utente']);
-    if(strlen($email)== 0) {
-        $messaggiPerForm .= '<li>Inserire un nome utente o mail valida.</li>';
-    } else {
-        if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3]$/", $email)) 
-            $isEmail = false;
+    $user = cleanInput($_POST['utente']);
+    if(strlen($user)== 0) {
+        $messaggiPerForm .= '<li>Inserire un nome utente valido.</li>';
     }
 
     $password = cleanInput($_POST['password']);
     if(strlen($password) == 0) {
-        $messaggiPerForm .= '<li>Inserire una password corretta.</li>';
+        $messaggiPerForm .= '<li>Inserire una password.</li>';
     } 
 
     if($messaggiPerForm == '') {
         $connOk = $connessione->openConnection();
         if($connOk) {
-            if($isEmail)
-                $queryOk = $connessione->verifyLoginEmail($email, $password);
-            else 
-                $queryOk = $connessione->verifyLoginUsername($email, $password);
+            $queryOk = $connessione->verifyLogin($user, $password);
             if($queryOk) {
-                if($isEmail)
-                    $role = $connessione->getEmailRole($email);
-                else
-                    $role = $connessione->getUserRole($email);
+                $role = $connessione->getUserRole($user);
                 session_start();
                 $_SESSION["session_id"] = session_id();
-                $_SESSION["session_user"] = $email;
+                $_SESSION["session_user"] = $user;
                 $_SESSION["session_role"] = $role;
                 header('Location: areapersonale.php');
                 exit();
@@ -72,7 +62,7 @@ if(isset($_POST['submit'])) {
 }
 
 $htmlPage = str_replace('<messaggiPerForm />', $messaggiPerForm, $htmlPage);
-$htmlPage = str_replace('<valUtente />', $email, $htmlPage);
+$htmlPage = str_replace('<valUtente />', $user, $htmlPage);
 $htmlPage = str_replace('<valPassword />', $password, $htmlPage);
 echo $htmlPage;
 
