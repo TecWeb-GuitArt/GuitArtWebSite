@@ -71,3 +71,7 @@ main h2 {
     background-size: 2em;
     background-repeat: no-repeat;
 }
+
+#addNewGuitar:visited {
+    color: var(--visitedcolor);
+}
