@@ -159,6 +159,18 @@ h1#title{
 
 
 /*
+====== SEZIONE 404 ======
+*/
+
+.e404 h1{
+    font-size: 5em;
+}
+
+.e404 {
+    padding: 0;
+}
+
+/*
 ====== SEZIONE FOOTER ======
 */
 

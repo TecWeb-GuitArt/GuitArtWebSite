@@ -2,12 +2,12 @@
 <html lang="it">
     <head>
         <meta charset="utf-8"/>
-        <title>I tuoi preferiti - GuitArt</title>
+        <title>Errore interno - GuitArt</title>
         <meta name="author" content="Andrea Meneghello"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/> 
-        <link rel="stylesheet" href="./css/products.css" media="handheld, screen"/> 
+        <link rel="stylesheet" href="./css/404.css" media="handheld, screen"/> 
         <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)"/>
         <link rel="stylesheet" href="./css/print.css" media="print"/>
         <link rel="icon" type="image/png" href="./images/icon96.ico" />
@@ -15,15 +15,13 @@
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1><span lang="en">GuitArt</span></h1>
-            <nav id="nav-desktop" aria-labelledby="menudesk">
-                <p class="nav-help" id="menudesk">Menu di navigazione</p>
+            <h1>GuitArt</h1>
+            <nav>
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
                     <li><a href="./chisiamo.php">Chi siamo</a></li>
-                    <li><img src="./images/favouritesActive.svg" height="44" width="44" alt="preferiti"/></li>
-                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="account"/></a></li>
+                    <login />
                 </ul>
             </nav>
             <nav id="nav-mobile" aria-labelledby="menumobile">
@@ -32,19 +30,18 @@
                     <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/><p lang="en">Home</p></a></li>
                     <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/><p>Prodotti</p></a></li>
                     <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="contatti"/><p>Contatti</p></a></li>
-                    <li><img src="./images/favouritesActive.svg" height="44" width="44" alt="preferiti"/><p>Preferiti</p></li>
-                    <li><a href="./areapersonale.php"><img src="./images/account.svg" height="44" width="44" alt="account"/><p lang="en">Account</p></a></li>
+                    <loginM />
                 </ul>
             </nav>
         </header>
-
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="./index.php"><span lang="en">Home</span></a>  &rarr;  Preferiti</p>
-        </nav>
-
         <main id="content">
-            <h2>I tuoi preferiti</h2>
-            <listaPreferiti />
+            <div class="e404">
+                <h1>500</h1>
+                <p class="subtitle">Stiamo accordando le nostre chitarre...</p>
+                <p>Si è verificato un errore imprevisto e stiamo lavorando per risolvere il problema! Saremo operativi a breve.</p>
+                <p>Riprova a ricaricare la pagina, se il problema persiste, clicca il <span lang="en">link</span> per tornare alla <span lang="en">home</span>.</p>
+                <a href="./index.php">Ritorna alla <span lang="en">Home</span></a>
+            </div>
         </main>
         <footer>
             <p><span lang="en">GuitArt - All Rights Reserved</span></p>

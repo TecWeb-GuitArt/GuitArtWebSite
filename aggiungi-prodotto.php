@@ -12,10 +12,10 @@ $messaggi = "";
 $model = "";
 $brand = "";
 $color = "";
-$price = "";
+$price = "0";
 $type = "";
-$strings = "";
-$frets = "";
+$strings = "0";
+$frets = "0";
 $body = "";
 $fretboard = "";
 $pickupConf = "";
@@ -118,7 +118,10 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
         }
     }
     if(isset($_POST['formPickupConf'])) {
-        $pickupConf = $_POST['formPickupConf'];
+        if($_POST['formPickupConf'] != "-")
+            $pickupConf = $_POST['formPickupConf'];
+        else
+            $messaggi .= "<li>Una chitarra semiacustica o elettrica non può non avere una configurazione di <span lang='en'>pickup</span></li>";
     } else {
         $pickupConf = "-";
     }
@@ -176,12 +179,10 @@ $HTMLpage = str_replace('<valBrand />', $brand, $HTMLpage);
 $HTMLpage = str_replace('<valModel />', $model, $HTMLpage);
 $HTMLpage = str_replace('<valColor />', $color, $HTMLpage);
 $HTMLpage = str_replace('<valPrice />', $price, $HTMLpage);
-$HTMLpage = str_replace('<valType />', $type, $HTMLpage);
 $HTMLpage = str_replace('<valStrings />', $strings, $HTMLpage);
 $HTMLpage = str_replace('<valFrets />', $frets, $HTMLpage);
 $HTMLpage = str_replace('<valBody />', $body, $HTMLpage);
 $HTMLpage = str_replace('<valFretboard />', $fretboard, $HTMLpage);
-$HTMLpage = str_replace('<valPickupConf />', $pickupConf, $HTMLpage);
 $HTMLpage = str_replace('<valPickupType />', $pickupType, $HTMLpage);
 $HTMLpage = str_replace('<valDescription />', $description, $HTMLpage);
 

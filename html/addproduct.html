@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <title>Aggiungi prodotto - GuitArt</title>
     <meta name="author" content="Nicola Cecchetto" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <link rel="stylesheet" href="./css/style.css" media="handheld, screen" />
     <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
     <link rel="stylesheet" href="./css/login.css" media="handheld, screen" />
@@ -59,7 +60,7 @@
                 <p id="pPrice">Il prezzo deve essere maggiore di 0. Sono concessi anche centesimi di euro.</p>
                 <span><input type="number" name="formPrice" id="formPrice" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
                 <label for="formType">Tipologia:</label>
-                <select name="formType" id="formType" value="<valType />" onchange="typeChanged(value)">
+                <select name="formType" id="formType" onchange="typeChanged(value)">
                     <option value="Classica">Classica</option>
                     <option value="Acustica">Acustica</option>
                     <option value="Semiacustica">Semiacustica</option>
@@ -81,13 +82,13 @@
                 <p id="pFretboard">Sono concessi lettere, spazi e trattini.</p>
                 <span><input type="text" name="formFretboard" id="formFretboard" value="<valFretboard />" onblur="checkNull(value, 'Fretboard')"></span><br>
                 <label for="formPickupConf">Configurazione pickup:</label>
-                <select name="formPickupConf" id="formPickupConf" value="<valPickupConf />" disabled>
+                <select name="formPickupConf" id="formPickupConf" disabled>
                     <option value="-">Nessuna configurazione</option>
-                    <option value="S"><abbr lang="en" title="Single Coil">S</abbr></option>
-                    <option value="SS"><abbr lang="en" title="Double Single Coil">SS</abbr></option>
-                    <option value="SSS"><abbr lang="en" title="Triple Single Coil">SSS</abbr></option>
-                    <option value="HH"><abbr lang="en" title="Double Humbucker">HH</abbr></option>
-                    <option value="SSH"><abbr lang="en" title="Double Single Coil and one Humbucker">SSH</abbr></option>
+                    <option value="S">S (Single Coil)</option>
+                    <option value="SS">SS (Double Single Coil)</option>
+                    <option value="SSS">SSS (Triple Single Coil)</option>
+                    <option value="HH">HH (Double Humbucker)</option>
+                    <option value="SSH">SSH (Double Humbucker and Single Coil)</option>
                 </select><br>
                 <label for="formPickupType">Tipologia pickup</label>
                 <p id="pPickupType">Sono concessi lettere, numeri, spazi e trattini.</p>

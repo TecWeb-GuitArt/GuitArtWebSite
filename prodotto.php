@@ -8,6 +8,8 @@ $HTMLpage = file_get_contents("./html/product.html");
 
 session_start();
 $title = "";
+$keywords = "";
+$description = "";
 $breadcrumb = "";
 $error = "";
 $mainReplace = "";
@@ -62,7 +64,9 @@ if($connOk) { // CONNESSIONE AL DB OK
     $info = $connection->getGuitar($id);
     if($info != null) { // QUERY OK
         $title = $info['Alt'];
+        $keywords = strip_tags($info['Brand']) . ', ' . strip_tags($info['Model']);
         $breadcrumb = $info['Model'];
+        $description = $info['Description'];
         $mainReplace = '<main id="product"><error />
                             <ul>
                                 <li id="img">
@@ -148,9 +152,11 @@ if($connOk) { // CONNESSIONE AL DB OK
 }
 
 $HTMLpage = str_replace("<titleReplace />", $title, $HTMLpage);
+$HTMLpage = str_replace("<keywords />", $keywords, $HTMLpage);
+$HTMLpage = str_replace("<description />", substr(strip_tags($description), 0, 140) . "...", $HTMLpage);
 $HTMLpage = str_replace("<breadcrumbReplace />", $breadcrumb, $HTMLpage);
-$HTMLpage = str_replace("<error />", $error, $HTMLpage);
 $HTMLpage = str_replace("<mainReplace />", $mainReplace, $HTMLpage);
+$HTMLpage = str_replace("<error />", $error, $HTMLpage);
 
 echo $HTMLpage;
 ?>

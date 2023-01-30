@@ -9,6 +9,7 @@ session_start();
 
 $guitars = '';
 $listText = '';
+$guitarList = '';
 
 $newGuitarLink = '<a id="addNewGuitar" href="./aggiungi-prodotto.php">Aggiungi chitarra</a>'; // link pagina nuova chitarra
 if (isset($_SESSION['session_id'])) {
@@ -39,6 +40,7 @@ if ($connOk) {
     if ($guitars != null) {
         $listText .= '<ul class="prodotti">';
         foreach ($guitars as $guitar) {
+            $guitarList .= strip_tags($guitar['Brand']) . ', ' . strip_tags($guitar['Model']) . ', ';
             $listText .= '<li>' .
                 '<img src="./images/' . $guitar['ID'] . '.webp" height="300" width="200" alt="' . $guitar['Alt'] . '" />' .
                 '<h3>' . $guitar['Brand'] . '</h3>' .
@@ -48,6 +50,7 @@ if ($connOk) {
                 '</li>';
         }
         $listText .= '</ul>';
+        $guitarList = implode(', ',array_unique(explode(', ', $guitarList)));
     }
     else {
         $listText = "<p class='info'>Nessuna chitarra presente.</p>";
@@ -57,6 +60,7 @@ else {
     $listText = "<p class='info'>I nostri sistemi sono momentaneamente non disponibili, ci scusiamo per il disagio.</p>";
 }
 
+$HTMLpage = str_replace("<keywords />", $guitarList, $HTMLpage);
 echo str_replace("<listaProdotti />", $listText, $HTMLpage);
 
 ?>

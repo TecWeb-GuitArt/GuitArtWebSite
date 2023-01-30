@@ -4,26 +4,21 @@ main {
     background-color: var(--headerbgcolor);
     color: var(--headertxtcolor);
   }
+
+main div {
+    padding: 0.5em;
+}
 .e404 {
     text-align: center;
+    padding: 4em;
 }   
 .e404 h1{
-    font-size:200px;
+    font-size: 10em;
     font-weight:bold;
     padding: 0 0 .6em;
 }
 .e404 p {
-    padding: 0 0 .3em;
-}
-
-.e404 a {
-    width: 20%;
-    margin: 40px auto;
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    display: block;
-    border-radius: 15px;
+    padding: 0 0 1em;
 }
 
 .subtitle {

@@ -5,6 +5,7 @@
         <title>Modifica profilo - GuitArt</title>
         <meta name="author" content="Andrea Longo"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
         <link rel="stylesheet" href="./css/style.css" media="handheld, screen"/>
         <link rel="stylesheet" href="./css/login.css" media="handheld, screen"/>
         <link rel="stylesheet" href="./css/mini.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)"/>
@@ -43,7 +44,7 @@
             <form method="post" action="modificaprofilo.php" onsubmit="return validatePassword();">
                 <fieldset>
                     <legend>Modifica la tua <span lang="en">password</span></legend>
-                    <label><span lang="en">Password</span>:</label>
+                    <label for="password"><span lang="en">Password</span>:</label>
                     <span><input type="password" name="password" id="password" value="<valPassword />" /></span>
                     <input type="submit" name="passwordsubmit" id="passwordsubmit" value="Modifica password"/>
                 </fieldset>

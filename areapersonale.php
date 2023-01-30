@@ -90,7 +90,7 @@
                         <fieldset>
                         <legend>Elimina il profilo</legend>
                         <p class='messages'>Attenzione: questa azione ti porterà alla pagina iniziale.</p>
-                        <label>Inserisci la password:</label>
+                        <label for='password'>Inserisci la password:</label>
                         <span><input type='password' name='password' id='password'  /></span>
                         <span><input type='submit' name='elimina' id='elimina' value='Elimina profilo' /></span>
                         </fieldset>
