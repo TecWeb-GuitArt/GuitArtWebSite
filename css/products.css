@@ -17,33 +17,15 @@ main h2 {
 .prodotti {
     padding-top: 2em;
     list-style: none;
-    /* FlexBox */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
+    grid-gap: 20px;
 }
 
 .prodotti li {
     padding: 1em;
     margin: 4px;
     box-shadow: 0 0 0 1px hsl(0, 0%, 0%);
-    /* FlexBox */
-    flex: 0 1 25ch;
-}
-
-@media screen and (max-width: 685px) {
-    .prodotti {
-        justify-content: center;
-    }
-}
-
-@supports (display: grid) {
-    .prodotti {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
-        grid-gap: 20px;
-    }
 }
 
 .prodotti li img {

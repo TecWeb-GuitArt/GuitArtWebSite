@@ -49,7 +49,7 @@ header {
 }
 
 header h1 {
-    background-image: url('../images/logo.png');
+    background-image: url('../images/logo.webp');
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
@@ -142,7 +142,7 @@ main div h2 {
 }
 
 #mobile-intro {
-    background-image: url("../images/guitar1.jpeg");
+    background-image: url("../images/guitar1.webp");
     display: none;
 }
 
@@ -195,4 +195,15 @@ main div h2 {
 footer {
     padding: 2em;
     text-align: center;
+}
+
+footer p {
+    padding: 0em 2em;
+    display: inline;
+}
+
+footer img {
+    padding: 0em 0.4em;
+    display: inline;
+    vertical-align: middle;
 }

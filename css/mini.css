@@ -159,7 +159,7 @@ h1#title{
 
 
 /*
-====== SEZIONE 404 ======
+============== SEZIONE 404 ==============
 */
 
 .e404 h1{
@@ -176,4 +176,15 @@ h1#title{
 
 footer {
     margin-bottom: 20%;
+}
+
+footer p {
+    display: block;
+    padding: 0.4em 0em;
+}
+
+footer img {
+    display: block;
+    height: 30px;
+    margin: 0 auto;
 }

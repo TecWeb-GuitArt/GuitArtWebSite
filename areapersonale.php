@@ -23,10 +23,10 @@
     
     if (isset($_SESSION['session_id']) && $_SESSION['session_role'] == 'guest') {
         $paginaHTML = str_replace("<login />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/></a></li><li><img src="./images/accountActive.svg" height="44" width="44" alt="account"/></li>', $paginaHTML);
-        $paginaHTML = str_replace("<loginM />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt="preferiti"/><p>Preferiti</p></a></li><li><img src="./images/accountActive.svg" height="44" width="44" alt="account"/><p lang="en">Account</p></li>', $paginaHTML);
+        $paginaHTML = str_replace("<loginM />", '<li><a href="./preferiti.php"><img src="./images/favourites.svg" height="44" width="44" alt=""/><p>Preferiti</p></a></li><li><img src="./images/accountActive.svg" height="44" width="44" alt=""/><p lang="en">Account</p></li>', $paginaHTML);
     } else if(isset($_SESSION['session_id']) && $_SESSION['session_role'] == 'admin') {    
         $paginaHTML = str_replace("<login />", '<li><img src="./images/accountActive.svg" height="44" width="44" alt="account"/></li>', $paginaHTML);
-        $paginaHTML = str_replace("<loginM />", '<li><img src="./images/accountActive.svg" height="44" width="44" alt="account"/><p lang="en">Account</p></li>', $paginaHTML);
+        $paginaHTML = str_replace("<loginM />", '<li><img src="./images/accountActive.svg" height="44" width="44" alt=""/><p lang="en">Account</p></li>', $paginaHTML);
     }
 
 

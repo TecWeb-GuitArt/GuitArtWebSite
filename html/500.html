@@ -15,8 +15,8 @@
     <body>
         <header>
             <a class="nav-help" href="#content">Passa al contenuto principale</a>
-            <h1>GuitArt</h1>
-            <nav>
+            <h1><span lang="en">GuitArt</span></h1>
+            <nav id="nav-desktop" aria-label="Menù di navigazione">
                 <ul>
                     <li><a href="./index.php"><span lang="en">Home</span></a></li>
                     <li><a href="./prodotti.php">Prodotti</a></li>
@@ -24,12 +24,11 @@
                     <login />
                 </ul>
             </nav>
-            <nav id="nav-mobile" aria-labelledby="menumobile">
-                <p class="nav-help" id="menumobile">Menu di navigazione</p>
+            <nav id="nav-mobile" aria-label="Menù di navigazione mobile">
                 <ul>
-                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt="home"/><p lang="en">Home</p></a></li>
-                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt="prodotti"/><p>Prodotti</p></a></li>
-                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt="contatti"/><p>Contatti</p></a></li>
+                    <li><a href="./index.php"><img src="./images/home.svg" height="44" width="44" alt=""/><p lang="en">Home</p></a></li>
+                    <li><a href="./prodotti.php"><img src="./images/products.svg" height="44" width="44" alt=""/><p>Prodotti</p></a></li>
+                    <li><a href="./chisiamo.php"><img src="./images/chisiamo.svg" height="44" width="44" alt=""/><p>Contatti</p></a></li>
                     <loginM />
                 </ul>
             </nav>
@@ -44,7 +43,9 @@
             </div>
         </main>
         <footer>
+            <img class="imgValidCode" height="40" src="./images/W3C_HTML5_certified.webp" alt="HTML5 valido" />
             <p><span lang="en">GuitArt - All Rights Reserved</span></p>
+            <img class="imgValidCode" height="40" src="./images/W3C_CSS_certified.webp" alt="CSS valido" />
         </footer>
     </body>
 </html>
