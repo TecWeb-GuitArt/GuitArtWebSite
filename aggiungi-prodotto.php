@@ -14,11 +14,14 @@ $brand = "";
 $color = "";
 $price = "0";
 $type = "";
+$selectTypeReplace = '<option value="Classica">Classica</option><option value="Acustica">Acustica</option><option value="Semiacustica">Semiacustica</option><option value="Elettrica">Elettrica</option>';
 $strings = "0";
 $frets = "0";
 $body = "";
 $fretboard = "";
 $pickupConf = "";
+$selectConfReplace = '<option value="-">Nessuna configurazione</option><option value="S">S (Single Coil)</option><option value="SS">SS (Double Single Coil)</option><option value="SSS">SSS (Triple Single Coil)</option><option value="HH">HH (Double Humbucker)</option><option value="SSH">SSH (Double Single Coil and Humbucker)</option>';
+$disabledReplace = " disabled";
 $pickupType = "";
 $description = "";
 
@@ -83,6 +86,18 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
         }
     }
     $type = $_POST['formType'];
+    if($type == "Classica")
+        $selectTypeReplace = str_replace('<option value="Classica">Classica</option>','<option value="Classica" selected>Classica</option>', $selectTypeReplace);
+    if($type == "Acustica")
+        $selectTypeReplace = str_replace('<option value="Acustica">Acustica</option>','<option value="Acustica" selected>Acustica</option>', $selectTypeReplace);
+    if($type == "Semiacustica") {
+        $selectTypeReplace = str_replace('<option value="Semiacustica">Semiacustica</option>','<option value="Semiacustica" selected>Semiacustica</option>', $selectTypeReplace);
+        $disabledReplace = "";
+    }
+    if($type == "Elettrica") {
+        $selectTypeReplace = str_replace('<option value="Elettrica">Elettrica</option>','<option value="Elettrica" selected>Elettrica</option>', $selectTypeReplace);
+        $disabledReplace = "";
+    }
     $strings = cleanInput($_POST['formStrings']);
     if(strlen($strings) == 0) {
         $messaggi .= "<li>Corde non può essere vuoto!</li>";
@@ -121,10 +136,22 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
         if($_POST['formPickupConf'] != "-")
             $pickupConf = $_POST['formPickupConf'];
         else
-            $messaggi .= "<li>Una chitarra semiacustica o elettrica non può non avere una configurazione di <span lang='en'>pickup</span></li>";
+            $messaggi .= "<li>Una chitarra semiacustica o elettrica non può non avere una configurazione di <span lang='en'>pickup</span>!</li>";
     } else {
         $pickupConf = "-";
     }
+    if($pickupConf == "-")
+        $selectConfReplace = str_replace('<option value="-">Nessuna configurazione</option>','<option value="-" selected>Nessuna configurazione</option>', $selectConfReplace);
+    if($pickupConf == "S")
+        $selectConfReplace = str_replace('<option value="S">S (Single Coil)</option>','<option value="S" selected>S (Single Coil)</option>', $selectConfReplace);
+    if($pickupConf == "SS")
+        $selectConfReplace = str_replace('<option value="SS">SS (Double Single Coil)</option>','<option value="SS" selected>SS (Double Single Coil)</option>', $selectConfReplace);
+    if($pickupConf == "SSS")
+        $selectConfReplace = str_replace('<option value="SSS">SSS (Triple Single Coil)</option>','<option value="SSS" selected>SSS (Triple Single Coil)</option>', $selectConfReplace);
+    if($pickupConf == "HH")
+        $selectConfReplace = str_replace('<option value="HH">HH (Double Humbucker)</option>','<option value="HH" selected>HH (Double Humbucker)</option>', $selectConfReplace);
+    if($pickupConf == "SSH")
+        $selectConfReplace = str_replace('<option value="SSH">SSH (Double Single Coil and Humbucker)</option>','<option value="SSH" selected>SSH (Double Single Coil and Humbucker)</option>', $selectConfReplace);
     if(isset($_POST['formPickupType'])) {
         $pickupType = cleanInput($_POST['formPickupType']);
         if(strlen($pickupType) == 0) {
@@ -179,10 +206,13 @@ $HTMLpage = str_replace('<valBrand />', $brand, $HTMLpage);
 $HTMLpage = str_replace('<valModel />', $model, $HTMLpage);
 $HTMLpage = str_replace('<valColor />', $color, $HTMLpage);
 $HTMLpage = str_replace('<valPrice />', $price, $HTMLpage);
+$HTMLpage = str_replace('<selectTypeReplace />', $selectTypeReplace, $HTMLpage);
 $HTMLpage = str_replace('<valStrings />', $strings, $HTMLpage);
 $HTMLpage = str_replace('<valFrets />', $frets, $HTMLpage);
 $HTMLpage = str_replace('<valBody />', $body, $HTMLpage);
 $HTMLpage = str_replace('<valFretboard />', $fretboard, $HTMLpage);
+$HTMLpage = str_replace('<selectConfReplace />', $selectConfReplace, $HTMLpage);
+$HTMLpage = str_replace('<disabledReplace />', $disabledReplace, $HTMLpage);
 $HTMLpage = str_replace('<valPickupType />', $pickupType, $HTMLpage);
 $HTMLpage = str_replace('<valDescription />', $description, $HTMLpage);
 

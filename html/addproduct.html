@@ -59,10 +59,7 @@
                 <span><input type="number" name="formPrice" id="formPrice" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
                 <label for="formType">Tipologia:</label>
                 <select name="formType" id="formType" onchange="typeChanged(value)">
-                    <option value="Classica">Classica</option>
-                    <option value="Acustica">Acustica</option>
-                    <option value="Semiacustica">Semiacustica</option>
-                    <option value="Elettrica">Elettrica</option>
+                    <selectTypeReplace />
                 </select>
             </fieldset>
             <fieldset>
@@ -80,17 +77,12 @@
                 <p id="pFretboard">Sono concessi lettere, spazi e trattini.</p>
                 <span><input type="text" name="formFretboard" id="formFretboard" value="<valFretboard />" onblur="checkNull(value, 'Fretboard')"></span><br>
                 <label for="formPickupConf">Configurazione pickup:</label>
-                <select name="formPickupConf" id="formPickupConf" disabled>
-                    <option value="-">Nessuna configurazione</option>
-                    <option value="S">S (Single Coil)</option>
-                    <option value="SS">SS (Double Single Coil)</option>
-                    <option value="SSS">SSS (Triple Single Coil)</option>
-                    <option value="HH">HH (Double Humbucker)</option>
-                    <option value="SSH">SSH (Double Humbucker and Single Coil)</option>
+                <select name="formPickupConf" id="formPickupConf"<disabledReplace />>
+                    <selectConfReplace />
                 </select><br>
                 <label for="formPickupType">Tipologia pickup</label>
                 <p id="pPickupType">Sono concessi lettere, numeri, spazi e trattini.</p>
-                <span><input type="text" name="formPickupType" id="formPickupType" value="<valPickupType />" onblur="checkNull(value, 'PickupType')" disabled></span><br>
+                <span><input type="text" name="formPickupType" id="formPickupType" value="<valPickupType />" onblur="checkNull(value, 'PickupType')"<disabledReplace />></span><br>
             </fieldset>
             <fieldset>
                 <legend>Informazioni aggiuntive</legend>
