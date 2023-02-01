@@ -122,11 +122,13 @@ main div {
 
 main div h2 {
     padding-bottom: 1em;
-    font-size: 4em;
+    font-size: 3.5em;
 }
 
 .banner p {
     padding-bottom: 1.9em;
+    line-height: 1.5em;
+    font-size: 1.3em;
 }
 
 .banner a {
@@ -155,7 +157,7 @@ main div h2 {
 }
 
 .banner {
-    background-color: rgb(0,0,0,0.45);
+    background-color: rgba(0, 0, 0, 0.623);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -172,7 +174,7 @@ main div h2 {
 }
 
 .errors {
-    color: red;
+    color: #E20000;
     text-align: center;
     padding: 1em 0em;
     font-weight: bold;
@@ -181,7 +183,7 @@ main div h2 {
 }
 
 .messages {
-    color: red;
+    color: #E20000;
 }
 
 .info {

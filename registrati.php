@@ -84,8 +84,8 @@ if (isset($_POST['submit'])) {
     if ($formMessages == '') { // Ovvero non ci sono errori
         $connOK = $connection->openConnection();
         if ($connOK) {
-            if($connection->checkAlreadyExistingUser($user)) {
-                $formMessages .= '<li>Il nome utente è già stato usato per creare un account. Usare un nome utente diverso.</li>';
+            if($connection->checkAlreadyExistingUser($username)) {
+                $formMessages .= '<div class="errors"><p>Il nome utente è già stato usato per creare un account. Usare un nome utente diverso.</p></div>';
             } else {
                 $pw_hash = password_hash($password, PASSWORD_DEFAULT);
                 $queryOK = $connection->insertNewUser($username, $pw_hash);

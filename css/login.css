@@ -53,4 +53,5 @@ main {
 
   input:disabled, textarea:disabled, select:disabled {
     background-color: rgb(206, 206, 206);
+    color:#54585b;
   }
