@@ -56,7 +56,7 @@
                 <span><input type="text" name="formColor" id="formColor" value="<valColor />" onblur="checkNull(value, 'Color')"></span><br>
                 <label for="formPrice">Prezzo:</label>
                 <p id="pPrice">Il prezzo deve essere maggiore di 0. Sono concessi anche centesimi di euro.</p>
-                <span><input type="number" name="formPrice" id="formPrice" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
+                <span><input type="number" name="formPrice" id="formPrice" min="0" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
                 <label for="formType">Tipologia:</label>
                 <select name="formType" id="formType" onchange="typeChanged(value)">
                     <selectTypeReplace />
@@ -66,10 +66,10 @@
                 <legend>Caratteristiche tecniche</legend>
                 <label for="formStrings">Numero di corde:</label>
                 <p id="pStrings">Il numero di corde deve essere tra 4 e 12.</p>
-                <span><input type="number" name="formStrings" id="formStrings" value="<valStrings />" onblur="checkNull(value, 'Strings')"></span><br>
+                <span><input type="number" name="formStrings" min="4" max="12" id="formStrings" value="<valStrings />" onblur="checkNull(value, 'Strings')"></span><br>
                 <label for="formFrets">Numero di tasti:</label>
                 <p id="pFrets">Il numero di tasti deve essere tra 12 e 36.</p>
-                <span><input type="number" name="formFrets" id="formFrets" value="<valFrets />" onblur="checkNull(value, 'Frets')"></span><br>
+                <span><input type="number" name="formFrets" min="12" max="36" id="formFrets" value="<valFrets />" onblur="checkNull(value, 'Frets')"></span><br>
                 <label for="formBody">Legno del corpo:</label>
                 <p id="pBody">Sono concessi lettere, spazi e trattini.</p>
                 <span><input type="text" name="formBody" id="formBody" value="<valBody />" onblur="checkNull(value, 'Body')"></span><br>
