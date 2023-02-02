@@ -123,9 +123,9 @@ if($connOk) { // CONNESSIONE AL DB OK
                                 <dt class="spec1">Legno della tastiera:</dt>
                                 <dd class="spec1">' . $info['Fretboard'] . '</dd>';
         if(($info['Pickup_Configuration'] != "-") && ($info['Pickup_Type'] != "-")) { //le classiche e le acustiche non mostrano le info dei pickup perchè non li hanno
-            $mainReplace .=     '<dt class="spec2">Configurazione Pickup:</dt>
+            $mainReplace .=     '<dt class="spec2">Configurazione <span lang="en">Pickup</span>:</dt>
                                 <dd class="spec2">' . $info['Pickup_Configuration'] . '</dd>
-                                <dt class="spec1">Tipologia Pickup:</dt>
+                                <dt class="spec1">Tipologia <span lang="en">Pickup</span>:</dt>
                                 <dd class="spec1">' . $info['Pickup_Type'] . '</dd>';                       
         }
         $mainReplace .= '</dl></main>';

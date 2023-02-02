@@ -62,9 +62,7 @@ main div {
     grid-template-areas: "u t i"
                          "e o i";
     align-items: center;
-
     background-image: url("../images/guitart_shop.webp");
-    background-position: right;
     background-size: 30vw;
     background-repeat: no-repeat;
     background-position: 100%;
