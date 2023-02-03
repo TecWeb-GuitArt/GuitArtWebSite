@@ -49,19 +49,19 @@
                     exit();
                 } else{
                     // query andata male
-                    $messaggi .= "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                    $messaggi .= "<p class='errors'>Il <span lang='en'>database</span> ha dato esito negativo, la <span lang='en'>query</span> ha fallito. Riprovare in un altro momento.</p>";
                 }
             } else if($ris == 0){                
                 // password sbagliata
-                $messaggi .= "<p class='errors'>La password inserita non è corretta.</p>";
+                $messaggi .= "<p class='errors'>La <span lang='en'>password</span> inserita non è corretta.</p>";
             } else if($ris == -1){
                 //query andata male 
-                $messaggi .= "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+                $messaggi .= "<p class='errors'><span lang='en'>Database</span> al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
             }
             $connection->closeConnection();
         } else{
             // NESSUNA CONNESSIONE COL DB
-            $messaggi .= "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+            $messaggi .= "<p class='errors'><span lang='en'>Database</span> al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
         }
     }
 
@@ -90,7 +90,7 @@
                         <fieldset>
                         <legend>Elimina il profilo</legend>
                         <p class='messages'>Attenzione: questa azione ti porterà alla pagina iniziale.</p>
-                        <label for='password'>Inserisci la password:</label>
+                        <label for='password'>Inserisci la <span lang='en'>password</span>:</label>
                         <span><input type='password' name='password' id='password'  /></span>
                         <span><input type='submit' name='elimina' id='elimina' value='Elimina profilo' /></span>
                         </fieldset>

@@ -34,7 +34,7 @@ if(isset($_POST['submit'])) {
 
     $password = cleanInput($_POST['password']);
     if(strlen($password) == 0) {
-        $messaggiPerForm .= '<li>Inserire una password.</li>';
+        $messaggiPerForm .= '<li>Inserire una <span lang="en">password</span>.</li>';
     } 
 
     if($messaggiPerForm == '') {

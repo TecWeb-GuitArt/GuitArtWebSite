@@ -30,24 +30,13 @@ if (isset($_POST['submit'])) {
     // Controllo USERNAME
     $username = cleanInput($_POST['username']);
     if (strlen($username) == 0) {
-        $formMessages .= '<li>Inserire uno username.</li>';
+        $formMessages .= '<li>Inserire un nome utente.</li>';
     }
     else {
         if (!preg_match("/^[a-zA-Z][a-zA-Z0-9_]{5,29}$/", $username)) {
-            $formMessages .= '<li>L\'username deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri.</li>';
+            $formMessages .= '<li>L\'<span lang="en">username</span> deve essere di almeno 6 caratteri e al massimo 29, iniziare con una lettera, e contenere solo lettere e numeri.</li>';
         }
     }
-
-    // Controllo EMAIL
-    /* $email = cleanInput($_POST['email']);
-    if (strlen($email) == 0) {
-        $formMessages .= '<li>Inserire una email.</li>';
-    }
-    else {
-        if (!preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{1,3}$/", $email)) {
-            $formMessages .= '<li>L\'email deve essere di almeno 6 caratteri e al massimo 29, e contenere solo lettere e numeri.</li>';
-        }
-    } */
 
     // Controllo PASSWORD
     $password = cleanInput($_POST['password']);
@@ -55,11 +44,11 @@ if (isset($_POST['submit'])) {
     $passCheck = false;
 
     if (strlen($password) == 0) {
-        $formMessages .= '<li>Inserire una password.</li>';
+        $formMessages .= '<li>Inserire una <span lang="en">password</span>.</li>';
     }
     else {
         if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/", $password)) {
-            $formMessages .= '<li>La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &.</li>';
+            $formMessages .= '<li>La <span lang="en">password</span> deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &.</li>';
         }
         else {
             $passCheck = true;
@@ -67,16 +56,16 @@ if (isset($_POST['submit'])) {
     }
 
     if (strlen($password2) == 0) {
-        $formMessages .= '<li>Ripetere la password.</li>';
+        $formMessages .= '<li>Ripetere la <span lang="en">password</span>.</li>';
     }
     else {
         if ($passCheck) {
             if ($password != $password2) {
-                $formMessages .= '<li>Le due password non combaciano.</li>';
+                $formMessages .= '<li>Le due <span lang="en">password</span> non combaciano.</li>';
             }
         }
         else {
-            $formMessages .= '<li>Le due password non combaciano.</li>';
+            $formMessages .= '<li>Le due <span lang="en">password</span> non combaciano.</li>';
         }
     }
 
@@ -85,7 +74,7 @@ if (isset($_POST['submit'])) {
         $connOK = $connection->openConnection();
         if ($connOK) {
             if($connection->checkAlreadyExistingUser($username)) {
-                $formMessages .= '<div class="errors"><p>Il nome utente è già stato usato per creare un account. Usare un nome utente diverso.</p></div>';
+                $formMessages .= '<div class="errors"><p>Il nome utente è già stato usato per creare un <span lang="en">account</span>. Usare un nome utente diverso.</p></div>';
             } else {
                 $pw_hash = password_hash($password, PASSWORD_DEFAULT);
                 $queryOK = $connection->insertNewUser($username, $pw_hash);

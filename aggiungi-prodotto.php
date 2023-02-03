@@ -155,11 +155,11 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
     if(isset($_POST['formPickupType'])) {
         $pickupType = cleanInput($_POST['formPickupType']);
         if(strlen($pickupType) == 0) {
-            $messaggi .= "<li>Tipologia pickup non può essere vuoto!</li>";
+            $messaggi .= "<li>Tipologia <span lang='en'>pickup</span> non può essere vuoto!</li>";
         } else {
             $pickupTypeNoTags = strip_tags($pickupType);
             if(!checkAllowNumbers($pickupTypeNoTags)) {
-                $messaggi .= "<li>Tipologia pickup può contenere solo lettere, numeri, spazi e trattini!</li>";
+                $messaggi .= "<li>Tipologia <span lang='en'>pickup</span> può contenere solo lettere, numeri, spazi e trattini!</li>";
             }
         }
     } else {
@@ -190,10 +190,10 @@ if(isset($_POST['formSubmit'])) { // BOTTONE formSubmit PREMUTO
                     $messaggi = "<p class='errors'>L'immagine non è nel formato .webp! Riprovare reinserendo un'immagine in questo formato.</p>";
                 }
             } else { // QUERY FALLITA
-                $messaggi = "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                $messaggi = "<p class='errors'>Il <span lang='en'>database</span> ha dato esito negativo, la <span lang='en'>query</span> ha fallito. Riprovare in un altro momento.</p>";
             }
         } else { // NESSUNA CONNESSIONE COL DB
-            $messaggi = "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+            $messaggi = "<p class='errors'><span lang='en'>Database</span> al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
         }
         $connection->closeConnection(); // posso chiudere solo qui la connessione
     } else { // FORM NON VALIDO

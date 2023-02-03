@@ -56,7 +56,7 @@
                 <span><input type="text" name="formColor" id="formColor" value="<valColor />" onblur="checkNull(value, 'Color')"></span><br>
                 <label for="formPrice">Prezzo:</label>
                 <p id="pPrice">Il prezzo deve essere maggiore di 0. Sono concessi anche centesimi di euro.</p>
-                <span><input type="number" name="formPrice" id="formPrice" min="0" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
+                <span><input type="number" name="formPrice" min="0" id="formPrice" value="<valPrice />" step=".01" onblur="checkNull(value, 'Price')"></span><br>
                 <label for="formType">Tipologia:</label>
                 <select name="formType" id="formType" onchange="typeChanged(value)">
                     <selectTypeReplace />

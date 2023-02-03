@@ -40,7 +40,7 @@ if(isset($_POST["formDelete"])) { // ENTRA QUI SE L'ADMIN CANCELLA UNA CHITARRA
         header('Location: prodotti.php');
         exit;
     } else {
-        $error = "<p>Impossibile cancellare la chitarra a causa di un errore durante la connessione con il database.</p>";
+        $error = "<p>Impossibile cancellare la chitarra a causa di un errore durante la connessione con il <span lang='en'>database</span>.</p>";
     }
 }
 
@@ -48,7 +48,7 @@ if(isset($_POST["formDelFav"])) { // ENTRA QUI SE LO USER TOGLIE DAI PREFERITI
     if($connOk) {
         $connection->removeFromFavourites($_SESSION['session_user'], $id);
     } else {
-        $error = "<p>Impossibile togliere la chitarra dai preferiti a causa di un errore durante la connessione con il database.</p>";
+        $error = "<p>Impossibile togliere la chitarra dai preferiti a causa di un errore durante la connessione con il <span lang='en'>database</span>.</p>";
     }
 }
 
@@ -56,7 +56,7 @@ if(isset($_POST["formAddFav"])) { // ENTRA QUI SE LO USER AGGIUNGE AI PREFERITI
     if($connOk) {
         $connection->addToFavourites($_SESSION['session_user'], $id);
     } else {
-        $error = "<p>Impossibile aggiungere la chitarra ai preferiti a causa di un errore durante la connessione con il database.</p>";
+        $error = "<p>Impossibile aggiungere la chitarra ai preferiti a causa di un errore durante la connessione con il <span lang='en'>database</span>.</p>";
     }
 }
 
@@ -101,7 +101,7 @@ if($connOk) { // CONNESSIONE AL DB OK
                 }
             }
         } else { // UTENTE NON AUTENTICATO
-            $mainReplace .= '<a id="link" href="./login.php">Effettua il login per salvare il prodotto tra i preferiti</a>';
+            $mainReplace .= '<a id="link" href="./login.php">Effettua il <span lang="en">login</span> per salvare il prodotto tra i preferiti</a>';
         }
         $connection->closeConnection(); // chiudo qui la connessione con il DB perchè ora sono sicuro che non mi serve più
         $mainReplace .=         '</li>
@@ -137,9 +137,9 @@ if($connOk) { // CONNESSIONE AL DB OK
                             <p>La chitarra non è stata trovata. Questo può essere perchè:</p>
                             <ul>
                                 <li>la chitarra al momento non è disponibile;</li>
-                                <li>la chitarra non esiste (link invalido);</li>
+                                <li>la chitarra non esiste (<span lang='en'>link</span> invalido);</li>
                             </ul>
-                            <p>Assicurarsi di usare i link all'interno del nostro sito per essere sicuri di visualizzare le chitarre disponibili. Se l'errore persiste contattare l'amministratore.</p>
+                            <p>Assicurarsi di usare i <span lang='en'>link</span> all'interno del nostro sito per essere sicuri di visualizzare le chitarre disponibili. Se l'errore persiste contattare l'amministratore.</p>
                         </main>";
     }
 } else { // NESSUNA CONNESSIONE AL DB

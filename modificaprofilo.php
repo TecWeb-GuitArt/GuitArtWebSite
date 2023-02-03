@@ -35,10 +35,10 @@
     if(isset($_POST['passwordsubmit'])){
         $password = cleanInput($_POST['password']);
         if(strlen($password) == 0){
-            $messaggi .= "<li>La password non può essere vuota</li>";
+            $messaggi .= "<li>La <span lang='en'>password</span> non può essere vuota</li>";
         } else{
             if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8,}$/", $password)) {
-                $messaggi .= '<li>La password deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &</li>';
+                $messaggi .= '<li>La <span lang="en">password</span> deve avere almeno 8 caratteri, e contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale tra @, $, !, %, *, #, ?, &</li>';
             }
         }
 
@@ -49,15 +49,15 @@
                 //conn col db ok
                 if($connection->updatePassword($_SESSION['session_user'], password_hash($password, PASSWORD_DEFAULT))){
                     //query ok
-                    $messaggi .= "<p class='success'>Password aggiornata con successo.</p>";
+                    $messaggi .= "<p class='success'><span lang='en'>Password</span> aggiornata con successo.</p>";
                 } else{
                     //query andata male
-                    $messaggi = "<p class='errors'>Il database ha dato esito negativo, la query ha fallito. Riprovare in un altro momento.</p>";
+                    $messaggi = "<p class='errors'>Il <span lang='en'>database</span> ha dato esito negativo, la <span lang='en'>query</span> ha fallito. Riprovare in un altro momento.</p>";
                 }
             } 
             else 
             { // NESSUNA CONNESSIONE COL DB
-                $messaggi = "<p class='errors'>Database al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
+                $messaggi = "<p class='errors'><span lang='en'>Database</span> al momento non disponibile a causa di un errore interno. Riprovare in un altro momento.</p>";
             }
             $connection->closeConnection(); 
         } else{
